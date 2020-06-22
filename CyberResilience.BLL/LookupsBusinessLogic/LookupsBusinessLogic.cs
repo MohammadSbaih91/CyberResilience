@@ -1,0 +1,99 @@
+﻿using CyberResilience.Common;
+using CyberResilience.Common.DTOs.LookupsDTO;
+using CyberResilience.Common.Exceptions;
+using CyberResilience.DAL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CyberResilience.BLL.LookupsBusinessLogic
+{
+   public class LookupsBusinessLogic
+    {
+
+        public int GetLookupIDByCode(string code)
+        {
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                var repo = uow.Lookups;
+                var lookupID = repo.GetLookupIDByCode(code);
+
+                if (lookupID == -1)
+                {
+                    throw new BusinessException("Lookup does not exist", Constants.ErrorsCodes.LookupDoesNotExist);
+                }
+
+                return lookupID;
+            }
+        }
+
+        public LookupsDTO GetLookupValueAndIDByCode(string code, Enums.CultureID culture)
+        {
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                var repo = uow.Lookups;
+                var lookup = repo.GetLookupValueAndIDByCode(code);
+
+
+                if (lookup == null)
+                {
+                    throw new BusinessException("Lookup does not exist", Constants.ErrorsCodes.LookupDoesNotExist);
+                }
+
+                return lookup;
+            }
+        }
+
+        public LookupsDTO GetLookupByLookupCategoryCode(string code , Enums.CultureID culture)
+        {
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                var repo = uow.Lookups;
+                var lookup = repo.GetLookupValueAndIDByCode(code);
+                if(culture== Enums.CultureID.Ar)
+                {
+                    lookup = new LookupsDTO()
+                    {
+                        Id = lookup.Id,
+                        Value = lookup.ValueAr
+                    };
+                }
+                else
+                {
+                    lookup = new LookupsDTO()
+                    {
+                        Id = lookup.Id,
+                        Value = lookup.ValueEn
+                    };
+                }
+                if (lookup == null)
+                {
+                    throw new BusinessException("Lookup does not exist", Constants.ErrorsCodes.LookupDoesNotExist);
+                }
+
+                return lookup;
+            }
+        }
+        public LookupsDTO GetLookupByID(int LookupID)
+        {
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                var repo = uow.Lookups;
+                var lookup = repo.GetLookupByID(LookupID);
+
+
+                if (lookup == null)
+                {
+                    throw new BusinessException("Lookup does not exist", Constants.ErrorsCodes.LookupDoesNotExist);
+                }
+
+                return lookup;
+            }
+        }
+
+
+
+    }
+}

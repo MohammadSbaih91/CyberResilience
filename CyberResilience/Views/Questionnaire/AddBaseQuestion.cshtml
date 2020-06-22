@@ -1,0 +1,88 @@
+﻿@model CyberResilience.Area.Admin.Models.BaseQuestionsViewModel
+@using CyberResilience.Common
+@using CyberResilience.Common.App_LocalResources;
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("AddBaseQuestion", "Questionnaire", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @*@Html.HiddenFor(m=>m.baseTemplateId)*@
+    <section class="login_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="login">
+                        <h2>@Resource.BuildQuestionnaireQuestions</h2>
+                        <p class="login_subtext">@Resource.BuildQuestionnaireQuestions</p>
+                        <div class="login_form">
+                            <form>
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="BaseQuestionNameAr" placeholder="@Resource.BaseQuestionNameAr" name="BaseQuestionNameAr">
+                                    @Html.ValidationMessageFor(m => m.BaseQuestionNameAr, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="BaseQuestionNameEn" placeholder="@Resource.BaseQuestionNameEn" name="BaseQuestionNameEn">
+                                    @Html.ValidationMessageFor(m => m.BaseQuestionNameEn, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5 nearby_select">
+                                        <label for="">@Resource.PleaseSelectTemplate</label>
+                                        @{
+                                            List<SelectListItem> listbaseTemplates = new List<SelectListItem>();
+                                            foreach (var item in Model.baseTemplates)
+                                            {
+                                                listbaseTemplates.Add(new SelectListItem
+                                                {
+                                                    Text = item.TemplateNameAr,
+                                                    Value = item.Id.ToString(),
+                                                    Selected = item.Id == Model.baseTemplateId
+                                                });
+                                            };
+                                        }
+                                        @Html.DropDownListFor(model => model.baseTemplateId, listbaseTemplates, Resource.PleaseSelectTemplate, new { @class = "form-control" })
+                                        @Html.HiddenFor(model => model.baseTemplateId)
+                                        @Html.ValidationMessageFor(model => model.baseTemplateId, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <button type="submit" class="btn btn-default">@Resource.AddTemplateQuestion</button>
+                                <hr>
+                                <button type="button" onclick="location.href='@Url.Action("Templates", "Questionnaire")'" class="btn btn-default">@Resource.Templates</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="BaseQuestions"></div>
+            <div class="modal fade login_modal" id="QuestionsModal">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div id="Questions"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                                            }
+<script>
+    $(document).ready(function () {
+        $('#baseTemplateId').change(function () {
+            var templateId = $('#baseTemplateId').val();
+            var route = '@Url.Action("AddBaseQuestionPartial", "Questionnaire")?TemplateId=' + templateId;
+            $('#BaseQuestions').load(route);
+            @*$.ajax({
+                url: "@Url.Action("AddBaseQuestion", "Questionnaire")" + "?TemplateId=" + templateId,
+                type: "GET",
+            }).done(function (data) {
+                //HideError(data)
+                return true;
+            });*@
+        });
+    });
+</script>

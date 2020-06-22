@@ -1,0 +1,36 @@
+﻿@using CyberResilience.Common
+@using CyberResilience.Common.App_LocalResources;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section class="login_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="login">
+                    <div class="login_form">
+                        <form>
+                            <hr />
+                            <button  type="button" onclick="location.href='@Url.Action("CreateTemplate","Questionnaire")'" class="btn btn-default">@Resource.BuildQuestionnaire</button>
+                            <hr />
+                            <button onclick="location.href='@Url.Action("Login","Account")'" type="button" class="btn btn-default">@Resource.BuildToolkit</button>
+                            <hr />
+                            <button onclick="location.href='@Url.Action("Login","Account")'" type="button" class="btn btn-default">@Resource.BuildPolicyManagementPlatfrom</button>
+                            <hr />
+                            <button onclick="location.href='@Url.Action("Login","Account")'" type="button" class="btn btn-default">@Resource.ManageUsers</button>
+                            <hr />
+                            <button onclick="location.href='@Url.Action("Login","Account")'" type="button" class="btn btn-default">@Resource.ManagePaymentMethods</button>
+                            <hr />
+                         </form>
+                    </div>
+                    <div class="link"><a href="location.href='@Url.Action("Login","Account")'">@Resource.Login</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

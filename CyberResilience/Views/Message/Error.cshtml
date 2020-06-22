@@ -1,0 +1,20 @@
+﻿@using CyberResilience.Common.App_LocalResources
+@model string
+@{
+    string errorMessage = string.IsNullOrWhiteSpace(Model)
+      ? (Resource.GenericError)
+      : Model;
+
+    ViewBag.Title = errorMessage;
+}
+
+<div class="confirmation-wrapper danger">
+
+    <span class="conf-icon"></span>
+
+    <p class="conf-msg" id="errorid">
+        @errorMessage
+    </p>
+
+</div>
+

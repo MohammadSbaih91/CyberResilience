@@ -1,0 +1,47 @@
+﻿@model CyberResilience.Area.Admin.Models.QuestionsViewModel
+@using CyberResilience.Common
+@using CyberResilience.Common.App_LocalResources;
+
+@using (Html.BeginForm("AddQuestion", "Questionnaire", new { @class = "form-horizontal", role = "form" }))
+            {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(m => m.BaseQuestionDetailsId)
+    <div class="modal-header" style="word-break: break-word;">
+        <p class="login_subtext">@Resource.BaseQuestion :  @Model.BaseQuestionAr</p>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+    <div class="modal-body">
+        <div class="logo_modal">
+            <img style="max-height:80px;max-width: 60px;margin-left: 212px;" src="~/assets/img/cyb12.png">
+        </div>
+        <form name="myForm" class="login_f">
+            <div class="form-group">
+                <label>@Resource.QuestionsAr</label>
+                <input type="text" class="form-control" name="clauseNumberAr" id="clauseNumberAr">
+                @Html.ValidationMessageFor(m => m.clauseNameAr, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>@Resource.QuestionsEn</label>
+                <input type="text" class="form-control" id="clauseNameEn" name="clauseNameEn">
+                @Html.ValidationMessageFor(m => m.clauseNameEn, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label><input type="checkbox" name="IsMandatory" value="IsMandatory">@Resource.IsMandatory</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="submit" class="btn btn-primary">@Resource.AddQuestions</button>
+            </div>
+        </form>
+    </div>
+}
+
+
+
+<script>
+
+
+
+</script>

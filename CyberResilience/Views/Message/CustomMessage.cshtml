@@ -1,0 +1,28 @@
+﻿@using CyberResilience.Common.App_LocalResources
+@using CyberResilience.Models
+@model CustomMessagePageModel
+@{
+    ViewBag.Title = Model.Message;
+}
+
+
+
+<div class="confirmation-wrapper success" data-GeneralJs-disableBackbtn="true">
+
+    <span class="conf-icon"></span>
+
+    <p class="conf-msg">
+        @Html.Raw(Model.Message)
+        @*@Model.Message*@
+    </p>
+
+    @if (Model.HasButton)
+    {
+        <div class="row" style="text-align:center">
+            <div role="button" class="cchi-control">
+                <a class="col cchi-input cchi-btn" href="@Model.ButtonLink">@Model.ButtonLabel</a>
+            </div>
+        </div>
+    }
+
+</div>

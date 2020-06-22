@@ -1,0 +1,27 @@
+﻿@using CyberResilience.Common.App_LocalResources
+@model string
+@{
+   
+
+    ViewBag.Title = Resource.ActionSuccessMessage;
+}
+
+
+<div class="confirmation-wrapper success" data-GeneralJs-disableBackbtn="true">
+
+    <span class="conf-icon"></span>
+
+    <p class="conf-msg">
+        @Resource.ActionSuccessMessage
+        <br />
+        @Resource.ActionSuccessMessage: <span class="num-txt in-block">@Model</span>
+        &nbsp;<span>@Resource.ActionSuccessMessage</span>
+    </p>
+
+</div>
+
+<script>
+
+
+</script>
+

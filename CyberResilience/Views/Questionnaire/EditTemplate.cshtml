@@ -1,0 +1,83 @@
+﻿@model CyberResilience.Area.Admin.Models.TemplateViewModel
+@using CyberResilience.Common
+@using CyberResilience.Common.App_LocalResources;
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("EditTemplate", "Questionnaire", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <section class="login_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="login">
+                        <h2>@Resource.EditTemplate</h2>
+                        <p class="login_subtext">@Resource.EditTemplate</p>
+                        <div class="login_form">
+                            <form>
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.TemplateNameAr, new { htmlAttributes = new { @class = "form-control", @placeholder = Resource.TemplateNameAr } })
+                                    @Html.ValidationMessageFor(m => m.TemplateNameAr, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.TemplateNameEn, new { htmlAttributes = new { @class = "form-control", @placeholder = Resource.TemplateNameEn } })
+                                    @Html.ValidationMessageFor(m => m.TemplateNameEn, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5 nearby_select">
+                                        <label for="">@Resource.PleaseSelectTemplateType</label>
+                                        @{
+                                            List<SelectListItem> listtemptypes = new List<SelectListItem>();
+                                            foreach (var item in Model.TemplateTypes)
+                                            {
+                                                listtemptypes.Add(new SelectListItem
+                                                {
+                                                    Text = item.Value,
+                                                    Value = item.Id.ToString(),
+                                                    Selected = item.Id == Model.TemplateType
+                                                });
+                                            };
+                                        }
+                                        @Html.DropDownListFor(model => model.TemplateType, listtemptypes, Resource.PleaseSelectTemplateType, new { @class = "form-control" })
+                                        @Html.HiddenFor(model => model.TemplateType)
+                                        @Html.ValidationMessageFor(model => model.TemplateType, "", new { @class = "text-danger" })
+
+
+                                    </div>
+                                    <div class="col-md-5 nearby_select">
+                                        <label for="">@Resource.PleaseSelectTemplateType</label>
+                                        @Html.ValidationMessageFor(model => model.TemplateSubTypes, "", new { @class = "text-danger" })
+                                        @{
+                                            List<SelectListItem> listsubtypes = new List<SelectListItem>();
+                                            foreach (var item in Model.TemplateSubTypes)
+                                            {
+                                                listsubtypes.Add(new SelectListItem
+                                                {
+                                                    Text = item.Value,
+                                                    Value = item.Id.ToString(),
+                                                    Selected = item.Id == Model.TemplateSubType
+                                                });
+                                            };
+                                        }
+                                        @Html.DropDownListFor(model => model.TemplateSubType, listsubtypes, Resource.PleaseSelectTemplateType, new { @class = "form-control" })
+                                        @Html.HiddenFor(model => model.TemplateSubType)
+                                        @Html.ValidationMessageFor(model => model.TemplateSubType, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <button type="submit" class="btn btn-default">@Resource.EditTemplate</button>
+                                <hr>
+                                <button type="button" onclick="location.href='@Url.Action("Templates", "Questionnaire")'" class="btn btn-default">@Resource.Templates</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                                            }

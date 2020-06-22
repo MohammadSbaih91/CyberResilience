@@ -1,0 +1,76 @@
+﻿@model IEnumerable<CyberResilience.Area.Admin.Models.BaseTemplateViewModel>
+@using CyberResilience.Common
+@using CyberResilience.Common.App_LocalResources;
+@{
+    ViewBag.Title = "Templates";
+}
+
+
+<section class="login_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="login">
+                    <h2>@Resource.Templates</h2>
+                    <p class="login_subtext">@Resource.Templates</p>
+                    <div class="login_form">
+                        <form>
+                            <section class="data_table_section">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="data_table_container">
+                                            <table id="example2" class="table table-bordered table-hover table-striped">
+                                                <tr>
+                                                    <th>
+                                                        @Resource.TemplateNameAr
+                                                    </th>
+                                                    <th>
+                                                        @Resource.TemplateNameEn
+                                                    </th>
+                                                    <th>
+                                                        @Resource.TemplateType
+                                                    </th>
+                                                    <th>
+                                                        @Resource.TemplateSubType
+                                                    </th>
+                                                    <th>
+                                                        @Html.ActionLink(@Resource.AddTemplate, "CreateTemplate")
+                                                    </th>
+                                                </tr>
+                                                <tbody>
+                                                    @foreach (var item in Model)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.TemplateNameAr)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.TemplateNameEn)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.TemplateType)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.TemplateSubType)
+                                                            </td>
+                                                            <td>
+                                                                @Html.ActionLink(@Resource.Edit, "EditTemplate", new { TemplateId = item.Id }) |
+                                                                @Html.ActionLink(@Resource.Details, "TemplateDetails", new { TemplateId = item.Id }) |
+                                                                @Html.ActionLink(@Resource.Delete, "DeleteTemplate", new { TemplateId = item.Id }) |
+                                                                @Html.ActionLink(@Resource.AddSubElements, "AddBaseQuestion")
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
