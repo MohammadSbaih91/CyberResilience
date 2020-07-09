@@ -2,6 +2,17 @@
 @using CyberResilience.Common
 @using CyberResilience.Common.App_LocalResources;
 
+<style>
+    .tab {
+        color: white;
+    }
+
+    #subtrhead {
+        background-color: #cc1616;
+    }
+</style>
+
+
 @if (Model != null)
 {
     <div id="tbl" class="row">
@@ -24,7 +35,7 @@
                                                     @Resource.BaseQuestionNameEn
                                                 </th>
                                                 <th>
-
+                                                    @Resource.Oporations
                                                 </th>
                                             </tr>
                                             <tbody>
@@ -42,26 +53,62 @@
                                                             @Html.ActionLink(@Resource.BaseQuestionsDetails, "BaseQuestionDetails", new { BaseQuestionId = item.Id }) |
                                                             @Html.ActionLink(@Resource.DeleteBaseQuestions, "DeleteBaseQuestion", new { BaseQuestionId = item.Id }) |
                                                             @Html.ActionLink(@Resource.AddBaseQuestions, "AddBaseQuestion", new { BaseQuestionId = item.Id }) |
-                                                            <a href="#" class="qstn" data-toggle="modal" data-target="#QuestionsModal" data-assigned-id="@item.Id">@Resource.AddQuestions</a>
+                                                            <a href="#" class="qstn" data-toggle="modal" data-target="#QuestionsModal" data-assigned-id="@item.Id">@Resource.AddQuestions</a>   |  
+                                                            @*<a onclick="hidetr(@item.Id)" data-assigned-id="@item.Id"  href="#" class="icofont-search"></a>*@
                                                         </td>
                                                     </tr>
                                                     if (item.Questions != null)
                                                     {
+                                                        <tr id="tr+@item.Id"  style="background-color:#F4DFE1;" class="text-black-50">
+                                                            <th>
+                                                                @Resource.QuestionsAr
+                                                            </th>
+                                                            <th>
+                                                                @Resource.QuestionsEn
+                                                            </th>
+                                                            <th>
+                                                                @Resource.IsMandatory
+                                                            </th>
+                                                            <th>
+                                                                @Resource.Oporations
+                                                            </th>
+                                                        </tr>
                                                         foreach (var question in item.Questions)
                                                         {
-                                                            <tr>
-                                                                <td>
+                                                            <tr id="tr+@item.Id"  style="background-color:#F4DFE1 !important;" class="bg-white">
+                                                                <td  style="background-color:#F4DFE1 !important;" class="bg-white">
                                                                     @Html.DisplayFor(modelItem => question.QuestionAr)
                                                                 </td>
-                                                                <td>
+                                                                <td style="background-color:#F4DFE1 !important;" class="bg-white">
                                                                     @Html.DisplayFor(modelItem => question.QuestionEn)
                                                                 </td>
-                                                                <td>
-                                                                    @Html.ActionLink(@Resource.EditQuestions, "EditQuestion", new { QuestionId = question.Id }) |
-                                                                    @Html.ActionLink(@Resource.QuestionsDetails, "QuestionDetails", new { QuestionId = question.Id }) |
-                                                                    @Html.ActionLink(@Resource.DeleteQuestions, "DeleteQuestion", new { QuestionId = question.Id }) |
+                                                                <td style="background-color:#F4DFE1 !important;" class="bg-white">
+                                                                    @Html.CheckBoxFor(modelItem => question.IsMandatory.Value , new {  disabled = "disabled" })
+                                                                    <input name="IsMandatory" type="hidden" value="false" />
+                                                                </td>
+                                                                <td style="background-color:#F4DFE1 !important;" class="bg-white">
+                                                                    <a href="#" class="eqstn" data-toggle="modal" data-target="#QuestionsEditModal" data-assigned-id="@question.Id">@Resource.EditQuestions</a>   |
+                                                                    <a href="#" class="qsatt" data-toggle="modal" data-target="#AttachmentModal" data-assigned-id="@question.Id">@Resource.AddQuestionAttachments</a> |
+                                                                    @Html.ActionLink(@Resource.DeleteQuestions, "DeleteQuestion", new { QuestionId = question.Id })
                                                                 </td>
                                                             </tr>
+                                                            foreach (var attchemnt in question.questionAttachments)
+                                                            {
+                                                                <tr>
+                                                                    <td>
+                                                                      @Resource.QuestionAttachments
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="@attchemnt.ToAttachmentToString()">@attchemnt.FileName</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="@attchemnt.ToAttachmentToDelete()">@Resource.DeleteAttachments</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="#" class="qsatt" data-toggle="modal" data-target="#AttachmentModal" data-assigned-id="@attchemnt.QuestionId">@Resource.AddQuestionAttachments</a>
+                                                                    </td>
+                                                                </tr>
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -88,15 +135,46 @@ else
 
 }
 
+<div class="modal fade login_modal" id="AttachmentModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div id="Attachments"></div>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 <script>
+
+    $('.qsatt').click(function () {
+        debugger;
+        var id = $(this).data('assigned-id');
+        if (id > 0) {
+            var route = '@Url.Action("AddQuestionAttachmentPartial", "Questionnaire")?QuestionId=' + id ;
+            $('#Attachments').load(route);
+        }
+    });
+
+
     $('.qstn').click(function () {
         debugger;
         var id = $(this).data('assigned-id');
         if (id > 0) {
             var route = '@Url.Action("AddQuestionPartial", "Questionnaire")?BaseQuestionId=' + id;
             $('#Questions').load(route);
+        }
+    });
+
+
+    $('.eqstn').click(function () {
+        debugger;
+        var id = $(this).data('assigned-id');
+        if (id > 0) {
+            var route = '@Url.Action("EditQuestionPartial", "Questionnaire")?QuestionId=' + id;
+            $('#QuestionsEdit').load(route);
         }
     });
 </script>

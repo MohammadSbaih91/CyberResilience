@@ -565,4 +565,43 @@
   <data name="QuestionsEn" xml:space="preserve">
     <value>الضابط في اللغة الانجليزية</value>
   </data>
+  <data name="AddTemplateAttachments" xml:space="preserve">
+    <value>إضافة مرفقات القالب</value>
+  </data>
+  <data name="FileUploadForm" xml:space="preserve">
+    <value>رفع الملفات</value>
+  </data>
+  <data name="Selectfile" xml:space="preserve">
+    <value>إختر الملف</value>
+  </data>
+  <data name="UploadFile" xml:space="preserve">
+    <value>رفع الملف</value>
+  </data>
+  <data name="Attachments" xml:space="preserve">
+    <value>المرفقات</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>المحتوى</value>
+  </data>
+  <data name="AttachmentName" xml:space="preserve">
+    <value>اسم المرفق</value>
+  </data>
+  <data name="DeleteAttachments" xml:space="preserve">
+    <value>حذف المرفق</value>
+  </data>
+  <data name="AddQuestionAttachments" xml:space="preserve">
+    <value>إضافة مرفقات الضابط</value>
+  </data>
+  <data name="Oporations" xml:space="preserve">
+    <value>العمليات</value>
+  </data>
+  <data name="TemplateAttachments" xml:space="preserve">
+    <value>مرفقات القالب</value>
+  </data>
+  <data name="HideTable" xml:space="preserve">
+    <value>إخفاء الاسئلة الفرعية</value>
+  </data>
+  <data name="QuestionAttachments" xml:space="preserve">
+    <value>مرفقات الضابط</value>
+  </data>
 </root>

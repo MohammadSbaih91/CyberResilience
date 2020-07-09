@@ -47,7 +47,5 @@ namespace CyberResilience.DAL.Entities
         public virtual ComplianceResult ComplianceResult { get; set; }
 
         public virtual QuestionsAssessmentDetail QuestionsAssessmentDetail { get; set; }
-
-        public virtual QuestionsDetail QuestionsDetail { get; set; }
     }
 }

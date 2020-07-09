@@ -11,20 +11,28 @@ namespace CyberResilience.BLL.AdminBLL
 {
     public class QuestionsBusinessLogic
     {
-        public bool AddQuestions(QuestionsDetailsDTO dto)
+        public int AddQuestions(QuestionsDetailsDTO dto)
         {
             using (var uow = new UnitOfWork())
             {
                 try
                 {
-                    var QuestionAdded = uow.Questions.AddQuestions(dto);
-                    if (QuestionAdded != false)
+                    var baseQuestionId = uow.Questions.AddQuestions(dto);
+                    if (baseQuestionId > 0)
                     {
-                        return true;
+                        int TemplateId = uow.BaseQuestions.GetTemplateIdUsingBaseQuestionId(baseQuestionId);
+                        if (TemplateId > 0)
+                        {
+                            return TemplateId;
+                        }
+                        else
+                        {
+                            return TemplateId;
+                        }
                     }
                     else
                     {
-                        return false;
+                        return 0;
                     }
                 }
                 catch (Exception ex)
@@ -32,7 +40,7 @@ namespace CyberResilience.BLL.AdminBLL
                     ex.Data.Add("AddQuestion", "An error occurred while trying to create Question Record - BLL");
                     uow.Rollback();
                     Tracer.Error(ex);
-                    return false;
+                    return 0;
                 }
             }
         }
@@ -165,5 +173,31 @@ namespace CyberResilience.BLL.AdminBLL
         }
 
 
+        public int GetBaseQuestionIdPerQuestionId(int QuestionId)
+        {
+            using (var uow = new UnitOfWork())
+            {
+                try
+                {
+                    var Questions = uow.Questions.GetBaseQuestionIdPerQuestionId(QuestionId);
+                    if (Questions > 0 )
+                    {
+                        return Questions;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ex.Data.Add("DeleteQuestion", "An error occurred while trying to delete Question Record - BLL");
+                    uow.Rollback();
+                    Tracer.Error(ex);
+                    return 0;
+                }
+            }
+
+        }
     }
 }

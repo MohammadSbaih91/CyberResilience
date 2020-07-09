@@ -111,20 +111,21 @@ namespace CyberResilience.BLL.AdminBLL
                 }
             }
         }
-        public bool DeleteBaseQuestion(int BaseQuestionId)
+        public int DeleteBaseQuestion(int BaseQuestionId)
         {
             using (var uow = new UnitOfWork())
             {
                 try
                 {
+                    int TemplateID = uow.BaseQuestions.GetTemplateIdUsingBaseQuestionId(BaseQuestionId);
                     var BaseQuestions = uow.BaseQuestions.DeleteBaseQuestion(BaseQuestionId);
-                    if (BaseQuestions != false)
+                    if (TemplateID > 0)
                     {
-                        return BaseQuestions;
+                        return TemplateID;
                     }
                     else
                     {
-                        return false;
+                        return 0;
                     }
                 }
                 catch (Exception ex)
@@ -132,7 +133,7 @@ namespace CyberResilience.BLL.AdminBLL
                     ex.Data.Add("DeleteBaseQuestion", "An error occurred while trying to delete BaseQuestion Record - BLL");
                     uow.Rollback();
                     Tracer.Error(ex);
-                    return false;
+                    return 0;
                 }
             }
         }
@@ -187,6 +188,8 @@ namespace CyberResilience.BLL.AdminBLL
                 }
             }
         }
+
+       
 
     }
 }

@@ -7,6 +7,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+
 @using (Html.BeginForm("AddBaseQuestion", "Questionnaire", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
@@ -61,9 +63,16 @@
             </div>
             <div id="BaseQuestions"></div>
             <div class="modal fade login_modal" id="QuestionsModal">
-                <div class="modal-dialog modal-dialog-centered">
+                <div style="max-width: 1015px;min-height: 900px;" class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div id="Questions"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade login_modal" id="QuestionsEditModal">
+                <div style="max-width: 1015px;min-height: 900px;" class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div id="QuestionsEdit"></div>
                     </div>
                 </div>
             </div>
@@ -86,3 +95,4 @@
         });
     });
 </script>
+

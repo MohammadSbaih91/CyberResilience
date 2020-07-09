@@ -14,17 +14,17 @@ namespace CyberResilience.DAL.CustomRepositories
     public class QuestionsDetailRepository : Repository<QuestionsDetail>
     {
         public QuestionsDetailRepository(UnitOfWork uow) : base(uow) { }
-        public bool AddQuestions(QuestionsDetailsDTO dto)
+        public int AddQuestions(QuestionsDetailsDTO dto)
         {
             try
             {
                 var record = new QuestionsDetail()
                 {
                     BaseQuestionDetailsId = dto.BaseQuestionDetailsId,
-                    clauseNameAr = dto.clauseNameAr,
-                    clauseNameEn = dto.clauseNameEn,
-                    clauseNumberAr = dto.clauseNumberAr,
-                    clauseNumberEn = dto.clauseNumberEn,
+                    clauseNameAr = dto.NameAr,
+                    clauseNameEn = dto.NameEn,
+                    clauseNumberAr = dto.NumberAr,
+                    clauseNumberEn = dto.NumberEn,
                     Id = dto.Id,
                     CreatedBy = dto.CreatedBy,
                     CreatedDate = dto.CreatedDate,
@@ -32,14 +32,14 @@ namespace CyberResilience.DAL.CustomRepositories
 
                 Create(record);
                 _uow.Save();
-                return true;
+                return record.BaseQuestionDetailsId.Value;
             }
             catch (Exception ex)
             {
                 ex.Data.Add("AddQuestion", "An error occurred while trying to create Question Record - DAL");
                 Tracer.Error(ex);
                 _uow.Rollback();
-                return false;
+                return 0;
             }
         }
         public List<QuestionsDetailsDTO> GetAllQuestions()
@@ -49,15 +49,15 @@ namespace CyberResilience.DAL.CustomRepositories
             {
                 Questions = GetQuerable(x => x.Id >= 1).Select(u => new QuestionsDetailsDTO()
                 {
-                  Id=u.Id,
-                  CreatedDate=u.CreatedDate,
-                  CreatedBy=u.CreatedBy,
-                  BaseQuestionDetailsId=u.BaseQuestionDetailsId,
-                  clauseNameAr=u.clauseNameAr,
-                  clauseNameEn=u.clauseNameEn,
-                  clauseNumberAr=u.clauseNumberAr,
-                  clauseNumberEn=u.clauseNumberEn,
-                  
+                    Id = u.Id,
+                    CreatedDate = u.CreatedDate,
+                    CreatedBy = u.CreatedBy,
+                    BaseQuestionDetailsId = u.BaseQuestionDetailsId.Value,
+                    NameAr = u.clauseNameAr,
+                    NameEn = u.clauseNameEn,
+                    NumberAr = u.clauseNumberAr,
+                    NumberEn = u.clauseNumberEn,
+
                 }).ToList();
 
                 return Questions;
@@ -80,11 +80,11 @@ namespace CyberResilience.DAL.CustomRepositories
                     Id = u.Id,
                     CreatedDate = u.CreatedDate,
                     CreatedBy = u.CreatedBy,
-                    BaseQuestionDetailsId = u.BaseQuestionDetailsId,
-                    clauseNameAr = u.clauseNameAr,
-                    clauseNameEn = u.clauseNameEn,
-                    clauseNumberAr = u.clauseNumberAr,
-                    clauseNumberEn = u.clauseNumberEn,
+                    BaseQuestionDetailsId = u.BaseQuestionDetailsId.Value,
+                    NameAr = u.clauseNameAr,
+                    NameEn = u.clauseNameEn,
+                    NumberAr = u.clauseNumberAr,
+                    NumberEn = u.clauseNumberEn,
                 }).FirstOrDefault();
 
                 return record;
@@ -104,8 +104,8 @@ namespace CyberResilience.DAL.CustomRepositories
                 var record = GetQuerable(x => x.BaseQuestionDetailsId >= BaseQuestionId).Include(x => x.BaseQuestionsDetail).Select(u => new QuestionsDetailsDTO()
                 {
                     BaseQuestionDetailsId = u.BaseQuestionsDetail.Id,
-                    BaseQuestionAr=u.BaseQuestionsDetail.BaseClauseNameAr,
-                    BaseQuestionEn=u.BaseQuestionsDetail.BaseClauseNameEn
+                    BaseQuestionAr = u.BaseQuestionsDetail.BaseClauseNameAr,
+                    BaseQuestionEn = u.BaseQuestionsDetail.BaseClauseNameEn
                 }).FirstOrDefault();
                 return record;
             }
@@ -125,11 +125,11 @@ namespace CyberResilience.DAL.CustomRepositories
                 record.BaseQuestionDetailsId = dto.BaseQuestionDetailsId;
                 record.CreatedBy = dto.CreatedBy;
                 record.CreatedDate = dto.CreatedDate;
-                record.clauseNameAr = dto.clauseNameAr;
-                record.clauseNameEn = dto.clauseNameEn;
-                record.clauseNumberAr = dto.clauseNumberAr;
-                record.clauseNameEn = dto.clauseNumberEn;
-                record.Id = dto.Id;
+                record.clauseNameAr = dto.NameAr;
+                record.clauseNameEn = dto.NameEn;
+                record.clauseNumberAr = dto.NumberAr;
+                record.clauseNumberEn = dto.NumberEn;
+                //record.Id = dto.Id;
                 Update(record);
                 _uow.Save();
                 return true;
@@ -176,11 +176,11 @@ namespace CyberResilience.DAL.CustomRepositories
                     Id = u.Id,
                     CreatedDate = u.CreatedDate,
                     CreatedBy = u.CreatedBy,
-                    BaseQuestionDetailsId = u.BaseQuestionDetailsId,
-                    clauseNameAr = u.clauseNameAr,
-                    clauseNameEn = u.clauseNameEn,
-                    clauseNumberAr = u.clauseNumberAr,
-                    clauseNumberEn = u.clauseNumberEn,
+                    BaseQuestionDetailsId = u.BaseQuestionDetailsId.Value,
+                    NameAr = u.clauseNameAr,
+                    NameEn = u.clauseNameEn,
+                    NumberAr = u.clauseNumberAr,
+                    NumberEn = u.clauseNumberEn,
                 }).ToList();
                 return Questions;
             }
@@ -192,6 +192,56 @@ namespace CyberResilience.DAL.CustomRepositories
                 //cur.Trace.Warn("IsHijri Error :" + hijri.ToString() + "\n" + ex.Message);
                 return null;
             }
+        }
+
+        public int GetBaseQuestionIdPerQuestionId(int QuestionId)
+        {
+            try
+            {
+                var record = GetQuerable(x => x.Id == QuestionId).FirstOrDefault();
+
+                return record.BaseQuestionDetailsId.Value;
+            }
+            catch (Exception ex)
+            {
+                ex.Data.Add("GetBaseQuestionIdPerQuestionId", "An error occurred while trying to GetBaseQuestionIdPerQuestionId Record - DAL");
+                Tracer.Error(ex);
+                _uow.Rollback();
+                return 0;
+            }
+        }
+        public bool DeleteAllBaseQuestionsDetailSubElements(int BaseQuestionId)
+        {
+            try
+            {
+                var record = GetQuerable(x => x.BaseQuestionDetailsId == BaseQuestionId).ToList();
+                if (record != null && record.Count > 0)
+                {
+                    var repo = _uow.Questions;
+                    var SubRepo = _uow.QuestionAttachments;
+                    foreach (var i in record)
+                    {
+                        if (SubRepo.DeleteQuestionAttachments(i.Id) == true)
+                        {
+                            repo.Delete(i);
+                        }
+                        _uow.Save();
+                    }
+                    return true;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Data.Add("DeleteAllBaseQuestionsDetailSubElements", "An error occurred while trying to DeleteAllBaseQuestionsDetailSubElements Record - DAL");
+                Tracer.Error(ex);
+                _uow.Rollback();
+                return false;
+            }
+
         }
     }
 }

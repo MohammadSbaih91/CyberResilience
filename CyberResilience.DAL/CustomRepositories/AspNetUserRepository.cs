@@ -62,7 +62,19 @@ namespace CyberResilience.DAL.CustomRepositories
         }
 
 
+        public string GetUserIdByUserName(string UserName)
+        {
 
+            var userId = GetQuerable(x => x.UserName == UserName).FirstOrDefault().Id;
+
+            if (!String.IsNullOrEmpty(userId))
+            {
+                return userId;
+            }
+            {
+                return "";
+            }
+        }
 
 
 

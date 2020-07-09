@@ -143,6 +143,15 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Question Attachments.
+        /// </summary>
+        public static string AddQuestionAttachments {
+            get {
+                return ResourceManager.GetString("AddQuestionAttachments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Sub Questions.
         /// </summary>
         public static string AddQuestions {
@@ -179,6 +188,15 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Template Attachments.
+        /// </summary>
+        public static string AddTemplateAttachments {
+            get {
+                return ResourceManager.GetString("AddTemplateAttachments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Template Question.
         /// </summary>
         public static string AddTemplateQuestion {
@@ -193,6 +211,24 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string AllRightsReserved {
             get {
                 return ResourceManager.GetString("AllRightsReserved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attachment Name.
+        /// </summary>
+        public static string AttachmentName {
+            get {
+                return ResourceManager.GetString("AttachmentName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attachments.
+        /// </summary>
+        public static string Attachments {
+            get {
+                return ResourceManager.GetString("Attachments", resourceCulture);
             }
         }
         
@@ -377,6 +413,15 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Content.
+        /// </summary>
+        public static string Content {
+            get {
+                return ResourceManager.GetString("Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copyright.
         /// </summary>
         public static string Copyright {
@@ -418,6 +463,15 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Attachments.
+        /// </summary>
+        public static string DeleteAttachments {
+            get {
+                return ResourceManager.GetString("DeleteAttachments", resourceCulture);
             }
         }
         
@@ -535,6 +589,15 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File Upload Form.
+        /// </summary>
+        public static string FileUploadForm {
+            get {
+                return ResourceManager.GetString("FileUploadForm", resourceCulture);
             }
         }
         
@@ -720,6 +783,15 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide Table.
+        /// </summary>
+        public static string HideTable {
+            get {
+                return ResourceManager.GetString("HideTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {
@@ -815,6 +887,15 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string OnlyEnglishCharacters {
             get {
                 return ResourceManager.GetString("OnlyEnglishCharacters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oporations.
+        /// </summary>
+        public static string Oporations {
+            get {
+                return ResourceManager.GetString("Oporations", resourceCulture);
             }
         }
         
@@ -1026,6 +1107,15 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Question Attachments.
+        /// </summary>
+        public static string QuestionAttachments {
+            get {
+                return ResourceManager.GetString("QuestionAttachments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Questions Ar.
         /// </summary>
         public static string QuestionsAr {
@@ -1085,6 +1175,15 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string Required {
             get {
                 return ResourceManager.GetString("Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select File.
+        /// </summary>
+        public static string Selectfile {
+            get {
+                return ResourceManager.GetString("Selectfile", resourceCulture);
             }
         }
         
@@ -1251,6 +1350,15 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Template Attachments.
+        /// </summary>
+        public static string TemplateAttachments {
+            get {
+                return ResourceManager.GetString("TemplateAttachments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Template Name Arabic.
         /// </summary>
         public static string TemplateNameAr {
@@ -1328,6 +1436,15 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string UpdateQuestionnaireSucces {
             get {
                 return ResourceManager.GetString("UpdateQuestionnaireSucces", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upload File.
+        /// </summary>
+        public static string UploadFile {
+            get {
+                return ResourceManager.GetString("UploadFile", resourceCulture);
             }
         }
         

@@ -1792,10 +1792,7 @@ section {
 {
 margin-right: 476px !important;
 }*/
-table
-{
-overflow-wrap: anywhere;
-}
+
 
 .login_f{ margin-top: 20px; }
 .login_f a{ font-size: 20px; float: right; color: #005e32 }

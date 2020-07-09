@@ -1,9 +1,12 @@
 ﻿using CyberResilience.Common.DTOs.Admin;
+using CyberResilience.Common.DTOs.Admin.QuestionnairesDTO;
+using CyberResilience.Common.DTOs.Attachment;
 using CyberResilience.Common.Utilities;
 using CyberResilience.DAL.Entities;
 using CyberResilience.DAL.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,13 +46,35 @@ namespace CyberResilience.DAL.CustomRepositories
             var templates = new List<TemplateDTO>();
             try
             {
-                templates = GetQuerable(x => x.Id >= 1).Select(u => new TemplateDTO()
+                templates = GetQuerable(x => x.Id >= 1).Include(x => x.BaseQuestionsDetails).Include(x => x.Attachments).Select(u => new TemplateDTO()
                 {
                     Id = u.Id,
                     TemplateNameAr = u.TemplateNameAr,
                     TemplateNameEn = u.TemplateNameEn,
                     TemplateSubType = u.TemplateSubType,
                     TemplateType = u.TemplateType,
+
+                    baseQuestions=(from d in u.BaseQuestionsDetails select new BaseQuestionsDetailsDTO() {
+                         Id=d.Id,
+                         BaseQuestionNameAr=d.BaseClauseNameAr,
+                         BaseQuestionNameEn=d.BaseClauseNameEn,
+                         BaseQuestionNumberAr=d.BaseClauseNumberAr,
+                         BaseQuestionNumberEn=d.BaseClauseNumberEn,
+                         IsMandatory=d.IsMandatory
+                    }).Distinct().ToList(),
+
+                    attachments=(from d in u.Attachments select new AttachmentDTO()
+                    {
+                        AttachmentID=d.AttachmentID,
+                        AttachmentId=d.AttachmentID,
+                        Caption=d.caption,
+                        ContentType=d.caption,
+                        Data=d.data,
+                        FileName=d.fileName,
+                        Id=d.AttachmentID,
+                        TemplateId=d.TemplateID,
+                    }).Distinct().ToList(),
+
                 }).ToList();
 
                 return templates;
@@ -75,6 +100,8 @@ namespace CyberResilience.DAL.CustomRepositories
                     Id = u.Id,
                     TemplateNameAr = u.TemplateNameAr,
                     TemplateNameEn = u.TemplateNameEn,
+                    TemplateSubType=u.TemplateSubType,
+                    TemplateType=u.TemplateType
                 }).ToList();
                 return templates;
             }
@@ -92,13 +119,59 @@ namespace CyberResilience.DAL.CustomRepositories
         {
             try
             {
-                var record = GetQuerable(x => x.Id == TemplateId).Select(u => new TemplateDTO()
+                var record = GetQuerable(x => x.Id == TemplateId)
+                    .Include(x => x.BaseQuestionsDetails)
+                    .Include(x => x.Attachments).Select(u => new TemplateDTO()
                 {
                     Id = u.Id,
                     TemplateNameAr = u.TemplateNameAr,
                     TemplateNameEn = u.TemplateNameEn,
                     TemplateSubType = u.TemplateSubType,
                     TemplateType = u.TemplateType,
+                    baseQuestions = (from d in u.BaseQuestionsDetails
+                                     select new BaseQuestionsDetailsDTO()
+                                     {
+                                         Id = d.Id,
+                                         BaseQuestionNameAr = d.BaseClauseNameAr,
+                                         BaseQuestionNameEn = d.BaseClauseNameEn,
+                                         BaseQuestionNumberAr = d.BaseClauseNumberAr,
+                                         BaseQuestionNumberEn = d.BaseClauseNumberEn,
+                                         IsMandatory = d.IsMandatory,
+                                         baseTemplateId=u.Id,
+                                         questions=(from j in d.QuestionsDetails select new QuestionsDetailsDTO() {
+                                             NameAr=j.clauseNameAr,
+                                             NameEn=j.clauseNameEn,
+                                             Id=j.Id,
+                                             IsMandatory=j.IsMandatory,
+                                             NumberAr=j.clauseNumberAr,
+                                             NumberEn=j.clauseNumberEn,
+                                             QuestionsAttachments= (from z in j.QuestionsDetailsAttachments
+                                                                    select new QuestionAttachmentsDTO()
+                                                                    {
+                                                                        AttachmentID = z.AttachmentID,
+                                                                        AttachmentId = z.AttachmentID,
+                                                                        Caption = z.caption,
+                                                                        ContentType = z.caption,
+                                                                        Data = z.data,
+                                                                        FileName = z.fileName,
+                                                                        Id = z.AttachmentID,
+                                                                        QuestionId = z.QuestionDetailsID,
+                                                                    }).ToList(),
+                                         }).ToList(),
+                                     }).ToList(),
+                    attachments = (from d in u.Attachments
+                                   select new AttachmentDTO()
+                                   {
+                                       AttachmentID = d.AttachmentID,
+                                       AttachmentId = d.AttachmentID,
+                                       Caption = d.caption,
+                                       ContentType = d.caption,
+                                       Data = d.data,
+                                       FileName = d.fileName,
+                                       Id = d.AttachmentID,
+                                       TemplateId = d.TemplateID,
+                                   }).Distinct().ToList(),
+
                 }).FirstOrDefault();
 
                 return record;
@@ -139,9 +212,18 @@ namespace CyberResilience.DAL.CustomRepositories
                 var record = GetQuerable(x => x.Id == TemplateId).FirstOrDefault();
                 if (record != null)
                 {
-                    Delete(record);
-                    _uow.Save();
-                    return true;
+                    var SubRepo = _uow.Attachments;
+                    if (SubRepo.DeleteTemplateAttachments(record.Id) == true)
+                    {
+                        Delete(record);
+                        _uow.Save();
+                        return true;
+                    }
+                    else
+                    {
+                        _uow.Rollback();
+                        return false;
+                    }
                 }
                 else
                 {

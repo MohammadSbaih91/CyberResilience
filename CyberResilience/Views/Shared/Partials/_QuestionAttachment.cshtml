@@ -1,0 +1,60 @@
+﻿@using CyberResilience.Common
+@using CyberResilience.Common.App_LocalResources;
+@model CyberResilience.Area.Admin.Models.AttachmentViewModel
+
+@Html.HiddenFor(m => m.QuestionId)
+@Html.HiddenFor(m => m.TemplateId)
+<form action="AddQuestionAttachment?QuestionId=@Model.QuestionId" method="post" enctype="multipart/form-data">
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#uploadModal">@Resource.UploadFile</button>
+    <!-- Modal -->
+    <div id="uploadModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">@Resource.FileUploadForm</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- Form -->
+                    @Resource.Selectfile : <input type='file' name='file' id='file' class='form-control'><br>
+                    <input type='submit' class='btn btn-info' value='@Resource.UploadFile' id='btn_upload'>
+                    <!-- Preview-->
+                    <div id='preview'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@*<script>
+        $(document).ready(function () {
+            $('#btn_upload').click(function () {
+                debugger;
+                var fd = new FormData();
+                var files = $('#file')[0].files[0];
+                fd.append('file', files);
+                var Id = 0;
+                Id = $("#EmployeeId").val();
+                var route = '@Url.Action("AddEmployeeImage", "Employees")?EmployeeId=' + Id;
+                // AJAX request
+                $.ajax({
+                    url: route,
+                    type: 'post',
+                    data: fd,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response != 0) {
+                            // Show image preview
+                            $('#preview').append("<img src='" + response + "' width='100' height='100' style='display: inline-block;'>");
+                        } else {
+                            alert('file not uploaded');
+                        }
+                    }
+                });
+            });
+        });
+    </script>*@

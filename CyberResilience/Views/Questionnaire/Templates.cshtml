@@ -38,28 +38,47 @@
                                                     </th>
                                                 </tr>
                                                 <tbody>
-                                                    @foreach (var item in Model)
+                                                    @if (Model != null)
                                                     {
-                                                        <tr>
-                                                            <td>
-                                                                @Html.DisplayFor(modelItem => item.TemplateNameAr)
-                                                            </td>
-                                                            <td>
-                                                                @Html.DisplayFor(modelItem => item.TemplateNameEn)
-                                                            </td>
-                                                            <td>
-                                                                @Html.DisplayFor(modelItem => item.TemplateType)
-                                                            </td>
-                                                            <td>
-                                                                @Html.DisplayFor(modelItem => item.TemplateSubType)
-                                                            </td>
-                                                            <td>
-                                                                @Html.ActionLink(@Resource.Edit, "EditTemplate", new { TemplateId = item.Id }) |
-                                                                @Html.ActionLink(@Resource.Details, "TemplateDetails", new { TemplateId = item.Id }) |
-                                                                @Html.ActionLink(@Resource.Delete, "DeleteTemplate", new { TemplateId = item.Id }) |
-                                                                @Html.ActionLink(@Resource.AddSubElements, "AddBaseQuestion")
-                                                            </td>
-                                                        </tr>
+                                                        foreach (var item in Model)
+                                                        {
+                                                            <tr>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.TemplateNameAr)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.TemplateNameEn)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.TemplateTypeString)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.TemplateSubTypeString)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.ActionLink(@Resource.Edit, "EditTemplate", new { TemplateId = item.Id }) |
+                                                                    @Html.ActionLink(@Resource.Details, "TemplateDetails", new { TemplateId = item.Id }) |
+                                                                    @Html.ActionLink(@Resource.Delete, "DeleteTemplate", new { TemplateId = item.Id }) |
+                                                                    @if (item.IsEmptyQuestions == true)
+                                                                    {
+                                                                        @Html.ActionLink(@Resource.AddSubElements, "AddBaseQuestion")
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        @Html.ActionLink(@Resource.Content, "Content", new { TemplateId = item.Id })
+                                                                    }
+                                                                    |
+                                                                    @if (item.IsEmptyAttachments == true)
+                                                                    {
+                                                                        <a href="#" class="qastn" data-toggle="modal" data-target="#AttachmentModal" data-assigned-id="@item.Id">@Resource.AddTemplateAttachments</a>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        @Html.ActionLink(@Resource.Attachments, "AttachmentsList")
+                                                                    }
+                                                                </td>
+                                                            </tr>
+                                                        }
                                                     }
                                                 </tbody>
                                             </table>
@@ -74,3 +93,24 @@
         </div>
     </div>
 </section>
+
+<div class="modal fade login_modal" id="AttachmentModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div id="Attachments"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $('.qastn').click(function () {
+        debugger;
+        var id = $(this).data('assigned-id');
+        if (id > 0) {
+            var route = '@Url.Action("AddAttachmentPartial", "Questionnaire")?TemplateId=' + id;
+            $('#Attachments').load(route);
+        }
+    });
+</script>

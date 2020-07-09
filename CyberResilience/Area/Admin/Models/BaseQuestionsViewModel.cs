@@ -14,7 +14,7 @@ namespace CyberResilience.Area.Admin.Models
         [RegularExpression("^[0-9 _\u0621-\u064A]+$", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "OnlyArabicCharacters")]
         public string BaseQuestionNameAr { get; set; }
         [Required(ErrorMessageResourceType = typeof(CyberResilience.Common.App_LocalResources.Resource), ErrorMessageResourceName = "Required")]
-        [RegularExpression("^[A-Za-z\\d_-]+$", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "OnlyEnglishCharacters")]
+        [RegularExpression("^[0-9A-Za-z ]+$", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "OnlyEnglishCharacters")]
         public string BaseQuestionNameEn { get; set; }
         public string BaseClauseNumberEn { get; set; }
         public string BaseClauseNumberAr { get; set; }
@@ -27,7 +27,7 @@ namespace CyberResilience.Area.Admin.Models
         public string LastUpdateBy { get; set; }
         public bool? IsMandatory { get; set; }
         public List<QuestionsViewModel> Questions { get; set; }
-        public List<BaseQuestionsViewModel> BaseQuestions { get; set; }
+        //public List<BaseQuestionsViewModel> BaseQuestions { get; set; }
         public List<BaseTemplateViewModel> baseTemplates { get; set; }
         public int baseTemplateId { get; set; }
     }

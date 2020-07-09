@@ -57,6 +57,7 @@
     <Compile Include="CustomRepositories\AspNetRoleRepository.cs" />
     <Compile Include="CustomRepositories\AspNetUserLoginRepository.cs" />
     <Compile Include="CustomRepositories\AspNetUserRepository.cs" />
+    <Compile Include="CustomRepositories\AttachmentRepository.cs" />
     <Compile Include="CustomRepositories\BaseQuestionsRepository.cs" />
     <Compile Include="CustomRepositories\ComplianceResultRepository.cs" />
     <Compile Include="CustomRepositories\LogRepository.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="CustomRepositories\QuestionnaireRepository.cs" />
     <Compile Include="CustomRepositories\QuestionsAssessmentDetailRepository.cs" />
     <Compile Include="CustomRepositories\QuestionsDetailRepository.cs" />
+    <Compile Include="CustomRepositories\QuestionsDetailsAttachmentRepository.cs" />
     <Compile Include="CustomRepositories\RecomendedValuesAndWeightRepository.cs" />
     <Compile Include="CustomRepositories\ServiceRequestRepository.cs" />
     <Compile Include="CustomRepositories\StandardRepository.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Entities\AspNetUser.cs" />
     <Compile Include="Entities\AspNetUserClaim.cs" />
     <Compile Include="Entities\AspNetUserLogin.cs" />
+    <Compile Include="Entities\Attachment.cs" />
     <Compile Include="Entities\BaseQuestionsDetail.cs" />
     <Compile Include="Entities\BlockedIP.cs" />
     <Compile Include="Entities\ComplianceResult.cs" />
@@ -95,6 +98,7 @@
     <Compile Include="Entities\Questionnaire.cs" />
     <Compile Include="Entities\QuestionsAssessmentDetail.cs" />
     <Compile Include="Entities\QuestionsDetail.cs" />
+    <Compile Include="Entities\QuestionsDetailsAttachment.cs" />
     <Compile Include="Entities\RecomendedValuesAndWeight.cs" />
     <Compile Include="Entities\ServiceRequest.cs" />
     <Compile Include="Entities\Standard.cs" />

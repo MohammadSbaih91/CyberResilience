@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminBLL\AttachmentsBusinessLogic.cs" />
     <Compile Include="AdminBLL\BaseQuestionsBusinessLogic.cs" />
     <Compile Include="AdminBLL\QuestionsBusinessLogic.cs" />
     <Compile Include="AdminBLL\TemplateBusinessLogic.cs" />

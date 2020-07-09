@@ -29,8 +29,10 @@ namespace CyberResilience.DAL.Entities
 
         public long? BaseClauseSystemNumber { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime? CreatedDate { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime? LastUpdateDate { get; set; }
 
         [StringLength(250)]
@@ -41,7 +43,7 @@ namespace CyberResilience.DAL.Entities
 
         public bool? IsMandatory { get; set; }
 
-        public int TemplateId { get; set; }
+        public int? TemplateId { get; set; }
 
         public virtual Template Template { get; set; }
 

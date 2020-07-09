@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CyberResilience.Common.DTOs.Attachment;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,10 @@ namespace CyberResilience.Common.DTOs.Admin.QuestionnairesDTO
         public DateTime? LastUpdateDate { get; set; }
         public string CreatedBy { get; set; }
         public string LastUpdateBy { get; set; }
-        public string clauseNumberEn { get; set; }
-        public string clauseNumberAr { get; set; }
-        public string clauseNameEn { get; set; }
-        public string clauseNameAr { get; set; }
+        public string NumberEn { get; set; }
+        public string NumberAr { get; set; }
+        public string NameEn { get; set; }
+        public string NameAr { get; set; }
         public long? clauseSystemNumber { get; set; }
         public bool? IsRootQuestion { get; set; }
         public int? RootQuestionOrder { get; set; }
@@ -24,5 +25,6 @@ namespace CyberResilience.Common.DTOs.Admin.QuestionnairesDTO
         public int BaseQuestionDetailsId { get; set; }
         public string BaseQuestionAr { get; set; }
         public string BaseQuestionEn { get; set; }
+        public List<QuestionAttachmentsDTO> QuestionsAttachments { get; set; }
     }
 }

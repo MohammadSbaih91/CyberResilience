@@ -204,6 +204,7 @@
     <Compile Include="Area\Admin\Controllers\QuestionnaireController.cs" />
     <Compile Include="Area\Admin\Controllers\ToolkitController.cs" />
     <Compile Include="Area\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Area\Admin\Models\AttachmentViewModel.cs" />
     <Compile Include="Area\Admin\Models\BaseQuestionsViewModel.cs" />
     <Compile Include="Area\Admin\Models\QuestionnaireTemplateViewModel.cs" />
     <Compile Include="Area\Admin\Models\QuestionsViewModel.cs" />
@@ -406,6 +407,13 @@
     <Content Include="Views\Questionnaire\AddBaseQuestion.cshtml" />
     <Content Include="Views\Shared\Partials\_BaseQuestions.cshtml" />
     <Content Include="Views\Shared\Partials\_Questions.cshtml" />
+    <Content Include="Views\Shared\Partials\_EditQuestions.cshtml" />
+    <Content Include="Views\Shared\Partials\_Attachment.cshtml" />
+    <Content Include="Views\Questionnaire\Content.cshtml" />
+    <Content Include="Views\Shared\Partials\_Attachments.cshtml" />
+    <Content Include="Views\Questionnaire\AttachmentsList.cshtml" />
+    <Content Include="Views\Shared\Partials\_QuestionAttachment.cshtml" />
+    <Content Include="Views\Questionnaire\EditBaseQuestion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

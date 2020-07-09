@@ -53,6 +53,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
       <Private>True</Private>
@@ -106,6 +107,8 @@
     <Compile Include="DTOs\Admin\SettingsDTO\QuestionsDetailsSettingsDTO.cs" />
     <Compile Include="DTOs\Admin\SettingsDTO\RecomendedValuesAndWeightDTO.cs" />
     <Compile Include="DTOs\Admin\TemplateDTO.cs" />
+    <Compile Include="DTOs\Attachment\AttachmentDTO.cs" />
+    <Compile Include="DTOs\Attachment\QuestionAttachmentsDTO.cs" />
     <Compile Include="DTOs\CompliancesDTO\ComplianceResultDTO.cs" />
     <Compile Include="DTOs\CompliancesDTO\ComplianceResultMessageDTO.cs" />
     <Compile Include="DTOs\LookupsDTO\LookupCategoryCultureDTO.cs" />
@@ -123,6 +126,7 @@
     <Compile Include="Enums.cs" />
     <Compile Include="Exceptions\BusinessException.cs" />
     <Compile Include="Helper\AppSettings.cs" />
+    <Compile Include="Helper\DatesHelper.cs" />
     <Compile Include="Helper\UIHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\LanguageHelper.cs" />

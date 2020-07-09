@@ -35,5 +35,17 @@ namespace CyberResilience.BLL.UsersBusinessLogic
                 return isActive;
             }
         }
+
+
+        public string GetUserIdByUserName(string UserName)
+        {
+
+            using (var uow = new UnitOfWork())
+            {
+                string UserId = uow.AspNetUsers.GetUserIdByUserName(UserName);
+                return UserId;
+            }
+
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace CyberResilience.Attributes
         {
             var lang = (string)filterContext.RouteData.Values["lang"] ?? DefaultLanguage;
 
-            Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
+            Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang) { DateTimeFormat = { Calendar = new GregorianCalendar() } };
         }
     }
 }

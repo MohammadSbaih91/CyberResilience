@@ -12,6 +12,7 @@ namespace CyberResilience.Area.Admin.Models
         public int StandardId { get; set; }
 
         public int QuestionnaireTypeId { get; set; }
+        public string QuestionnaireType { get; set; }
 
         public DateTime? CreatedDate { get; set; }
 

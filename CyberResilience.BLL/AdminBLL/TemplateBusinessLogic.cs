@@ -1,4 +1,5 @@
 ﻿using CyberResilience.Common.DTOs.Admin;
+using CyberResilience.Common.DTOs.Attachment;
 using CyberResilience.Common.Utilities;
 using CyberResilience.DAL;
 using System;
@@ -46,7 +47,27 @@ namespace CyberResilience.BLL.AdminBLL
                     var templates = uow.Templates.GetAllTemplates();
                     if (templates != null)
                     {
-                        //TemplatesMapper.
+                        foreach(var template in templates)
+                        {
+                            if (template.baseQuestions!= null && template.baseQuestions.Count <= 0)
+                            {
+                                template.WithNoQuestions = true;
+                            }
+                            else
+                            {
+                                template.WithNoQuestions = false;
+                            }
+
+                            if (template.attachments != null &&  template.attachments.Count <= 0)
+                            {
+                                template.WithNoAttachments = true;
+                            }
+                            else
+                            {
+                                template.WithNoAttachments = false;
+                            }
+                        }
+
                         return templates;
                     }
                     else
@@ -119,13 +140,23 @@ namespace CyberResilience.BLL.AdminBLL
             {
                 try
                 {
-                    var templates = uow.Templates.DeleteTemplate(TemplateId);
-                    if (templates != false)
+                    var deletedSubElements = uow.BaseQuestions.DeleteAllTemplateSubElements(TemplateId);
+                    if (deletedSubElements == true)
                     {
-                        return templates;
+                        var templates = uow.Templates.DeleteTemplate(TemplateId);
+                        if (templates != false)
+                        {
+                            return templates;
+                        }
+                        else
+                        {
+                            uow.Rollback();
+                            return false;
+                        }
                     }
                     else
                     {
+                        uow.Rollback();
                         return false;
                     }
                 }
@@ -138,7 +169,6 @@ namespace CyberResilience.BLL.AdminBLL
                 }
             }
         }
-
         public List<TemplateDTO> GetTemplatesDropDownData()
         {
             using (var uow = new UnitOfWork())
@@ -165,7 +195,7 @@ namespace CyberResilience.BLL.AdminBLL
                 }
             }
         }
-
+    
 
 
     }

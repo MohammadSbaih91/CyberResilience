@@ -78,8 +78,6 @@ namespace CyberResilience.Base
                 return sMacAddress;
             }
         }
-        //private ILogger _filelogger;
-        //public ILogger FileLogger { get { return this._filelogger; } }
         private SessionDataManager _sessionDataManager;
         public SessionDataManager SessionDataManager { get { return this._sessionDataManager; } }
         private ServiceRequestInformationDataManager _serviceRequestInformationDataManager;
@@ -118,29 +116,8 @@ namespace CyberResilience.Base
         }
         protected override void Initialize(RequestContext requestContext)
         {
-            //if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.Contains(CyberResilience.Common.Constants.Languages.Arabic.ToLower()))
-            //{
-            //    Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("ar-SA");
-            //    Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("ar-SA");
-            //}
-            //else
-            //{
-            //    Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
-            //    Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
-            //}
-
             base.Initialize(requestContext);
             LanguageSettingsHelper.SetCulture(RouteData);
-
-
-            //_sessionDataManager = new SessionDataManager(this);
-            //_tempDataManager = new TempDataManager(this);
-            //_serviceRequestInformationDataManager = new ServiceRequestInformationDataManager(_tempDataManager);
-            //_currentUserrSessionDataManager = new CurrentUserrSessionDataManager(this.TempDataManager);
-
-
-
-            //ObjectsToCleanUp.Add(_k2Component);
         }
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
@@ -219,69 +196,6 @@ namespace CyberResilience.Base
             */
 
         }
-        //protected ActionResult ReturnRedirectToGenericSuccessPage(string message = null)
-        //{
-        //    TempDataManager.AddOrUpdate("SuccessMessage", message);
-        //    return RedirectToAction("Success", "Message");
-        //}
-        //protected ActionResult ReturnRedirectToRequestCreatedSuccessfully(string requestNumber)
-        //{
-        //    _serviceRequestInformationDataManager.RequestNumber = requestNumber;
-
-        //    //if (IsFrontend)
-        //    //{
-        //    //    return RedirectToAction("RegisterAnonymousUser", "Account");
-        //    //}
-        //    //else
-        //    //{
-        //    if (string.IsNullOrEmpty(requestNumber))
-        //    {
-        //        return RedirectToAction("Index", "Home");
-        //    }
-        //    if (AppSettings.IsFrontEnd)
-        //    {
-        //        // TODO: in case of update, this should be the update is sucessfull
-        //        // and in case of submission for acition (i.e. K2 action)
-        //        // then should return to the representaitve tasks list page
-        //        TempDataManager.AddOrUpdate("CreatedRequestNumber", requestNumber);
-        //        return RedirectToAction("RequestCreatedSuccessfully", "Message");
-        //    }
-
-        //    if (TempData.ContainsKey("CreatedRequestNumber"))
-        //        TempData["CreatedRequestNumber"] = requestNumber;
-        //    else
-        //    {
-        //        TempData.Add("CreatedRequestNumber", requestNumber);
-        //    }
-        //    TempData.Keep("CreatedRequestNumber");
-        //    return RedirectToAction("Index", "Home");
-        //    //  }
-        //}
-        //protected ActionResult ReturnRedirectToActionTakenSuccessfully()
-        //{
-        //    TempDataManager.AddOrUpdate("SuccessMessage", CyberResilience.Common.App_LocalResources.Resource.ActionSuccessMessage);
-        //    return RedirectToAction("Success", "Message");
-        //}
-        //protected ActionResult ReturnRedirectToGenericErrorPage(string message = null)
-        //{
-        //    //TempDataManager.AddOrUpdate("ErrorMessage", message);
-        //    return RedirectToAction("Error", "Message");
-        //}
-        //protected ActionResult ReturnRedirectToCustomMessagePage(CustomMessagePageModel model)
-        //{
-        //    if (model != null)
-        //    {
-        //        TempDataManager.AddOrUpdate("CustomMessagePageModel", model);
-
-        //        if (!string.IsNullOrWhiteSpace(model.Message))
-        //        {
-        //            model.Message = Server.HtmlEncode(model.Message);
-        //        }
-
-        //    }
-
-        //    return RedirectToAction("CustomMessage", "Message"); //, model);
-        //}
         protected override void OnException(ExceptionContext filterContext)
         {
             if (AppSettings.DisableHandleWebExceptions)
@@ -360,31 +274,9 @@ namespace CyberResilience.Base
             cache.SetValidUntilExpires(false);
             cache.SetRevalidation(HttpCacheRevalidation.AllCaches);
         }
-        /// <summary>
-        /// create a delay on the page execution,
-        ///  default to 2 seconds
-        /// </summary>
         protected void Delay(int milliseconds = 2000)// 2 seconds.
         {
             System.Threading.Thread.Sleep(milliseconds);
         }
-        //protected LogEntry GetLogEntry(string message, string activity,
-        //                Exception ex = null,
-        //                Infrasrtucture.Core.Logging.LogLevelEnum level = Infrasrtucture.Core.Logging.LogLevelEnum.Unspecified,
-        //                int priority = -1, int eventId = 0,
-        //                IDictionary<string, object> extendedProperties = null)
-        //{
-        //    // get the calling method name from the stack trace
-        //    // get call stack
-        //    StackTrace stackTrace = new StackTrace();
-        //    // get calling method 
-        //    MethodBase methodBase = stackTrace.GetFrame(1).GetMethod();
-        //    string method = methodBase != null ? methodBase.Name : string.Empty;
-
-        //    return Logger.GetLogEntry(
-        //        this, message, method, activity,
-        //        CorrelationId, Logging.AppSettings.SystemId, Logging.AppSettings.ModuleId,
-        //        ex, level, priority, eventId, extendedProperties);
-        //}
     }
 }

@@ -28,7 +28,21 @@ namespace CyberResilience.DAL
             DbContext = dbContext;
         }
 
+        public QuestionsDetailsAttachmentRepository QuestionAttachments
+        {
+            get
+            {
+                return new QuestionsDetailsAttachmentRepository(this);
+            }
+        }
 
+        public AttachmentRepository Attachments
+        {
+            get
+            {
+                return new AttachmentRepository(this);
+            }
+        }
         public AspNetRoleRepository Roles
         {
             get
@@ -36,7 +50,6 @@ namespace CyberResilience.DAL
                 return new AspNetRoleRepository(this);
             }
         }
-
         public AspNetUserLoginRepository AspNetUserLogin
         {
             get

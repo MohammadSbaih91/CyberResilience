@@ -107,7 +107,7 @@ namespace CyberResilience.Controllers
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             //UserType usertype;
-            var roles = UserManager.GetRoles(User.Identity.GetUserId()).ToList();
+            var roles = UserManager.GetRoles(_UsersBusinessLogic.GetUserIdByUserName(model.UserName)).ToList();
             UserType userType = UserHelper.GetUserType(roles);
 
             switch (result)

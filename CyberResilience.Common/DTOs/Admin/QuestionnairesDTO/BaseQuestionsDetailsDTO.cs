@@ -12,11 +12,11 @@ namespace CyberResilience.Common.DTOs.Admin.QuestionnairesDTO
         public DateTime? CreatedDate { get; set; }
         public DateTime? LastUpdateDate { get; set; }
         public string CreatedBy { get; set; }
-        public string LastUpdateBy { get; set; }
-        public string clauseNumberEn { get; set; }
-        public string clauseNumberAr { get; set; }
-        public string clauseNameEn { get; set; }
-        public string clauseNameAr { get; set; }
+        //public string LastUpdateBy { get; set; }
+        public string BaseQuestionNumberEn { get; set; }
+        public string BaseQuestionNumberAr { get; set; }
+        public string BaseQuestionNameEn { get; set; }
+        public string BaseQuestionNameAr { get; set; }
         public long? clauseSystemNumber { get; set; }
         public bool? IsRootQuestion { get; set; }
         public int? RootQuestionOrder { get; set; }

@@ -69,7 +69,7 @@ namespace CyberResilience.UIHelper
 
         public static void SetCulture(string cultureName)
         {
-            var cultureInfo = new CultureInfo(cultureName);
+            var cultureInfo = new CultureInfo(cultureName) { DateTimeFormat = { Calendar = new GregorianCalendar() } };
 
             // Set datetime patterns/formats
             //switch (cultureInfo.TwoLetterISOLanguageName.ToLower())
@@ -78,10 +78,10 @@ namespace CyberResilience.UIHelper
             //        cultureInfo.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
             //        break;
             //}
-            cultureInfo.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
-            cultureInfo.DateTimeFormat.Calendar = new GregorianCalendar();
-
-            Thread.CurrentThread.CurrentCulture = cultureInfo;
+            //cultureInfo.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
+            //cultureInfo.DateTimeFormat.Calendar = new GregorianCalendar();
+            //Thread.CurrentThread.CurrentUICulture.DateTimeFormat = new CultureInfo("en-US").DateTimeFormat;
+            Thread.CurrentThread.CurrentCulture = cultureInfo /*en*/;
             Thread.CurrentThread.CurrentUICulture = cultureInfo;
         }
     }

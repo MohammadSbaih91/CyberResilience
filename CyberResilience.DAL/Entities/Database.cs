@@ -33,9 +33,11 @@ namespace CyberResilience.DAL.Entities
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<ComplianceResult> ComplianceResults { get; set; }
         public virtual DbSet<QuestionsAssessmentDetail> QuestionsAssessmentDetails { get; set; }
+        public virtual DbSet<Attachment> Attachments { get; set; }
         public virtual DbSet<BaseQuestionsDetail> BaseQuestionsDetails { get; set; }
         public virtual DbSet<MandatoryValuesAndWeight> MandatoryValuesAndWeights { get; set; }
         public virtual DbSet<QuestionsDetail> QuestionsDetails { get; set; }
+        public virtual DbSet<QuestionsDetailsAttachment> QuestionsDetailsAttachments { get; set; }
         public virtual DbSet<RecomendedValuesAndWeight> RecomendedValuesAndWeights { get; set; }
         public virtual DbSet<Questionnaire> Questionnaires { get; set; }
 
@@ -246,7 +248,7 @@ namespace CyberResilience.DAL.Entities
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Template>()
-                .HasMany(e => e.BaseQuestionsDetails)
+                .HasMany(e => e.Attachments)
                 .WithRequired(e => e.Template)
                 .WillCascadeOnDelete(false);
 
@@ -310,6 +312,11 @@ namespace CyberResilience.DAL.Entities
                 .HasForeignKey(e => e.AsessmentDetailsId)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<Attachment>()
+                .Property(e => e.attachmentType)
+                .IsFixedLength()
+                .IsUnicode(false);
+
             modelBuilder.Entity<BaseQuestionsDetail>()
                 .Property(e => e.CreatedBy)
                 .IsUnicode(false);
@@ -320,9 +327,8 @@ namespace CyberResilience.DAL.Entities
 
             modelBuilder.Entity<BaseQuestionsDetail>()
                 .HasMany(e => e.QuestionsDetails)
-                .WithRequired(e => e.BaseQuestionsDetail)
-                .HasForeignKey(e => e.BaseQuestionDetailsId)
-                .WillCascadeOnDelete(false);
+                .WithOptional(e => e.BaseQuestionsDetail)
+                .HasForeignKey(e => e.BaseQuestionDetailsId);
 
             modelBuilder.Entity<MandatoryValuesAndWeight>()
                 .Property(e => e.MandatoryRequirementWeight)
@@ -345,14 +351,15 @@ namespace CyberResilience.DAL.Entities
                 .IsUnicode(false);
 
             modelBuilder.Entity<QuestionsDetail>()
-                .HasOptional(e => e.QuestionsAssessmentDetail)
-                .WithRequired(e => e.QuestionsDetail);
-
-            modelBuilder.Entity<QuestionsDetail>()
-                .HasMany(e => e.Questionnaires)
+                .HasMany(e => e.QuestionsDetailsAttachments)
                 .WithRequired(e => e.QuestionsDetail)
-                .HasForeignKey(e => e.QuestionsDetailsId)
+                .HasForeignKey(e => e.QuestionDetailsID)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<QuestionsDetailsAttachment>()
+                .Property(e => e.attachmentType)
+                .IsFixedLength()
+                .IsUnicode(false);
 
             modelBuilder.Entity<RecomendedValuesAndWeight>()
                 .Property(e => e.RecomendedRequirementWeight)

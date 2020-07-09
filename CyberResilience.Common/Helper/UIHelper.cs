@@ -8,6 +8,7 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.Net.Http;
+using System.Globalization;
 
 namespace CyberResilience.Common.Helper
 {
@@ -20,6 +21,17 @@ namespace CyberResilience.Common.Helper
         private const string _dateTimeFormat = "dd/MM/yyyy H:mm:ss";
         private const string _dateTimeFormatAMPM = "dd/MM/yyyy hh:mm tt";
         private const string _datestringFormat = "dd/MM/yyyy";
+
+
+        private static string[] allFormats ={"yyyy/MM/dd","yyyy/M/d",
+                                        "dd/MM/yyyy","d/M/yyyy",
+                                        "dd/M/yyyy","d/MM/yyyy","yyyy-MM-dd",
+                                        "yyyy-M-d","dd-MM-yyyy","d-M-yyyy",
+                                        "dd-M-yyyy","d-MM-yyyy","yyyy MM dd",
+                                        "yyyy M d","dd MM yyyy","d M yyyy",
+                                        "dd M yyyy","d MM yyyy" , "dd/MM/yyyy hh:mm tt" , "dd/MM/yyyy H:mm:ss" , "dd/MM/yyyy H:mm:ss م"};
+
+
         private static Random _rnd = new Random(Environment.TickCount);
         public static string GetCurrentDate()
         {
@@ -37,10 +49,16 @@ namespace CyberResilience.Common.Helper
         //}
 
         #endregion
-        public static DateTime ConvertStringToDate(string value)
+        public static DateTime ConvertStringToDate(string value )
         {
+            CultureInfo arSA = new CultureInfo("ar-SA");
+            arSA.DateTimeFormat.Calendar = new HijriCalendar();
 
-            return DateTime.ParseExact(value.Trim(), _dateFormat, System.Globalization.CultureInfo.InvariantCulture);
+            return  DateTime.ParseExact(value, allFormats,
+                                   arSA, DateTimeStyles.AllowWhiteSpaces);
+
+
+            //return DateTime.ParseExact(value.Trim(), /*_dateFormat*/ "dd/MM/yy", culture);
         }
 
         public static string ConvertDateToString(DateTime? date)

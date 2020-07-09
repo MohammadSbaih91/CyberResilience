@@ -1,0 +1,185 @@
+﻿@model CyberResilience.Area.Admin.Models.BaseQuestionsViewModel
+@using CyberResilience.Common
+@using CyberResilience.Common.App_LocalResources;
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("EditBaseQuestion", "Questionnaire", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.baseTemplateId)
+    @Html.HiddenFor(m => m.Id)
+    <section class="login_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="login">
+                        <h2>@Resource.EditBaseQuestions</h2>
+                        <p class="login_subtext">@Resource.EditBaseQuestions</p>
+                        <div class="login_form">
+                            <form>
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.BaseQuestionNameAr, new { htmlAttributes = new { @class = "form-control" } })
+                                    @*<input type="text" class="form-control" id="BaseQuestionNameAr" placeholder="@Resource.BaseQuestionNameAr" name="BaseQuestionNameAr">*@
+                                    @Html.ValidationMessageFor(m => m.BaseQuestionNameAr, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.BaseQuestionNameEn, new { htmlAttributes = new { @class = "form-control" } })
+                                    @*<input type="text" class="form-control" id="BaseQuestionNameEn" placeholder="@Resource.BaseQuestionNameEn" name="BaseQuestionNameEn">*@
+                                    @Html.ValidationMessageFor(m => m.BaseQuestionNameEn, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5 nearby_select">
+                                        <label for="">@Resource.PleaseSelectTemplate</label>
+                                        @{
+                                            List<SelectListItem> listbaseTemplates = new List<SelectListItem>();
+                                            foreach (var item in Model.baseTemplates)
+                                            {
+                                                listbaseTemplates.Add(new SelectListItem
+                                                {
+                                                    Text = item.TemplateNameAr,
+                                                    Value = item.Id.ToString(),
+                                                    Selected = item.Id == Model.baseTemplateId
+                                                });
+                                            };
+                                        }
+                                        @Html.DropDownListFor(model => model.baseTemplateId, listbaseTemplates, Resource.PleaseSelectTemplate, new { @class = "form-control" })
+                                        @Html.HiddenFor(model => model.baseTemplateId)
+                                        @Html.ValidationMessageFor(model => model.baseTemplateId, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div style="margin-top:34px;" class="col-md-6 ">
+                                        <button type="button" onclick="HideTable();" class="btn btn-default">@Resource.HideTable</button>
+                                    </div>
+                                    </div>
+                                @if (Model.Questions != null)
+                                {
+                                    <div id="tbl" class="row">
+                                        <div class="col-md-12 col-md-offset-3">
+                                            <h2>@Resource.QuestionsDetails</h2>
+                                            <p class="login_subtext">@Resource.QuestionsDetails</p>
+                                            <section class="data_table_section">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="data_table_container">
+                                                            <table id="example2" class="table table-bordered table-hover table-striped">
+                                                                <tbody>
+                                                                    <tr id="tr+@Model.Id" style="background-color:#F4DFE1;" class="text-black-50">
+                                                                        <th>
+                                                                            @Resource.QuestionsAr
+                                                                        </th>
+                                                                        <th>
+                                                                            @Resource.QuestionsEn
+                                                                        </th>
+                                                                        <th>
+                                                                            @Resource.IsMandatory
+                                                                        </th>
+                                                                        <th>
+                                                                            @Resource.Oporations
+                                                                        </th>
+                                                                    </tr>
+                                                                    @foreach (var question in Model.Questions)
+                                                                    {
+                                                                        <tr id="tr+@Model.Id" style="background-color:#F4DFE1 !important;" class="bg-white">
+                                                                            <td style="background-color:#F4DFE1 !important;" class="bg-white">
+                                                                                @Html.DisplayFor(modelItem => question.QuestionAr)
+                                                                            </td>
+                                                                            <td style="background-color:#F4DFE1 !important;" class="bg-white">
+                                                                                @Html.DisplayFor(modelItem => question.QuestionEn)
+                                                                            </td>
+                                                                            <td style="background-color:#F4DFE1 !important;" class="bg-white">
+                                                                                @Html.CheckBoxFor(modelItem => question.IsMandatory.Value, new { disabled = "disabled" })
+                                                                                <input name="IsMandatory" type="hidden" value="false" />
+                                                                            </td>
+                                                                            <td style="background-color:#F4DFE1 !important;" class="bg-white">
+                                                                                <a href="#" class="eqstn" data-toggle="modal" data-target="#QuestionsEditModal" data-assigned-id="@question.Id">@Resource.EditQuestions</a>   |
+                                                                                <a href="#" class="qsatt" data-toggle="modal" data-target="#AttachmentModal" data-assigned-id="@question.Id">@Resource.AddQuestionAttachments</a> |
+                                                                                @Html.ActionLink(@Resource.DeleteQuestions, "DeleteQuestion", new { QuestionId = question.Id })
+                                                                            </td>
+                                                                        </tr>
+                                                                        foreach (var attchemnt in question.questionAttachments)
+                                                                        {
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <a href="@attchemnt.ToAttachmentToString()">@attchemnt.FileName</a>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <a href="@attchemnt.ToAttachmentToDelete()">@Resource.DeleteAttachments</a>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <a href="#" class="qsatt" data-toggle="modal" data-target="#AttachmentModal" data-assigned-id="@attchemnt.QuestionId">@Resource.AddQuestionAttachments</a>
+                                                                                </td>
+                                                                            </tr>
+                                                                        }
+                                                                    }
+
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                }
+                                <br />
+                                <button type="submit" class="btn btn-default">@Resource.Edit</button>
+                                <hr>
+                                <button type="button" onclick="location.href='@Url.Action("Templates", "Questionnaire")'" class="btn btn-default">@Resource.Templates</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="BaseQuestions"></div>
+    <div class="modal fade login_modal" id="QuestionsModal">
+        <div style="max-width: 1015px;min-height: 900px;" class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div id="Questions"></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade login_modal" id="QuestionsEditModal">
+        <div style="max-width: 1015px;min-height: 900px;" class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div id="QuestionsEdit"></div>
+            </div>
+        </div>
+    </div>
+                                            }
+<script>
+    $(document).ready(function ()
+    {
+      
+        $('#baseTemplateId').change(function () {
+            var templateId = $('#baseTemplateId').val();
+            var route = '@Url.Action("AddBaseQuestionPartial", "Questionnaire")?TemplateId=' + templateId;
+            $('#BaseQuestions').load(route);
+            @*$.ajax({
+                url: "@Url.Action("AddBaseQuestion", "Questionnaire")" + "?TemplateId=" + templateId,
+                type: "GET",
+            }).done(function (data) {
+                //HideError(data)
+                return true;
+            });*@
+        });
+    });
+
+    function HideTable() {
+        debugger;
+        var x = document.getElementById("tbl");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+

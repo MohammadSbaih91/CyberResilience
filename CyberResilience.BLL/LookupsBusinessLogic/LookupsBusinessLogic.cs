@@ -82,8 +82,14 @@ namespace CyberResilience.BLL.LookupsBusinessLogic
             {
                 var repo = uow.Lookups;
                 var lookup = repo.GetLookupByID(LookupID);
-
-
+                if (String.IsNullOrEmpty(lookup.ValueAr))
+                {
+                    lookup.Value = lookup.ValueAr;
+                }
+                else
+                {
+                    lookup.Value = lookup.ValueEn;
+                }
                 if (lookup == null)
                 {
                     throw new BusinessException("Lookup does not exist", Constants.ErrorsCodes.LookupDoesNotExist);

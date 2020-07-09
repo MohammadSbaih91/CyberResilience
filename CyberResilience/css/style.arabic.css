@@ -1785,10 +1785,7 @@ label {
 /*.container{
      direction: rtl;
  }*/
-table
-{
-overflow-wrap: anywhere;
-}
+
 
 .login_f{ margin-top: 20px; }
 .login_f a{ font-size: 20px; float: left; color: #005e32 }

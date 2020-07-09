@@ -36,8 +36,6 @@ namespace CyberResilience.DAL.Entities
 
         public virtual ComplianceResult ComplianceResult { get; set; }
 
-        public virtual QuestionsDetail QuestionsDetail { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Questionnaire> Questionnaires { get; set; }
     }
