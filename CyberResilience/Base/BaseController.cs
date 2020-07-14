@@ -24,8 +24,9 @@ namespace CyberResilience.Base
         {
             get
             {
-                var claims = HttpContext.Request.GetOwinContext().Authentication.User.Claims;
-                return claims.Where(x => x.Type == CyberResilience.Common.Constants.Claims.UserName).Single().Value;
+                return User.Identity.Name.Trim().ToLower();
+                //var claims = HttpContext.Request.GetOwinContext().Authentication.User.Claims;
+                //return claims.Where(x => x.Type == CyberResilience.Common.Constants.Claims.UserName).Single().Value;
             }
         }
       

@@ -21,8 +21,19 @@ namespace CyberResilience.Common
             public const string Email = "Email";
             public const string Nationality = "Nationality";
         }
-
-
+        public class TemplatesType
+        {
+            public const string Quastionnaire = "Quastionnaire";
+            public const string Toolkits = "Toolkits";
+            public const string PolicyManagement = "PolicyManagement";
+        }
+        public class TemplateSubType
+        {
+            public const string ISO27 = "ISO27";
+            public const string ISO24 = "ISO24";
+            public const string ECC = "ECC";
+            public const string SAMA = "SAMA";
+        }
         public class Languages
         {
             public const string Arabic = "Ar";

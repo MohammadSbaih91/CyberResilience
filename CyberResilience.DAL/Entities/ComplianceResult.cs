@@ -6,20 +6,19 @@ namespace CyberResilience.DAL.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Questionnaire.ComplianceResults")]
+    [Table("ServiceRequests.ComplianceResults")]
     public partial class ComplianceResult
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ComplianceResult()
         {
             QuestionsAssessmentDetails = new HashSet<QuestionsAssessmentDetail>();
-            Questionnaires = new HashSet<Questionnaire>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
-        public decimal QuestionnaireAccurateComplianceResult { get; set; }
+        public double QuestionnaireAccurateComplianceResult { get; set; }
 
         public int QuestionnaireComplianceResult { get; set; }
 
@@ -43,12 +42,9 @@ namespace CyberResilience.DAL.Entities
 
         public DateTime? ImplementationPeriodAccurateExpectedTime { get; set; }
 
-        public virtual ServiceRequest ServiceRequest { get; set; }
+        public int ServiceRequestId { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QuestionsAssessmentDetail> QuestionsAssessmentDetails { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Questionnaire> Questionnaires { get; set; }
     }
 }

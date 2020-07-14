@@ -17,7 +17,6 @@ namespace CyberResilience.DAL.Entities
             NotificaitonsHistories = new HashSet<NotificaitonsHistory>();
             Notifications = new HashSet<Notification>();
             Notifications1 = new HashSet<Notification>();
-            Questionnaires = new HashSet<Questionnaire>();
             ServiceRequests = new HashSet<ServiceRequest>();
             ServiceRequests1 = new HashSet<ServiceRequest>();
             ServiceRequests2 = new HashSet<ServiceRequest>();
@@ -71,9 +70,6 @@ namespace CyberResilience.DAL.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Notification> Notifications1 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Questionnaire> Questionnaires { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ServiceRequest> ServiceRequests { get; set; }

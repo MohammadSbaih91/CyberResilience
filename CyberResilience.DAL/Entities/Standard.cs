@@ -8,12 +8,6 @@ namespace CyberResilience.DAL.Entities
 
     public partial class Standard
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Standard()
-        {
-            Questionnaires = new HashSet<Questionnaire>();
-        }
-
         public int Id { get; set; }
 
         [StringLength(250)]
@@ -36,8 +30,5 @@ namespace CyberResilience.DAL.Entities
         public int? StandardTypeId { get; set; }
 
         public virtual Lookup Lookup { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Questionnaire> Questionnaires { get; set; }
     }
 }

@@ -113,13 +113,6 @@ namespace CyberResilience.DAL
                 return new NotificationRepository(this);
             }
         }
-        public QuestionnaireRepository Questionnaires
-        {
-            get
-            {
-                return new QuestionnaireRepository(this);
-            }
-        }
         public QuestionsAssessmentDetailRepository QuestionsAssessmentDetails
         {
             get

@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CyberResilience.DAL">
+      <HintPath>..\CyberResilience\Bin\CyberResilience.DAL.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -115,8 +118,10 @@
     <Compile Include="DTOs\LookupsDTO\LookupCategoryDTO.cs" />
     <Compile Include="DTOs\LookupsDTO\LookupCultureDTO.cs" />
     <Compile Include="DTOs\LookupsDTO\LookupsDTO.cs" />
+    <Compile Include="DTOs\ServiceRequestsDTO\BaseQuestionsDetailsDTO.cs" />
     <Compile Include="DTOs\ServiceRequestsDTO\QuestionnaireRequestDTO.cs" />
     <Compile Include="DTOs\ServiceRequestsDTO\QuestionsAssessmentDetailsDTO.cs" />
+    <Compile Include="DTOs\ServiceRequestsDTO\QuestionsDetailsDTO.cs" />
     <Compile Include="DTOs\ServiceRequestsDTO\ServiceRequestsDTO.cs" />
     <Compile Include="DTOs\StandardsDTO\StandardsDTO.cs" />
     <Compile Include="DTOs\UsersDTO\AspNetRoleDTO.cs" />

@@ -1,4 +1,5 @@
-﻿using CyberResilience.Common.DTOs.Admin;
+﻿using CyberResilience.Common;
+using CyberResilience.Common.DTOs.Admin;
 using CyberResilience.Common.DTOs.Attachment;
 using CyberResilience.Common.Utilities;
 using CyberResilience.DAL;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static CyberResilience.Common.Enums;
 
 namespace CyberResilience.BLL.AdminBLL
 {
@@ -195,8 +197,40 @@ namespace CyberResilience.BLL.AdminBLL
                 }
             }
         }
-    
+        #region User 
+        public TemplateDTO GetTemplateByType(int type  , int subType/*, Enums.Culture cul*/)
+        {
+            using (var uow = new UnitOfWork())
+            {
+                try
+                {
+                    var templates = uow.Templates.GetTemplateByType(type , subType /*, cul*/);
+                    if (templates != null)
+                    {
+                        //foreach(var item in templates.baseQuestions)
+                        //{
+                        //    foreach(var lookup in item.questions)
+                        //    {
+                        //        lookup.CompianceLevel = uow.LookupCategory.GetLookupsByLookupCategoryCode("ComplianceLevel", cul);
+                        //    }
+                        //}
+                        return templates;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ex.Data.Add("GetTemplateByType", "An error occurred while trying to Get Template By Type Record ( User ) - BLL");
+                    uow.Rollback();
+                    Tracer.Error(ex);
+                    return null;
+                }
+            }
+        }
 
-
+        #endregion
     }
 }

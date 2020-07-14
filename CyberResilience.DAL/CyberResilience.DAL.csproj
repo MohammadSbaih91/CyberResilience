@@ -95,7 +95,6 @@
     <Compile Include="Entities\MandatoryValuesAndWeight.cs" />
     <Compile Include="Entities\NotificaitonsHistory.cs" />
     <Compile Include="Entities\Notification.cs" />
-    <Compile Include="Entities\Questionnaire.cs" />
     <Compile Include="Entities\QuestionsAssessmentDetail.cs" />
     <Compile Include="Entities\QuestionsDetail.cs" />
     <Compile Include="Entities\QuestionsDetailsAttachment.cs" />

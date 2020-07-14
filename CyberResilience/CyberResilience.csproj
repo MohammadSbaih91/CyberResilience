@@ -209,7 +209,6 @@
     <Compile Include="Area\Admin\Models\QuestionnaireTemplateViewModel.cs" />
     <Compile Include="Area\Admin\Models\QuestionsViewModel.cs" />
     <Compile Include="Area\Admin\Models\BaseTemplateViewModel.cs" />
-    <Compile Include="Area\Admin\Models\TemplateViewModel.cs" />
     <Compile Include="Attributes\HandleException.cs" />
     <Compile Include="Attributes\LocalizationAttribute.cs" />
     <Compile Include="Base\BaseController.cs" />
@@ -217,12 +216,19 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\Services\FreeServicesController.cs" />
+    <Compile Include="Controllers\Services\PaidServicsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mapper\WebMapper\FreeServicesMapper.cs" />
     <Compile Include="Mapper\WebMapper\TemplatesMapper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CustomMessagePageModel.cs" />
+    <Compile Include="Models\FreeServicesViewModel\QuickOnlineAssessmentAttachmentViewModel.cs" />
+    <Compile Include="Models\FreeServicesViewModel\QuickOnlineAssessmentBaseQuestionsViewModel.cs" />
+    <Compile Include="Models\FreeServicesViewModel\QuickOnlineAssessmentQuestionsViewModel.cs" />
+    <Compile Include="Models\FreeServicesViewModel\QuickOnlineAssessmentViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\UsersViewModel\CurrentUserViewModel.cs" />
@@ -314,7 +320,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\about.jpg" />
+    <Content Include="img\apple-touch-icon.png" />
     <Content Include="img\cta-bg.jpg" />
+    <Content Include="img\cyb12.png" />
+    <Content Include="img\cyb17.png" />
+    <Content Include="img\favicon.png" />
     <Content Include="img\hero-bg.jpg" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
@@ -414,11 +425,15 @@
     <Content Include="Views\Questionnaire\AttachmentsList.cshtml" />
     <Content Include="Views\Shared\Partials\_QuestionAttachment.cshtml" />
     <Content Include="Views\Questionnaire\EditBaseQuestion.cshtml" />
+    <Content Include="Views\FreeServices\QuickOnlineAssessment.cshtml" />
+    <Content Include="Views\Shared\Partials\FreeServices\_QuickOnlineAssessmentQuestions.cshtml" />
+    <Content Include="Views\Shared\Partials\FreeServices\_QuickOnlineAssessmentAttachment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Area\Admin\Views\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\PaidServics\" />
     <Folder Include="Views\Payment\" />
     <Folder Include="Views\PolicyManagementPlatfrom\" />
     <Folder Include="Views\Toolkit\" />

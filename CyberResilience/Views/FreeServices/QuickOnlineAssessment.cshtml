@@ -1,0 +1,194 @@
+﻿@model CyberResilience.Models.FreeServicesViewModel.QuickOnlineAssessmentViewModel
+@using CyberResilience.Common
+@using CyberResilience.Common.App_LocalResources;
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .table-bordered th {
+        border: none;
+    }
+</style>
+@using (Html.BeginForm("QuickOnlineAssessment", "FreeServices", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <section class="login_wrapper">
+        <div class="container">
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.Id)
+            @if (Model.BaseQuestions != null)
+            {
+                <div id="tbl" class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="login">
+                            <h2>@Model.Template</h2>
+                            <h2>@Model.Type</h2>
+                            <h2> @Model.SubType</h2>
+                            @*<h2>@Resource.BaseQuestions</h2>
+                                <p class="login_subtext">@Resource.BaseQuestions</p>*@
+                            <div class="login_form">
+                                <form>
+                                    <section class="data_table_section">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div style="min-width: 1020px;" class="data_table_container">
+                                                    <table id="example2" class="table table-bordered table-hover table-striped">
+                                                        <tr style="background-color:#F9F8F7;color:#840D16;">
+                                                            <th style="border:none;width:700px;">
+                                                                @Resource.BaseClause
+                                                            </th>
+                                                            <th>
+                                                            </th>
+                                                        </tr>
+                                                        <tbody>
+                                                            @foreach (var item in Model.BaseQuestions)
+                                                            {
+                                                                <tr style="background-color:#840D16;color:#FEFCFC;">
+                                                                    <td style="border:none;">
+                                                                        @Html.DisplayFor(modelItem => item.BaseQuestion)
+                                                                    </td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                if (item.Questions != null)
+                                                                {
+                                                                    <tr id="tr+@item.Id" style="background-color:#F9F8F7;color:#840D16;">
+                                                                        <th>
+                                                                            @Resource.Clause
+                                                                        </th>
+                                                                        <th>
+                                                                            @*@Resource.Answer*@
+                                                                        </th>
+                                                                    </tr>
+                                                                    foreach (var question in item.Questions)
+                                                                    {
+                                                                        <tr id="tr+@item.Id" style="background-color:#F9F8F7 !important;" class="bg-white">
+                                                                            <td style="background-color:#F9F8F7 !important;" class="bg-white">
+                                                                                @Html.DisplayFor(modelItem => question.Question)
+                                                                            </td>
+                                                                            <td style="background-color:#F9F8F7 !important;" class="bg-white">
+                                                                                @Html.ValidationMessageFor(modelItem => question.ComplianceLevel, "", new { @class = "text-danger" })
+                                                                                @{
+                                                                                    List<SelectListItem> listAnswers = new List<SelectListItem>();
+                                                                                    foreach (var z in question.ComplianceLevel)
+                                                                                    {
+                                                                                        listAnswers.Add(new SelectListItem
+                                                                                        {
+                                                                                            Text = z.Value,
+                                                                                            Value = z.Id.ToString(),
+                                                                                            Selected = z.Id == question.ComplianceLevelValue
+                                                                                        });
+                                                                                    };
+                                                                                }
+                                                                                @Html.DropDownListFor(modelItem => question.ComplianceLevel, listAnswers, Resource.Answer, new { @class = "form-control" })
+                                                                                @Html.HiddenFor(modelItem => question.ComplianceLevelValue)
+                                                                                @Html.ValidationMessageFor(modelItem => question.ComplianceLevel, "", new { @class = "text-danger" })
+                                                                            </td>
+                                                                        </tr>
+                                                                                    foreach (var attchemnt in question.questionAttachments)
+                                                                                    {
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                @Resource.QuestionAttachments
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a style="color:#840D16" href="@attchemnt.ToAttachmentToString()">@attchemnt.FileName</a>
+                                                                                            </td>
+                                                                                            @*<td>
+                                                                                                    <a href="@attchemnt.ToAttachmentToDelete()">@Resource.DeleteAttachments</a>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <a href="#" class="qsatt" data-toggle="modal" data-target="#AttachmentModal" data-assigned-id="@attchemnt.QuestionId">@Resource.AddQuestionAttachments</a>
+                                                                                                </td>*@
+                                                                                        </tr>
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <button type="submit" class="btn btn-default">@Resource.Save</button>
+                                    <button type="submit" class="btn btn-default">@Resource.SaveAsDraft</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        <div id="tbl" class="row">
+                                                                                            <div class="col-md-6 col-md-offset-3">
+                                                                                                <div class="login">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                    }
+
+            @*@if (Model.BaseQuestions != null)
+                    {
+                    @Html.Partial("~/Views/Shared/Partials/FreeServices/_QuickOnlineAssessmentQuestions.cshtml", Model.BaseQuestions)
+                }
+                @if (Model.Attachments != null)
+                    {
+                    @Html.Partial("~/Views/Shared/Partials/FreeServices/_QuickOnlineAssessmentAttachment.cshtml", Model.Attachments)
+                }*@
+            @*<div id="BaseQuestions">
+                </div>
+                <div class="modal fade login_modal" id="QuestionsModal">
+                    <div style="max-width: 1015px;min-height: 900px;" class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div id="Questions"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade login_modal" id="QuestionsEditModal">
+                    <div style="max-width: 1015px;min-height: 900px;" class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div id="QuestionsEdit"></div>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+    </section>
+                                                                                    }
+<script>
+    $(document).ready(function () {
+        //$('#question_CompianceLevel').on('change', update_progressbar);
+        $('#baseTemplateId').change(function () {
+            var templateId = $('#baseTemplateId').val();
+            var route = '@Url.Action("AddBaseQuestionPartial", "Questionnaire")?TemplateId=' + templateId;
+            $('#BaseQuestions').load(route);
+            @*$.ajax({
+                url: "@Url.Action("AddBaseQuestion", "Questionnaire")" + "?TemplateId=" + templateId,
+                type: "GET",
+            }).done(function (data) {
+                //HideError(data)
+                return true;
+            });*@
+        });
+    });
+
+    //function update_progressbar() {
+    //    debugger;
+    //    var opt1 = parseInt($('option:selected', $('#question_CompianceLevel')).val());
+    //    //var opt2 = parseInt($('option:selected', $('#selectB')).val());
+
+    //    var total = isNaN(opt1) ? 0 : opt1;
+    //    if (!isNaN(opt1)) {
+    //        total += opt1;
+    //    }
+    //    $("#progressBar").prop('value', total)
+    //}
+
+    //$('#selectB').on('change', update_progressbar);
+
+
+</script>
+

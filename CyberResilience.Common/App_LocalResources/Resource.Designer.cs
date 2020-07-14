@@ -215,6 +215,15 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Answer.
+        /// </summary>
+        public static string Answer {
+            get {
+                return ResourceManager.GetString("Answer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Attachment Name.
         /// </summary>
         public static string AttachmentName {
@@ -229,6 +238,15 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string Attachments {
             get {
                 return ResourceManager.GetString("Attachments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Base Clause.
+        /// </summary>
+        public static string BaseClause {
+            get {
+                return ResourceManager.GetString("BaseClause", resourceCulture);
             }
         }
         
@@ -382,6 +400,15 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string CallUs {
             get {
                 return ResourceManager.GetString("CallUs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clause.
+        /// </summary>
+        public static string Clause {
+            get {
+                return ResourceManager.GetString("Clause", resourceCulture);
             }
         }
         
@@ -1175,6 +1202,24 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string Required {
             get {
                 return ResourceManager.GetString("Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save As Draft.
+        /// </summary>
+        public static string SaveAsDraft {
+            get {
+                return ResourceManager.GetString("SaveAsDraft", resourceCulture);
             }
         }
         

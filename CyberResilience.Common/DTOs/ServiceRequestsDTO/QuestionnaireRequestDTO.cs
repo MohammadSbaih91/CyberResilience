@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace CyberResilience.Common.DTOs.ServiceRequestsDTO
 {
-   public class QuestionnaireRequestDTO : ServiceRequestsDTO
+   public class QuestionnaireRequestDTO 
     {
        
 
         public int StandardId { get; set; }
-
-        public string UserId { get; set; }
 
         public int QuestionsDetailsId { get; set; }
 
@@ -21,5 +19,7 @@ namespace CyberResilience.Common.DTOs.ServiceRequestsDTO
         public int ComplianceResultId { get; set; }
 
         public int QuestionnaireTypeId { get; set; }
+
+
     }
 }

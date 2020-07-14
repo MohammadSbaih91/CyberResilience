@@ -604,4 +604,19 @@
   <data name="QuestionAttachments" xml:space="preserve">
     <value>مرفقات الضابط</value>
   </data>
+  <data name="Answer" xml:space="preserve">
+    <value>الإجابة</value>
+  </data>
+  <data name="BaseClause" xml:space="preserve">
+    <value>الضابط الأساسي</value>
+  </data>
+  <data name="Clause" xml:space="preserve">
+    <value>الضابط</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="SaveAsDraft" xml:space="preserve">
+    <value>حفظ كمسودة</value>
+  </data>
 </root>

@@ -8,12 +8,17 @@ namespace CyberResilience.DAL.Entities
 
     public partial class ServiceRequest
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ServiceRequest()
+        {
+            QuestionsAssessmentDetails = new HashSet<QuestionsAssessmentDetail>();
+        }
+
         public int Id { get; set; }
 
         public int ServiceType { get; set; }
 
-        [MaxLength(50)]
-        public byte[] ServiceName { get; set; }
+        public string ServiceName { get; set; }
 
         [Required]
         [StringLength(128)]
@@ -41,8 +46,7 @@ namespace CyberResilience.DAL.Entities
 
         public virtual Lookup Lookup2 { get; set; }
 
-        public virtual ComplianceResult ComplianceResult { get; set; }
-
-        public virtual Questionnaire Questionnaire { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QuestionsAssessmentDetail> QuestionsAssessmentDetails { get; set; }
     }
 }

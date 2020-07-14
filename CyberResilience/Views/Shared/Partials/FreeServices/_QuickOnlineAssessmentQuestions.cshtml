@@ -1,0 +1,137 @@
+﻿@model CyberResilience.Models.FreeServicesViewModel.QuickOnlineAssessmentQuestionsViewModel
+    @using CyberResilience.Common
+    @using CyberResilience.Common.App_LocalResources;
+
+    @using (Html.BeginForm("QuickOnlineAssessment", "FreeServices", new { @class = "form-horizontal", role = "form" }))
+            {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(m => m.BaseQuestionDetailsId)
+        <div class="modal-header" style="word-break: break-word;margin-left:786px;border-bottom: none;">
+            <p class="login_subtext">@Resource.BaseQuestion :  @Model.BaseQuestionAr</p>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" style="padding-top:0px;">
+            @*<div class="logo_modal">
+                    <img style="max-height:80px;max-width: 60px;margin-left:900px;" src="~/assets/img/cyb12.png">
+                </div>*@
+            <form name="myForm" class="login_f">
+                <div class="form-group">
+                    <label>@Resource.QuestionsAr</label>
+                    @Html.EditorFor(m => m.clauseNameAr, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control"@*, @onchange = "validateForm(this);"*@,
+                   @placeholder = Resource.QuestionsAr,
+                   rows = "3"
+               }
+           })
+                    <p id="lbl1" class="text-danger" style="visibility:hidden;">@Resource.Required</p>
+                    <p id="lblar" class="text-danger" style="visibility:hidden;">@Resource.OnlyArabicCharacters</p>
+                    @Html.ValidationMessageFor(m => m.clauseNameAr, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label>@Resource.QuestionsEn</label>
+                    @Html.EditorFor(m => m.clauseNameEn, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control"@*, @onchange = "validateForm(this);"*@,
+                   @placeholder = Resource.QuestionsEn,
+                   rows = "3"
+               }
+           })
+                    <p id="lbl2" class="text-danger" style="visibility:hidden;">@Resource.Required</p>
+                    <p id="lblen" class="text-danger" style="visibility:hidden;">@Resource.OnlyEnglishCharacters</p>
+                    @Html.ValidationMessageFor(m => m.clauseNameEn, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label><input style="margin-top:5px;margin-right:5px" type="checkbox" name="IsMandatory" value="IsMandatory">@Resource.IsMandatory</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="button" id="AddQuestion" onclick="javascript:AddQuestions();" class="btn btn-primary">@Resource.AddQuestions</button>
+                </div>
+            </form>
+        </div>
+    }
+    @*<script>
+            function AddQuestions()
+            {
+
+                var clauseNameAr = $("#clauseNameAr").val();
+                var clauseNameEn = $("#clauseNameEn").val();
+                var BaseQuestionDetailsId = $("#BaseQuestionDetailsId").val();
+                var IsMandatory = $("input[name='IsMandatory']:checked") ? true : false;
+                //if (validateForm() == true) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("AddQuestion", "Questionnaire")',
+                        data: {
+                            clauseNameAr: clauseNameAr,
+                            clauseNameEn: clauseNameEn,
+                            IsMandatory: IsMandatory,
+                            BaseQuestionDetailsId: BaseQuestionDetailsId,
+                        },
+                        success: function (result) {
+                            $("#QuestionsModal").modal("hide");
+                            $('.modal-backdrop').remove();
+                            location.reload();
+                            return true;
+                            //$("#WithdrawRequestGrid").html(result);
+                        },
+                        error: function (result) {
+                            alert('@Resource.Error');
+                        }
+                    })
+                //}
+            }
+            function validateForm()
+            {
+                debugger;
+                var clauseNameAr = $("#clauseNameAr").val();
+                var clauseNameEn = $("#clauseNameEn").val();
+                var arabic = /[\u0600-\u06FF]/;
+                var english = /^[A-Za-z0-9]*$/;
+                if (clauseNameAr == "") {
+                    $("#lbl1").css('visibility', 'visible');
+                    $("#lblar").css('visibility', 'hidden');
+                    $("#lblen").css('visibility', 'hidden');
+                    $("#lbl2").css('visibility', 'hidden');
+                    document.getElementById('AddQuestion').disabled = true;
+                }
+                else if (!clauseNameAr.match(/[\u0600-\u06FF]/)) {
+                    $("#lbl1").css('visibility', 'hidden');
+                    $("#lblar").css('visibility', 'visible');
+                    $("#lblen").css('visibility', 'hidden');
+                    $("#lbl2").css('visibility', 'hidden');
+                    document.getElementById('AddQuestion').disabled = true;
+                }
+                else {
+                    $("#lbl1").css('visibility', 'hidden');
+                    $("#lblar").css('visibility', 'hidden');
+                }
+                if (clauseNameEn == "") {
+                    $("#lbl1").css('visibility', 'hidden');
+                    $("#lblar").css('visibility', 'hidden');
+                    $("#lbl2").css('visibility', 'visible');
+                    $("#lblen").css('visibility', 'hidden');
+                    document.getElementById('AddQuestion').disabled = true;
+                }
+                else if (!clauseNameEn.match(/^[A-Za-z0-9]*$/)) {
+                    $("#lbl2").css('visibility', 'hidden');
+                    $("#lblen").css('visibility', 'visible');
+                    document.getElementById('AddQuestion').disabled = true;
+                }
+                else {
+                    $("#lbl2").css('visibility', 'hidden');
+                    $("#lblen").css('visibility', 'hidden');
+                }
+                if (clauseNameAr != "" && clauseNameEn != "" && clauseNameAr.match(arabic) && clauseNameEn.match(english)) {
+                    document.getElementById('AddQuestion').disabled = false;
+                    return true;
+                }
+            }
+        </script>*@

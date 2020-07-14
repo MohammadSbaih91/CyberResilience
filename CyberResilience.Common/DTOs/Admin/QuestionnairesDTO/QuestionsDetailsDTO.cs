@@ -25,6 +25,8 @@ namespace CyberResilience.Common.DTOs.Admin.QuestionnairesDTO
         public int BaseQuestionDetailsId { get; set; }
         public string BaseQuestionAr { get; set; }
         public string BaseQuestionEn { get; set; }
+        public IEnumerable<CyberResilience.Common.DTOs.LookupsDTO.LookupsDTO> CompianceLevel { get; set; }
+        public IEnumerable<CyberResilience.Common.DTOs.LookupsDTO.LookupsDTO> TemplateTypes { get; set; }
         public List<QuestionAttachmentsDTO> QuestionsAttachments { get; set; }
     }
 }

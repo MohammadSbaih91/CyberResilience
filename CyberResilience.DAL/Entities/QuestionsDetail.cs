@@ -12,6 +12,7 @@ namespace CyberResilience.DAL.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public QuestionsDetail()
         {
+            QuestionsAssessmentDetails = new HashSet<QuestionsAssessmentDetail>();
             QuestionsDetailsAttachments = new HashSet<QuestionsDetailsAttachment>();
         }
 
@@ -42,6 +43,9 @@ namespace CyberResilience.DAL.Entities
         public bool? IsMandatory { get; set; }
 
         public int? BaseQuestionDetailsId { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QuestionsAssessmentDetail> QuestionsAssessmentDetails { get; set; }
 
         public virtual BaseQuestionsDetail BaseQuestionsDetail { get; set; }
 

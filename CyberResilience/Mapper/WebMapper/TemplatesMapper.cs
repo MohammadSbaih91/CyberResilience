@@ -82,8 +82,6 @@ namespace CyberResilience.Mapper.WebMapper
             };
             return templateDto;
         }
-
-
         #endregion
         #region Base Questions Mapper 
         public List<BaseQuestionsViewModel> ConvertBaseQuestionsToWeb(List<BaseQuestionsDetailsDTO> BaseQuestions)
@@ -334,9 +332,6 @@ namespace CyberResilience.Mapper.WebMapper
 
 
         #endregion
-
-
-
         #region Attahcments 
         public List<AttachmentViewModel> ConvertAttachmentsToWeb(List<AttachmentDTO> attachmetnsdto)
         {

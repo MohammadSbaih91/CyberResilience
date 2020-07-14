@@ -58,6 +58,7 @@
     <Compile Include="AdminBLL\TemplateBusinessLogic.cs" />
     <Compile Include="LookupsBusinessLogic\LookupCategoryBusinessLogic.cs" />
     <Compile Include="LookupsBusinessLogic\LookupsBusinessLogic.cs" />
+    <Compile Include="Mapper\ServiceRequestMapper\ServiceRequestMapper.cs" />
     <Compile Include="NotificationsBusinessLogic\NotificationsBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceRequestsBusinessLogic\QuestionnairesBusinessLogic.cs" />

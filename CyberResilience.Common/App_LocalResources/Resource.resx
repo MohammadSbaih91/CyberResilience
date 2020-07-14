@@ -605,4 +605,19 @@ Managing your policies and staying in compliance should be smooth</value>
   <data name="QuestionAttachments" xml:space="preserve">
     <value>Question Attachments</value>
   </data>
+  <data name="Answer" xml:space="preserve">
+    <value>Answer</value>
+  </data>
+  <data name="BaseClause" xml:space="preserve">
+    <value>Base Clause</value>
+  </data>
+  <data name="Clause" xml:space="preserve">
+    <value>Clause</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SaveAsDraft" xml:space="preserve">
+    <value>Save As Draft</value>
+  </data>
 </root>

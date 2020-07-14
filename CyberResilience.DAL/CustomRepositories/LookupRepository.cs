@@ -59,7 +59,7 @@ namespace CyberResilience.DAL.CustomRepositories
                         {
                             Id = look.Id,
                             ValueAr = look.LookupCultures.Where(x => x.LookupID == ID).FirstOrDefault().Value,
-                            ValueEn = look.LookupCultures.Where(x => x.LookupID == ID).FirstOrDefault().Value
+                            ValueEn = look.LookupCultures.Where(x => x.LookupID == ID && x.CultureID==2).FirstOrDefault().Value
                         };
 
             var result = query.FirstOrDefault();
