@@ -92,7 +92,6 @@ namespace CyberResilience.Mapper.WebMapper
 
             return templateUI;
         }
-
         public ServiceRequestsDTO ConvertQuickOnlineAssessmentToBLL(QuickOnlineAssessmentViewModel model)
         {
             ServiceRequestsDTO dto = new ServiceRequestsDTO();
@@ -138,5 +137,31 @@ namespace CyberResilience.Mapper.WebMapper
 
             return dto;
         }
+        public QuickOnlineAssessmentResultViewModel ConvertQuickOnlineAssessmentResultToWeb(QuickOnlineAssessmentResultDTO dto)
+        {
+            QuickOnlineAssessmentResultViewModel model = new QuickOnlineAssessmentResultViewModel();
+            if (dto == null)
+            {
+                return model;
+            }
+            model = new QuickOnlineAssessmentResultViewModel()
+            {
+                CreatedBy=dto.CreatedBy,
+                CreatedDate=dto.CreatedDate,
+                Id=dto.Id,
+                ImplementationPeriodAccurateExpectedTime=dto.ImplementationPeriodAccurateExpectedTime,
+                ImplementationPeriodTime=dto.ImplementationPeriodTime,
+                IsArchived=dto.IsArchived,
+                IsDeleted=dto.IsDeleted,
+                IsUpdated=dto.IsUpdated,
+                QuestionnaireAccurateComplianceResult=dto.QuestionnaireAccurateComplianceResult,
+                QuestionnaireComplianceResult=dto.QuestionnaireComplianceResult,
+            };
+            return model;
+        }
+
+
+
+
     }
 }

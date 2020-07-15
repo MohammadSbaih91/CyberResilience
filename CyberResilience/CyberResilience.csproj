@@ -228,6 +228,7 @@
     <Compile Include="Models\FreeServicesViewModel\QuickOnlineAssessmentAttachmentViewModel.cs" />
     <Compile Include="Models\FreeServicesViewModel\QuickOnlineAssessmentBaseQuestionsViewModel.cs" />
     <Compile Include="Models\FreeServicesViewModel\QuickOnlineAssessmentQuestionsViewModel.cs" />
+    <Compile Include="Models\FreeServicesViewModel\QuickOnlineAssessmentResultViewModel.cs" />
     <Compile Include="Models\FreeServicesViewModel\QuickOnlineAssessmentViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -313,6 +314,7 @@
     <Content Include="assets\vendor\venobox\venobox.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\RadiusChart.css" />
     <Content Include="css\style.arabic.css" />
     <Content Include="css\style.css" />
     <Content Include="favicon.ico" />
@@ -359,6 +361,7 @@
     <Content Include="assets\vendor\jquery\jquery.min.map" />
     <Content Include="assets\vendor\owl.carousel\LICENSE" />
     <Content Include="assets\vendor\owl.carousel\README.md" />
+    <None Include="Properties\PublishProfiles\CyberResilience.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -428,6 +431,7 @@
     <Content Include="Views\FreeServices\QuickOnlineAssessment.cshtml" />
     <Content Include="Views\Shared\Partials\FreeServices\_QuickOnlineAssessmentQuestions.cshtml" />
     <Content Include="Views\Shared\Partials\FreeServices\_QuickOnlineAssessmentAttachment.cshtml" />
+    <Content Include="Views\FreeServices\QuickOnlineAssessmentResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

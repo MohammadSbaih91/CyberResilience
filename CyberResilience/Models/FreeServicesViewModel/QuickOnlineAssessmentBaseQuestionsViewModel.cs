@@ -30,7 +30,6 @@ namespace CyberResilience.Models.FreeServicesViewModel
         public List<QuickOnlineAssessmentQuestionsViewModel> Questions { get; set; }
         public IEnumerable<CyberResilience.Common.DTOs.LookupsDTO.LookupsDTO> TemplateTypes { get; set; }
         public IEnumerable<CyberResilience.Common.DTOs.LookupsDTO.LookupsDTO> TemplateSubTypes { get; set; }
-        public List<QuickOnlineAssessmentBaseQuestionsViewModel> baseTemplates { get; set; }
         public int baseTemplateId { get; set; }
     }
 }

@@ -619,4 +619,13 @@
   <data name="SaveAsDraft" xml:space="preserve">
     <value>حفظ كمسودة</value>
   </data>
+  <data name="ComplianceAssessmentResult" xml:space="preserve">
+    <value>نتائج الإمتثال ( التقييم ) </value>
+  </data>
+  <data name="ImplementationPeriodAccurateExpectedTime" xml:space="preserve">
+    <value>تاريخ انتهاء التنفيذ المتوقع</value>
+  </data>
+  <data name="ImplementationPeriodTime" xml:space="preserve">
+    <value>مدة التنفيذ المتوقعة</value>
+  </data>
 </root>

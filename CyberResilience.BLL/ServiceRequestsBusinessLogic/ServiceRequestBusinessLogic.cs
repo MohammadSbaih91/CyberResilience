@@ -15,7 +15,6 @@ namespace CyberResilience.BLL.ServiceRequestsBusinessLogic
     public class ServiceRequestBusinessLogic
     {
         private ServiceRequestMapper _ServiceRequestMapper;
-
         public ServiceRequestBusinessLogic()
         {
             _ServiceRequestMapper = new ServiceRequestMapper();
@@ -112,6 +111,32 @@ namespace CyberResilience.BLL.ServiceRequestsBusinessLogic
             {
                 return 0;
             }
+        }
+        public QuickOnlineAssessmentResultDTO GetQuickOnlineAssessmentResult(int ServiceRequestId , string UserName)
+        {
+            using (var uow = new UnitOfWork())
+            {
+                try
+                {
+                    var OnlineAssessmentResult = _ServiceRequestMapper.ConvertToQuickOnlineAssessmentResultDTO(uow.ComplianceResult.GetQuickOnlineAssessmentResult(ServiceRequestId,UserName));
+                    if (OnlineAssessmentResult != null)
+                    {
+                        return OnlineAssessmentResult;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ex.Data.Add("GetTemplate", "An error occurred while trying to get  Template Record - BLL");
+                    uow.Rollback();
+                    Tracer.Error(ex);
+                    return null;
+                }
+            }
+
         }
     }
 }

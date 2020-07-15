@@ -122,6 +122,7 @@
     <Compile Include="DTOs\ServiceRequestsDTO\QuestionnaireRequestDTO.cs" />
     <Compile Include="DTOs\ServiceRequestsDTO\QuestionsAssessmentDetailsDTO.cs" />
     <Compile Include="DTOs\ServiceRequestsDTO\QuestionsDetailsDTO.cs" />
+    <Compile Include="DTOs\ServiceRequestsDTO\QuickOnlineAssessmentResultDTO.cs" />
     <Compile Include="DTOs\ServiceRequestsDTO\ServiceRequestsDTO.cs" />
     <Compile Include="DTOs\StandardsDTO\StandardsDTO.cs" />
     <Compile Include="DTOs\UsersDTO\AspNetRoleDTO.cs" />

@@ -84,7 +84,6 @@ namespace CyberResilience.BLL.Mapper.ServiceRequestMapper
 
 
         }
-
         private double CalculateQuestionAssessmentValue(bool IsMandatory, int ComplianceLevelValue)
         {
             double TopValue = (IsMandatory == true) ? 1 : 0.5;
@@ -108,6 +107,24 @@ namespace CyberResilience.BLL.Mapper.ServiceRequestMapper
                     break;
             }
             return value;
+        }
+        public QuickOnlineAssessmentResultDTO ConvertToQuickOnlineAssessmentResultDTO(ComplianceResult entity)
+        {
+            QuickOnlineAssessmentResultDTO dto = new QuickOnlineAssessmentResultDTO();
+            if (entity == null)
+            {
+                return dto;
+            }
+            dto.CreatedBy = entity.CreatedBy;
+            dto.CreatedDate = entity.CreatedDate;
+            dto.Id = entity.Id;
+            dto.ImplementationPeriodAccurateExpectedTime = entity.ImplementationPeriodAccurateExpectedTime;
+            dto.ImplementationPeriodTime = entity.ImplementationPeriodTime;
+            dto.IsArchived = entity.IsArchived;
+            dto.IsDeleted = entity.IsDeleted;
+            dto.IsUpdated = entity.IsUpdated;
+            dto.QuestionnaireAccurateComplianceResult = entity.QuestionnaireComplianceResult;
+            return dto;
         }
     }
 }

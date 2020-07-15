@@ -413,6 +413,15 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Compliance Assessment Result.
+        /// </summary>
+        public static string ComplianceAssessmentResult {
+            get {
+                return ResourceManager.GetString("ComplianceAssessmentResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm Password.
         /// </summary>
         public static string ConfirmPassword {
@@ -824,6 +833,24 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string Home {
             get {
                 return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Implementation Period Accurate Expected Time.
+        /// </summary>
+        public static string ImplementationPeriodAccurateExpectedTime {
+            get {
+                return ResourceManager.GetString("ImplementationPeriodAccurateExpectedTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Implementation Period Time.
+        /// </summary>
+        public static string ImplementationPeriodTime {
+            get {
+                return ResourceManager.GetString("ImplementationPeriodTime", resourceCulture);
             }
         }
         

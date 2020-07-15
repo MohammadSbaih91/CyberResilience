@@ -36,71 +36,78 @@ namespace CyberResilience.Controllers.Services
         [HttpGet]
         public ActionResult QuickOnlineAssessment(int? type, int? subType)
         {
-            QuickOnlineAssessmentViewModel model = new QuickOnlineAssessmentViewModel();
-            //model.TemplateTypes = _LookupCategoryBusinessLogic.GetLookupsByLookupCategoryCode("TemplateType", base.CurrentCulture);
-            //model.TemplateSubTypes = _LookupCategoryBusinessLogic.GetLookupsByLookupCategoryCode("TemplateSubType", base.CurrentCulture);
-            if (type.HasValue)
+            if (!String.IsNullOrEmpty(base.CurrentUserName))
             {
-                switch (type)
+                QuickOnlineAssessmentViewModel model = new QuickOnlineAssessmentViewModel();
+                //model.TemplateTypes = _LookupCategoryBusinessLogic.GetLookupsByLookupCategoryCode("TemplateType", base.CurrentCulture);
+                //model.TemplateSubTypes = _LookupCategoryBusinessLogic.GetLookupsByLookupCategoryCode("TemplateSubType", base.CurrentCulture);
+                #region type checking
+                if (type.HasValue)
                 {
-                    case (int)TemplateTypes.Toolkits:
-                        type = (int)TemplateTypes.Toolkits;
-                        break;
-                    case (int)TemplateTypes.PolicyManagement:
-                        type = (int)TemplateTypes.PolicyManagement;
-                        break;
-                    default:
-                        type = (int)TemplateTypes.Quastionnaire;
-                        break;
+                    switch (type)
+                    {
+                        case (int)TemplateTypes.Toolkits:
+                            type = (int)TemplateTypes.Toolkits;
+                            break;
+                        case (int)TemplateTypes.PolicyManagement:
+                            type = (int)TemplateTypes.PolicyManagement;
+                            break;
+                        default:
+                            type = (int)TemplateTypes.Quastionnaire;
+                            break;
+                    }
                 }
-            }
-            else
-            {
-                type = (int)TemplateTypes.Quastionnaire;
-            }
-            if (subType.HasValue)
-            {
-                switch (subType)
+                else
                 {
-                    case (int)TemplateSubTypes.SAMA:
-                        subType = (int)TemplateSubTypes.SAMA;
-                        break;
-                    case (int)TemplateSubTypes.ISO24:
-                        subType = (int)TemplateSubTypes.ISO24;
-                        break;
-                    case (int)TemplateSubTypes.ECC:
-                        subType = (int)TemplateSubTypes.ECC;
-                        break;
-                    default:
-                        subType = (int)TemplateSubTypes.ISO27;
-                        break;
+                    type = (int)TemplateTypes.Quastionnaire;
                 }
+                if (subType.HasValue)
+                {
+                    switch (subType)
+                    {
+                        case (int)TemplateSubTypes.SAMA:
+                            subType = (int)TemplateSubTypes.SAMA;
+                            break;
+                        case (int)TemplateSubTypes.ISO24:
+                            subType = (int)TemplateSubTypes.ISO24;
+                            break;
+                        case (int)TemplateSubTypes.ECC:
+                            subType = (int)TemplateSubTypes.ECC;
+                            break;
+                        default:
+                            subType = (int)TemplateSubTypes.ISO27;
+                            break;
+                    }
+                }
+                else
+                {
+                    subType = (int)TemplateSubTypes.ISO27;
+                }
+                #endregion
+                model = Mapper.ConvertQuickOnlineAssessmentToWeb(_TemplateBusinessLogic.GetTemplateByType(type.Value, subType.Value));
+                if (base.CurrentCulture == CyberResilience.Common.Enums.Culture.Arabic)
+                {
+                    model.Template = model.TemplateNameAr;
+                    model.Type = _LookupsBusinessLogic.GetLookupByID(type.Value).ValueAr;
+                    model.SubType = _LookupsBusinessLogic.GetLookupByID(subType.Value).ValueAr;
+                }
+                else
+                {
+                    model.Template = model.TemplateNameEn;
+                    model.Type = _LookupsBusinessLogic.GetLookupByID(model.TemplateType).ValueEn;
+                    model.SubType = _LookupsBusinessLogic.GetLookupByID(model.TemplateSubType).ValueEn;
+                }
+                return View(model);
             }
             else
             {
-                subType = (int)TemplateSubTypes.ISO27;
+                return RedirectToAction("Login", "Account");
             }
-            model = Mapper.ConvertQuickOnlineAssessmentToWeb(_TemplateBusinessLogic.GetTemplateByType(type.Value, subType.Value /*, base.CurrentCulture*/));
-            if(base.CurrentCulture== CyberResilience.Common.Enums.Culture.Arabic)
-            {
-                model.Template =model.TemplateNameAr;
-                model.Type = _LookupsBusinessLogic.GetLookupByID(type.Value).ValueAr;
-                model.SubType = _LookupsBusinessLogic.GetLookupByID(subType.Value).ValueAr;
-               
-            }
-            else
-            {
-                model.Template = model.TemplateNameEn;
-                model.Type = _LookupsBusinessLogic.GetLookupByID(model.TemplateType).ValueEn;
-                model.SubType = _LookupsBusinessLogic.GetLookupByID(model.TemplateSubType).ValueEn;
-            }
-         
-
-            return View(model);
         }
         [HttpPost]
         public ActionResult QuickOnlineAssessment(QuickOnlineAssessmentViewModel model)
         {
+            ModelState.Clear();
             model.CreatedBy = base.CurrentUserName;
             model.CreatedDate = DateTime.Now;
             model.ServicePaymentType = (int)PaymentType.FreeService;
@@ -110,12 +117,20 @@ namespace CyberResilience.Controllers.Services
             if (ModelState.IsValid)
             {
             bool IsAdded = _ServiceRequestBusinessLogic.CreateServiceRequest(Mapper.ConvertQuickOnlineAssessmentToBLL(model));
-
             }
-                return View();
+            else
+            {
+                return View(model);
+            }
+                return View(model);
         }
-
-
+        [HttpGet]
+        public ActionResult QuickOnlineAssessmentResult(int ServiceRequestId)
+        {
+            QuickOnlineAssessmentResultViewModel model = new QuickOnlineAssessmentResultViewModel();
+            model= Mapper.ConvertQuickOnlineAssessmentResultToWeb(_ServiceRequestBusinessLogic.GetQuickOnlineAssessmentResult(ServiceRequestId, base.CurrentUserName));
+            return View(model);
+        }
 
     }
 }

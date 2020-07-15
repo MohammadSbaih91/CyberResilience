@@ -620,4 +620,13 @@ Managing your policies and staying in compliance should be smooth</value>
   <data name="SaveAsDraft" xml:space="preserve">
     <value>Save As Draft</value>
   </data>
+  <data name="ComplianceAssessmentResult" xml:space="preserve">
+    <value>Compliance Assessment Result</value>
+  </data>
+  <data name="ImplementationPeriodAccurateExpectedTime" xml:space="preserve">
+    <value>Implementation Period Accurate Expected Time</value>
+  </data>
+  <data name="ImplementationPeriodTime" xml:space="preserve">
+    <value>Implementation Period Time</value>
+  </data>
 </root>

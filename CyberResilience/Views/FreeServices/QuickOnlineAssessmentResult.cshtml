@@ -1,0 +1,64 @@
+﻿@model CyberResilience.Models.FreeServicesViewModel.QuickOnlineAssessmentResultViewModel
+@using CyberResilience.Common
+@using CyberResilience.Common.App_LocalResources;
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/RadiusChart.css" rel="stylesheet" />
+<div class="container py-5">
+    <div class="row">
+        <div class="col-xl-3 col-lg-6 mb-4">
+            <div class="bg-white rounded-lg p-5 shadow">
+                <h2 class="h6 font-weight-bold text-center mb-4">@Resource.ComplianceAssessmentResult</h2>
+                <!-- Progress bar 1 -->
+                <div class="progress mx-auto" data-value='@Model.QuestionnaireAccurateComplianceResult'>
+                    <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+                    </span>
+                    <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+                    </span>
+                    <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                        <div class="h2 font-weight-bold">@Model.QuestionnaireAccurateComplianceResult<sup class="small">%</sup></div>
+                    </div>
+                </div>
+                <!-- END -->
+                <!-- Demo info -->
+                <div class="row text-center mt-4">
+                    <div class="col-6 border-right">
+                        <div class="h4 font-weight-bold mb-0">@Model.ImplementationPeriodTime</div><span class="small text-gray">@Resource.ImplementationPeriodTime</span>
+                    </div>
+                    <div class="col-6">
+                        <div class="h4 font-weight-bold mb-0">@Model.ImplementationPeriodAccurateExpectedTime</div><span class="small text-gray">@Resource.ImplementationPeriodAccurateExpectedTime</span>
+                    </div>
+                </div>
+                <!-- END -->
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $(".progress").each(function ()
+        {
+            var value = $(this).attr('data-value');
+            var left = $(this).find('.progress-left .progress-bar');
+            var right = $(this).find('.progress-right .progress-bar');
+            if (value > 0) {
+                if (value <= 50) {
+                    right.css('transform', 'rotate(' + percentageToDegrees(value) + 'deg)')
+                } else {
+                    right.css('transform', 'rotate(180deg)')
+                    left.css('transform', 'rotate(' + percentageToDegrees(value - 50) + 'deg)')
+                }
+            }
+        })
+        function percentageToDegrees(percentage) {
+
+            return percentage / 100 * 360
+        }
+    });
+</script>
