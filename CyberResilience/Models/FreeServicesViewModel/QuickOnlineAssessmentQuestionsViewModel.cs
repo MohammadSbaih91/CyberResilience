@@ -1,4 +1,5 @@
 ﻿using CyberResilience.Common.App_LocalResources;
+using CyberResilience.Common.DTOs.LookupsDTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,7 +10,14 @@ namespace CyberResilience.Models.FreeServicesViewModel
 {
     public class QuickOnlineAssessmentQuestionsViewModel
     {
+        public QuickOnlineAssessmentQuestionsViewModel()
+        {
+            ComplianceLevel = new List<LookupsDTO>();
+            questionAttachments = new List<QuickOnlineAssessmentAttachmentViewModel>();
+        }
+        public int ComplianceLevelId { get; set; }
         public int Id { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Question { get; set; }
         public string clauseNumberEn { get; set; }
         public string clauseNumberAr { get; set; }
@@ -30,12 +38,11 @@ namespace CyberResilience.Models.FreeServicesViewModel
         public int BaseQuestionDetailsId { get; set; }
         public string QuestionAr { get; set; }
         public string QuestionEn { get; set; }
-
         public string BaseQuestionAr { get; set; }
         public string BaseQuestionEn { get; set; }
-        [Required(ErrorMessageResourceType = typeof(CyberResilience.Common.App_LocalResources.Resource), ErrorMessageResourceName = "Required")]
-        public int ComplianceLevelValue { get; set; }
-        public IEnumerable<Common.DTOs.LookupsDTO.LookupsDTO> ComplianceLevel { get; set; }
+        public List<Common.DTOs.LookupsDTO.LookupsDTO> ComplianceLevel { get; set; }
         public List<QuickOnlineAssessmentAttachmentViewModel> questionAttachments { get; set; }
+
+        
     }
 }

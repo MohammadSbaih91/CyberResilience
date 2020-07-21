@@ -15,6 +15,7 @@ using CyberResilience.Base;
 using System.Web.Security;
 using CyberResilience;
 using static CyberResilience.Common.Enums;
+using System.Web.UI;
 
 namespace CyberResilience.Controllers
 {
@@ -86,6 +87,7 @@ namespace CyberResilience.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
+        [OutputCache(NoStore = true, Duration = 0, Location = OutputCacheLocation.None)]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -117,7 +119,7 @@ namespace CyberResilience.Controllers
                     {
                         return RedirectToAction("Index", "Admin");
                     }
-                    return RedirectToAction("Index", "Admin");
+                    return RedirectToAction("Index", "Platform");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -184,6 +186,7 @@ namespace CyberResilience.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [OutputCache(NoStore = true, Duration = 0, Location = OutputCacheLocation.None)]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)

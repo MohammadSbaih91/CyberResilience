@@ -8,13 +8,25 @@ using System.Web.Mvc;
 namespace CyberResilience.Controllers.Services
 {
     [Authorize(Roles = "RegisteredUser, Employee, Admin")]
-    public class PaidServicsController : BaseController
+    public class PlatformController : BaseController
     {
+        // GET: Platform
         [Authorize(Roles = "RegisteredUser, Employee, Admin")]
-        // GET: PaidServics
         public ActionResult Index()
         {
+
+
+
+
             return View();
         }
+
+
+
+
+
+
+
+
     }
 }

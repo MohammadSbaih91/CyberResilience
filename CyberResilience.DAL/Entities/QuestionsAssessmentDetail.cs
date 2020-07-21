@@ -9,7 +9,6 @@ namespace CyberResilience.DAL.Entities
     [Table("ServiceRequests.QuestionsAssessmentDetails")]
     public partial class QuestionsAssessmentDetail
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         public double QuestionTopAddedValueToAssemssment { get; set; }

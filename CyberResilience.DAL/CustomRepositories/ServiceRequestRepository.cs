@@ -27,7 +27,7 @@ namespace CyberResilience.DAL.CustomRepositories
                     ServicePaymentType = dto.ServicePaymentType,
                     ServiceType = dto.ServiceType,
                     ServiceRequestStatus = dto.ServiceRequestStatus,
-                    UserId = dto.UserID,
+                    UserId =_uow.AspNetUsers.GetUserIdByUserName(dto.UserID),
                 };
                 Create(record);
                 _uow.Save();

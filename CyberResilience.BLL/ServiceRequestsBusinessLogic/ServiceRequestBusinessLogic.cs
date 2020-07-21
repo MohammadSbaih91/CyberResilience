@@ -19,7 +19,7 @@ namespace CyberResilience.BLL.ServiceRequestsBusinessLogic
         {
             _ServiceRequestMapper = new ServiceRequestMapper();
         }
-        public bool CreateServiceRequest(ServiceRequestsDTO dto)
+        public int CreateServiceRequest(ServiceRequestsDTO dto)
         {
             using (var uow = new UnitOfWork())
             {
@@ -48,11 +48,11 @@ namespace CyberResilience.BLL.ServiceRequestsBusinessLogic
                             item.ComplianceResultId = ComplianceResultRecordId;
                         }
                         bool IsAdded = uow.QuestionsAssessmentDetails.AddQuestionsAssessmentDetails(QuestionsAssessmentDetail);
-                        return true;
+                        return ServiceRequestAdded;
                     }
                     else
                     {
-                        return false;
+                        return 0;
                     }
                 }
                 catch (Exception ex)
@@ -60,7 +60,7 @@ namespace CyberResilience.BLL.ServiceRequestsBusinessLogic
                     ex.Data.Add("CreateServiceRequest", "An error occurred while trying to create ServiceRequest Record - BLL");
                     uow.Rollback();
                     Tracer.Error(ex);
-                    return false;
+                    return 0;
                 }
             }
         }

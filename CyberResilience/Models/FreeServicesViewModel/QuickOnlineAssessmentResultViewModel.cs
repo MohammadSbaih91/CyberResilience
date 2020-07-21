@@ -8,7 +8,7 @@ namespace CyberResilience.Models.FreeServicesViewModel
     public class QuickOnlineAssessmentResultViewModel
     {
         public int Id { get; set; }
-        public double QuestionnaireAccurateComplianceResult { get; set; }
+        public int QuestionnaireAccurateComplianceResult { get; set; }
         public int QuestionnaireComplianceResult { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? LastUpdateDate { get; set; }

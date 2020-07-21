@@ -7,9 +7,11 @@ using System.Web.Mvc;
 
 namespace CyberResilience.Area.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : BaseController
     {
         // GET: Admin
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View();

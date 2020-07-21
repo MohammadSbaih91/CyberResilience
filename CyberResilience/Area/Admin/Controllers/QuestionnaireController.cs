@@ -16,6 +16,7 @@ using System.Web.Mvc;
 
 namespace CyberResilience.Area.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class QuestionnaireController : BaseController
     {
         private LookupCategoryBusinessLogic _LookupCategoryBusinessLogic;
@@ -38,6 +39,7 @@ namespace CyberResilience.Area.Admin.Controllers
 
         #region Templates
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult Content(int TemplateId)
         {
 
@@ -58,16 +60,19 @@ namespace CyberResilience.Area.Admin.Controllers
             return View(model);
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View();
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult Templates()
         {
             var templates = mapper.ConvertTemplatesToWeb(_TemplateBusinessLogic.GetAllTemplates());
             return View(templates);
         }
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult CreateTemplate()
         {
@@ -76,6 +81,7 @@ namespace CyberResilience.Area.Admin.Controllers
             model.TemplateSubTypes = _LookupCategoryBusinessLogic.GetLookupsByLookupCategoryCode("TemplateSubType", base.CurrentCulture);
             return View(model);
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult CreateTemplate(BaseTemplateViewModel model)
         {
@@ -111,6 +117,7 @@ namespace CyberResilience.Area.Admin.Controllers
 
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult EditTemplate(int TemplateId)
         {
             var templates = mapper.ConvertTemplateToWeb(_TemplateBusinessLogic.GetTemplate(TemplateId));
@@ -119,6 +126,7 @@ namespace CyberResilience.Area.Admin.Controllers
             return View(templates);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult EditTemplate(BaseTemplateViewModel model)
         {
             if (ModelState.IsValid)
@@ -146,6 +154,7 @@ namespace CyberResilience.Area.Admin.Controllers
             }
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult TemplateDetails(int TemplateId)
         {
             var template = mapper.ConvertTemplateToWeb(_TemplateBusinessLogic.GetTemplate(TemplateId));
@@ -154,6 +163,7 @@ namespace CyberResilience.Area.Admin.Controllers
             return View(template);
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteTemplate(int TemplateId)
         {
             if (TemplateId >= 1)
@@ -177,6 +187,7 @@ namespace CyberResilience.Area.Admin.Controllers
             }
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult AddAttachmentPartial(int TemplateId)
         {
             AttachmentViewModel model = new AttachmentViewModel();
@@ -185,6 +196,7 @@ namespace CyberResilience.Area.Admin.Controllers
             return PartialView("~/Views/Shared/Partials/_Attachment.cshtml", model);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult AddTemplateAttachments(int TemplateId)
         {
             AttachmentViewModel model = new AttachmentViewModel();
@@ -226,6 +238,7 @@ namespace CyberResilience.Area.Admin.Controllers
         #endregion
         #region Sub Elements
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult AddBaseQuestion(int? TemplateId)
         {
             BaseQuestionsViewModel model = new BaseQuestionsViewModel();
@@ -237,6 +250,7 @@ namespace CyberResilience.Area.Admin.Controllers
             return View(model);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult AddBaseQuestion(BaseQuestionsViewModel model)
         {
             model.baseTemplates = mapper.ConvertTemplatesToWeb(_TemplateBusinessLogic.GetTemplatesDropDownData());
@@ -273,6 +287,7 @@ namespace CyberResilience.Area.Admin.Controllers
 
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult EditBaseQuestion(int BaseQuestionId)
         {
             BaseQuestionsViewModel model = new BaseQuestionsViewModel();
@@ -281,6 +296,7 @@ namespace CyberResilience.Area.Admin.Controllers
             return View(model);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult EditBaseQuestion(BaseQuestionsViewModel model)
         {
             model.baseTemplates = mapper.ConvertTemplatesToWeb(_TemplateBusinessLogic.GetTemplatesDropDownData());
@@ -308,6 +324,7 @@ namespace CyberResilience.Area.Admin.Controllers
 
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult BaseQuestionDetails(int BaseQuestionId)
         {
             var baseQuestion = mapper.ConvertBaseQuestionsToWeb(_BaseQuestionsBusinessLogic.GetBaseQuestion(BaseQuestionId));
@@ -316,6 +333,7 @@ namespace CyberResilience.Area.Admin.Controllers
             return View(baseQuestion);
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteBaseQuestion(int BaseQuestionId)
         {
             if (BaseQuestionId >= 1)
@@ -339,6 +357,7 @@ namespace CyberResilience.Area.Admin.Controllers
             }
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult AddBaseQuestionPartial(int? TemplateId)
         {
             List<BaseQuestionsViewModel> model = new List<BaseQuestionsViewModel>();
@@ -351,6 +370,7 @@ namespace CyberResilience.Area.Admin.Controllers
         #endregion
         #region Questions
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult AddQuestion(int BaseQuestionId)
         {
             QuestionsViewModel model = new QuestionsViewModel();
@@ -358,13 +378,14 @@ namespace CyberResilience.Area.Admin.Controllers
             return View(model);
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult AddQuestionPartial(int BaseQuestionId)
         {
             QuestionsViewModel model = new QuestionsViewModel();
             model = mapper.ConvertAddQuestionsToWeb(_BaseQuestionsBusinessLogic.GetBaseQuestion(BaseQuestionId));
             return PartialView("~/Views/Shared/Partials/_Questions.cshtml", model);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult AddQuestionAttachmentPartial(int QuestionId )
         {
@@ -374,6 +395,7 @@ namespace CyberResilience.Area.Admin.Controllers
             return PartialView("~/Views/Shared/Partials/_QuestionAttachment.cshtml", model);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult AddQuestionAttachment(int QuestionId)
         {
             AttachmentViewModel model = new AttachmentViewModel();
@@ -413,6 +435,7 @@ namespace CyberResilience.Area.Admin.Controllers
             }
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult AddQuestion(QuestionsViewModel model)
         {
             if (ModelState.IsValid)
@@ -434,11 +457,13 @@ namespace CyberResilience.Area.Admin.Controllers
             return RedirectToAction("AddBaseQuestion");
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult QuestionDetails(int BaseQuestionId)
         {
             return View();
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult EditQuestion(int QuestionId)
         {
             QuestionsViewModel model = new QuestionsViewModel();
@@ -446,6 +471,7 @@ namespace CyberResilience.Area.Admin.Controllers
             return View(model);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult EditQuestion(QuestionsViewModel model)
         {
 
@@ -468,6 +494,7 @@ namespace CyberResilience.Area.Admin.Controllers
             return RedirectToAction("AddBaseQuestion");
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult EditQuestionPartial(int QuestionId)
         {
             QuestionsViewModel model = new QuestionsViewModel();
@@ -475,6 +502,7 @@ namespace CyberResilience.Area.Admin.Controllers
             return PartialView("~/Views/Shared/Partials/_EditQuestions.cshtml", model);
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteQuestion(int QuestionId)
         {
             bool isDeleted = _QuestionsBusinessLogic.DeleteQuestion(QuestionId);
@@ -490,6 +518,7 @@ namespace CyberResilience.Area.Admin.Controllers
             }
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult BaseQuestionsSubs(int BaseQuestionId)
         {
 
@@ -497,11 +526,13 @@ namespace CyberResilience.Area.Admin.Controllers
         }
         #endregion
         #region Attachment
+        [Authorize(Roles = "Admin")]
         public ActionResult AttachmentsList(int TemplateId)
         {
 
             return View();
         }
+        [Authorize(Roles = "Admin")]
         public ActionResult DownloadAttachment(int Id)
         {
             AttachmentViewModel attachment = new AttachmentViewModel();
@@ -520,6 +551,7 @@ namespace CyberResilience.Area.Admin.Controllers
             }
             return View();
         }
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteAttachment(int Id , int TemplateId)
         {
 
@@ -534,7 +566,7 @@ namespace CyberResilience.Area.Admin.Controllers
             return RedirectToAction("Content", new { TemplateId = TemplateId });
 
         }
-
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteQuestionAttachment(int Id, int TemplateId)
         {
 

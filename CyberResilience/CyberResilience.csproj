@@ -38,9 +38,9 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -218,6 +218,7 @@
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\Services\FreeServicesController.cs" />
     <Compile Include="Controllers\Services\PaidServicsController.cs" />
+    <Compile Include="Controllers\Services\PlatformController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -239,6 +240,9 @@
     <Compile Include="UIHelper\CurrentUserrSessionDataManager.cs" />
     <Compile Include="UIHelper\FrontendSettings.cs" />
     <Compile Include="UIHelper\LanguageSettingsHelper.cs" />
+    <Compile Include="UIHelper\PagedList\IPagedListModel.cs" />
+    <Compile Include="UIHelper\PagedList\PagedListExtensions.cs" />
+    <Compile Include="UIHelper\PagedList\PagedListModel.cs" />
     <Compile Include="UIHelper\ServiceRequestInformationDataManager.cs" />
     <Compile Include="UIHelper\SessionDataManager.cs" />
     <Compile Include="UIHelper\TempDataManager.cs" />
@@ -337,7 +341,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Configs\connections-DEV.Config" />
-    <Content Include="Configs\connections-PROD.Config" />
+    <Content Include="Configs\connections-PROD.Config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="fonts\CoconNextArabic-Light.eot" />
     <Content Include="fonts\CoconNextArabic-Light.otf" />
     <Content Include="fonts\CoconNextArabic-Light.ttf" />
@@ -432,6 +438,11 @@
     <Content Include="Views\Shared\Partials\FreeServices\_QuickOnlineAssessmentQuestions.cshtml" />
     <Content Include="Views\Shared\Partials\FreeServices\_QuickOnlineAssessmentAttachment.cshtml" />
     <Content Include="Views\FreeServices\QuickOnlineAssessmentResult.cshtml" />
+    <Content Include="Views\Shared\Partials\_AssessmentBaseQuestions.cshtml" />
+    <Content Include="Views\Platform\Index.cshtml" />
+    <Content Include="Views\FreeServices\Test.cshtml" />
+    <Content Include="Views\Shared\_Pagination.cshtml" />
+    <Content Include="Views\Shared\_PaginationPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

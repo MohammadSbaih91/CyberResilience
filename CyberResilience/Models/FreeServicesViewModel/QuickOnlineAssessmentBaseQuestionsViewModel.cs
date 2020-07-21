@@ -9,6 +9,10 @@ namespace CyberResilience.Models.FreeServicesViewModel
 {
     public class QuickOnlineAssessmentBaseQuestionsViewModel
     {
+        public QuickOnlineAssessmentBaseQuestionsViewModel()
+        {
+            Questions = new List<QuickOnlineAssessmentQuestionsViewModel>();
+        }
         public int Id { get; set; }
         [Required(ErrorMessageResourceType = typeof(CyberResilience.Common.App_LocalResources.Resource), ErrorMessageResourceName = "Required")]
         //[RegularExpression("^[0-9 _\u0621-\u064A]+$", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "OnlyArabicCharacters")]
@@ -16,6 +20,7 @@ namespace CyberResilience.Models.FreeServicesViewModel
         [Required(ErrorMessageResourceType = typeof(CyberResilience.Common.App_LocalResources.Resource), ErrorMessageResourceName = "Required")]
         //[RegularExpression("^[0-9A-Za-z ]+$", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "OnlyEnglishCharacters")]
         public string BaseQuestionNameEn { get; set; }
+        [DataType(DataType.MultilineText)]
         public string BaseQuestion { get; set; }
         public string BaseClauseNumberEn { get; set; }
         public string BaseClauseNumberAr { get; set; }

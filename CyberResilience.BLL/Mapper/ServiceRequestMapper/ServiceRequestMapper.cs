@@ -52,6 +52,7 @@ namespace CyberResilience.BLL.Mapper.ServiceRequestMapper
             entity.ServiceRequestStatus = dto.ServiceRequestStatus;
             entity.ServiceType = dto.ServiceType;
             entity.UserId = dto.UserID;
+            entity.Id = dto.Id;
 
             return entity;
             //entity.QuestionsAssessmentDetails = ConvertBaseQuestionsDetailsDTOToDAL(dto.BaseQuestions);
@@ -115,6 +116,7 @@ namespace CyberResilience.BLL.Mapper.ServiceRequestMapper
             {
                 return dto;
             }
+            dto.QuestionnaireAccurateComplianceResult = entity.QuestionnaireAccurateComplianceResult;
             dto.CreatedBy = entity.CreatedBy;
             dto.CreatedDate = entity.CreatedDate;
             dto.Id = entity.Id;
@@ -123,7 +125,7 @@ namespace CyberResilience.BLL.Mapper.ServiceRequestMapper
             dto.IsArchived = entity.IsArchived;
             dto.IsDeleted = entity.IsDeleted;
             dto.IsUpdated = entity.IsUpdated;
-            dto.QuestionnaireAccurateComplianceResult = entity.QuestionnaireComplianceResult;
+            dto.QuestionnaireComplianceResult =Convert.ToInt32(entity.QuestionnaireAccurateComplianceResult);
             return dto;
         }
     }

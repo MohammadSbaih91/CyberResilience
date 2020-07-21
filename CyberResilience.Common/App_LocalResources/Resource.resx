@@ -629,4 +629,31 @@ Managing your policies and staying in compliance should be smooth</value>
   <data name="ImplementationPeriodTime" xml:space="preserve">
     <value>Implementation Period Time</value>
   </data>
+  <data name="months" xml:space="preserve">
+    <value>months</value>
+  </data>
+  <data name="ConsultationServiceRequest" xml:space="preserve">
+    <value>Consultation Service Request</value>
+  </data>
+  <data name="WelcomeUser" xml:space="preserve">
+    <value>Welcome Mr</value>
+  </data>
+  <data name="GetResults" xml:space="preserve">
+    <value>Get Results</value>
+  </data>
+  <data name="FirstPage" xml:space="preserve">
+    <value>First Page</value>
+  </data>
+  <data name="LastPage" xml:space="preserve">
+    <value>Last Page</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>Next Page</value>
+  </data>
+  <data name="PreviousPage" xml:space="preserve">
+    <value>Previous Page</value>
+  </data>
+  <data name="TotalPages" xml:space="preserve">
+    <value>Total Pages</value>
+  </data>
 </root>

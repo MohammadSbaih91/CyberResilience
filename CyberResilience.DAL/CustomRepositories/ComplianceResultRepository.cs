@@ -33,21 +33,20 @@ namespace CyberResilience.DAL.CustomRepositories
         {
             try
             {
-                var record = GetQuerable(x => x.ServiceRequestId == ServiceRequestId).Select(u => new ComplianceResult()
-                {
-                    CreatedBy=u.CreatedBy,
-                    ServiceRequestId=u.ServiceRequestId,
-                    CreatedDate=u.CreatedDate,
-                    ImplementationPeriodAccurateExpectedTime=u.ImplementationPeriodAccurateExpectedTime,
-                    Id=u.Id,
-                    ImplementationPeriodTime=u.ImplementationPeriodTime,
-                    IsArchived=u.IsArchived,
-                    IsDeleted=u.IsDeleted,
-                    IsUpdated=u.IsUpdated,
-                    QuestionnaireAccurateComplianceResult=u.QuestionnaireAccurateComplianceResult,
-                    QuestionnaireComplianceResult=u.QuestionnaireComplianceResult,
-                    QuestionsAssessmentDetails=u.QuestionsAssessmentDetails
-                }).FirstOrDefault();
+                //string UserId = _uow.AspNetUsers.GetUserIdByUserName(UserName);
+                var record = GetQuerable(x => x.ServiceRequestId == ServiceRequestId && x.CreatedBy == UserName).FirstOrDefault();
+
+                record.CreatedBy = record.CreatedBy;
+                record.ServiceRequestId = record.ServiceRequestId;
+                record.CreatedDate = record.CreatedDate;
+                record.ImplementationPeriodAccurateExpectedTime = record.ImplementationPeriodAccurateExpectedTime;
+                record.Id = record.Id;
+                record.ImplementationPeriodTime = record.ImplementationPeriodTime;
+                record.IsArchived = record.IsArchived;
+                record.IsDeleted = record.IsDeleted;
+                record.IsUpdated = record.IsUpdated;
+                record.QuestionnaireAccurateComplianceResult = record.QuestionnaireAccurateComplianceResult;
+                record.QuestionsAssessmentDetails = record.QuestionsAssessmentDetails;
 
                 return record;
             }

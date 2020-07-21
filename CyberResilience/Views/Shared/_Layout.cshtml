@@ -64,6 +64,24 @@
     <link href="~/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
     <!-- Template Main CSS File -->
+    @{
+        var doDisable = false;
+        if (User == null || User.Identity == null)
+        {
+            ViewBag.UserName = "";
+        }
+
+        if (User != null && User.Identity != null)
+        {
+
+            ViewBag.UserName = User.Identity.Name;
+            doDisable = true;
+        }
+
+    }
+
+
+
     @if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToLower().Contains(Constants.Languages.Arabic.ToLower()))
     {
         <link href="~/css/style.arabic.css" rel="stylesheet">
@@ -95,10 +113,18 @@
                     <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
                     <a href="#" class="skype"><i class="icofont-skype"></i></a>
                     <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
-                    <a href="@Url.Action("LogOff","Account")" class="linkedin"><i class="icofont-logout"></i></a>
-                    <a href="@Url.Action("Login","Account")" class="linkedin"><i class="icofont-login"></i></a>
-                    <a href="@Url.Action("Register","Account")" class="linkedin"><i class="icofont-business-man-alt-1"></i></a>
-                    <a href='@Url.Action(ViewContext.RouteData.Values["action"].ToString(), new { lang = "en" })?@rawQueryString'><i class="circle-btn lang-changer">EN</i></a>
+                    @if (@ViewBag.UserName != null && !String.IsNullOrEmpty(@ViewBag.UserName))
+                    {
+                        <a href="@Url.Action("LogOut","Account")" class="linkedin"><i class="icofont-exit"></i></a>
+                        <a href="@Url.Action("Register","Account")" class="linkedin"> @ViewBag.UserName @Resource.WelcomeUser</a>
+                        <a href='@Url.Action(ViewContext.RouteData.Values["action"].ToString(), new { lang = "en" })?@rawQueryString'><i class="circle-btn lang-changer">EN</i></a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Login","Account")" class="linkedin"><i class="icofont-login"></i></a>
+                        <a href="@Url.Action("Register","Account")" class="linkedin"><i class="icofont-business-man-alt-1"></i></a>
+                        <a href='@Url.Action(ViewContext.RouteData.Values["action"].ToString(), new { lang = "en" })?@rawQueryString'><i class="circle-btn lang-changer">EN</i></a>
+                    }
                 </div>
             </div>
         </div>
@@ -109,14 +135,23 @@
         <div id="topbarlayout" class="d-none d-lg-flex align-items-center fixed-top ">
             <div class="container d-flex">
                 <div class="social-links">
-                    <a href='@Url.Action(ViewContext.RouteData.Values["action"].ToString(), new { lang = "ar" })?@rawQueryString'><i class="circle-btn lang-changer">AR</i></a>
+                    @if (@ViewBag.UserName != null && !String.IsNullOrEmpty(@ViewBag.UserName))
+                    {
+                        <a href='@Url.Action(ViewContext.RouteData.Values["action"].ToString(), new { lang = "ar" })?@rawQueryString'><i class="circle-btn lang-changer">AR</i></a>
+                        <a href="@Url.Action("Register","Account")" class="linkedin"> @Resource.WelcomeUser @ViewBag.UserName </a>
+                        <a href="@Url.Action("LogOff","Account")" class="linkedin"><i class="icofont-logout"></i></a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Login","Account")" class="linkedin"><i class="icofont-login"></i></a>
+                        <a href="@Url.Action("Register","Account")" class="linkedin"><i class="icofont-business-man-alt-1"></i></a>
+                        <a href='@Url.Action(ViewContext.RouteData.Values["action"].ToString(), new { lang = "ar" })?@rawQueryString'><i class="circle-btn lang-changer">AR</i></a>
+                    }
                     <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
                     <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
                     <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
                     <a href="#" class="skype"><i class="icofont-skype"></i></a>
                     <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
-                    <a href="@Url.Action("Login","Account")" class="linkedin"><i class="icofont-login"></i></a>
-                    <a href="@Url.Action("Register","Account")" class="linkedin"><i class="icofont-business-man-alt-1"></i></a>
                 </div>
                 <div class="contact-info mr-auto">
                     <i class="icofont-envelope"></i> <a href="mailto:contact@example.com"> contact@example.com </a>

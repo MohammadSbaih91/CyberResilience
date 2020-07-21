@@ -20,5 +20,8 @@ namespace CyberResilience.Common.DTOs.ServiceRequestsDTO
         public bool? IsUpdated { get; set; }
         public int? ImplementationPeriodTime { get; set; }
         public DateTime? ImplementationPeriodAccurateExpectedTime { get; set; }
+
+
+       
     }
 }

@@ -431,6 +431,15 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Consultation Service Request.
+        /// </summary>
+        public static string ConsultationServiceRequest {
+            get {
+                return ResourceManager.GetString("ConsultationServiceRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact.
         /// </summary>
         public static string Contact {
@@ -638,6 +647,15 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to First Page.
+        /// </summary>
+        public static string FirstPage {
+            get {
+                return ResourceManager.GetString("FirstPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Services 1.
         /// </summary>
         public static string Foot1 {
@@ -810,6 +828,15 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Get Results.
+        /// </summary>
+        public static string GetResults {
+            get {
+                return ResourceManager.GetString("GetResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Get Started.
         /// </summary>
         public static string GetStarted {
@@ -860,6 +887,15 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string IsMandatory {
             get {
                 return ResourceManager.GetString("IsMandatory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Page.
+        /// </summary>
+        public static string LastPage {
+            get {
+                return ResourceManager.GetString("LastPage", resourceCulture);
             }
         }
         
@@ -923,6 +959,24 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string month {
             get {
                 return ResourceManager.GetString("month", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to months.
+        /// </summary>
+        public static string months {
+            get {
+                return ResourceManager.GetString("months", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next Page.
+        /// </summary>
+        public static string NextPage {
+            get {
+                return ResourceManager.GetString("NextPage", resourceCulture);
             }
         }
         
@@ -1130,6 +1184,15 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string Portfolio {
             get {
                 return ResourceManager.GetString("Portfolio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Previous Page.
+        /// </summary>
+        public static string PreviousPage {
+            get {
+                return ResourceManager.GetString("PreviousPage", resourceCulture);
             }
         }
         
@@ -1494,6 +1557,15 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Total Pages.
+        /// </summary>
+        public static string TotalPages {
+            get {
+                return ResourceManager.GetString("TotalPages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update Questionnaire Failed.
         /// </summary>
         public static string UpdateQuestionnaireFailed {
@@ -1553,6 +1625,15 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string Welcome {
             get {
                 return ResourceManager.GetString("Welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome Mr.
+        /// </summary>
+        public static string WelcomeUser {
+            get {
+                return ResourceManager.GetString("WelcomeUser", resourceCulture);
             }
         }
         

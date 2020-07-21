@@ -15,12 +15,9 @@ namespace CyberResilience.DAL.Entities
             QuestionsAssessmentDetails = new HashSet<QuestionsAssessmentDetail>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         public double QuestionnaireAccurateComplianceResult { get; set; }
-
-        public int QuestionnaireComplianceResult { get; set; }
 
         public DateTime? CreatedDate { get; set; }
 

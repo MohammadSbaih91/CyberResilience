@@ -13,6 +13,10 @@
   position: relative;
 }
 
+.border-right {
+     border-right:none; 
+}
+
 .progress::after {
   content: "";
   width: 100%;
@@ -83,12 +87,30 @@
 *
 */
 
-body {
+/*body {
   background: #ff7e5f;
   background: -webkit-linear-gradient(to right, #ff7e5f, #feb47b);
   background: linear-gradient(to right, #ff7e5f, #feb47b);
   min-height: 100vh;
+}*/
+/*.mr-auto, .mx-auto {
+     margin-right: auto!important; 
+}*/
+
+    .border-primary {
+    border-color: #cc1616!important;
 }
+    .p-5 {
+    padding: 15rem!important;
+}
+    .bg-white {
+    background-color: initial;
+}
+ 
+    .mt-4, .my-4 {
+    margin-top: 3.5rem!important;
+}
+
 
 .rounded-lg {
   border-radius: 1rem;

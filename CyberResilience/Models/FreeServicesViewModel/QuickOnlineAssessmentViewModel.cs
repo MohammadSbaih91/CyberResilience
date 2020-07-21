@@ -9,10 +9,14 @@ namespace CyberResilience.Models.FreeServicesViewModel
 {
     public class QuickOnlineAssessmentViewModel
     {
+        public QuickOnlineAssessmentViewModel()
+        {
+            BaseQuestions = new List<QuickOnlineAssessmentBaseQuestionsViewModel>();
+            Attachments = new List<QuickOnlineAssessmentAttachmentViewModel>();
+        }
         public string Template { get; set; }
         public string Type { get; set; }
         public string SubType { get; set; }
-      
         public int Id { get; set; }
         //[Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "Required", ErrorMessage = null)]
         //[RegularExpression("^[0-9 _\u0621-\u064A]+$", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "OnlyArabicCharacters")]

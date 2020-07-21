@@ -628,4 +628,31 @@
   <data name="ImplementationPeriodTime" xml:space="preserve">
     <value>مدة التنفيذ المتوقعة</value>
   </data>
+  <data name="months" xml:space="preserve">
+    <value>أشهر</value>
+  </data>
+  <data name="ConsultationServiceRequest" xml:space="preserve">
+    <value>طلب الخدمات من فريق الأمن السيبراني</value>
+  </data>
+  <data name="WelcomeUser" xml:space="preserve">
+    <value>أهلا بك سيد</value>
+  </data>
+  <data name="GetResults" xml:space="preserve">
+    <value>ظهار النتائج</value>
+  </data>
+  <data name="FirstPage" xml:space="preserve">
+    <value>الصفحة الأولى</value>
+  </data>
+  <data name="LastPage" xml:space="preserve">
+    <value>الصفحة الاخيرة</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>الصفحة التالية</value>
+  </data>
+  <data name="PreviousPage" xml:space="preserve">
+    <value>الصفحة السابقة</value>
+  </data>
+  <data name="TotalPages" xml:space="preserve">
+    <value>مجموع الصفحات</value>
+  </data>
 </root>

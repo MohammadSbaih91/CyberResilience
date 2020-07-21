@@ -7,10 +7,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using static CyberResilience.Common.Enums;
 
 namespace CyberResilience.Mapper.WebMapper
 {
-    public class FreeServicesMapper: BaseController
+    public class FreeServicesMapper
     {
         private LookupCategoryBusinessLogic _LookupCategoryBusinessLogic;
 
@@ -18,7 +19,7 @@ namespace CyberResilience.Mapper.WebMapper
         {
             _LookupCategoryBusinessLogic = new LookupCategoryBusinessLogic();
         }
-        public QuickOnlineAssessmentViewModel ConvertQuickOnlineAssessmentToWeb(TemplateDTO template)
+        public QuickOnlineAssessmentViewModel ConvertQuickOnlineAssessmentToWeb(TemplateDTO template , Culture cul)
         {
             QuickOnlineAssessmentViewModel templateUI = new QuickOnlineAssessmentViewModel();
             if (template == null)
@@ -32,8 +33,8 @@ namespace CyberResilience.Mapper.WebMapper
                 TemplateNameEn = template.TemplateNameEn,
                 TemplateSubType = template.TemplateSubType,
                 TemplateType = template.TemplateType,
-                TemplateTypes= _LookupCategoryBusinessLogic.GetLookupsByLookupCategoryCode("TemplateType", base.CurrentCulture),
-                TemplateSubTypes= _LookupCategoryBusinessLogic.GetLookupsByLookupCategoryCode("TemplateSubType", base.CurrentCulture),
+                TemplateTypes= _LookupCategoryBusinessLogic.GetLookupsByLookupCategoryCode("TemplateType", cul),
+                TemplateSubTypes= _LookupCategoryBusinessLogic.GetLookupsByLookupCategoryCode("TemplateSubType", cul),
                 IsEmptyQuestions = template.WithNoQuestions,
                 IsEmptyAttachments = template.WithNoAttachments,
                 BaseQuestions = (from e in template.baseQuestions.Where(u => u.Id >= 0)
@@ -49,7 +50,7 @@ namespace CyberResilience.Mapper.WebMapper
                                                  BaseClauseNumberEn = e.BaseQuestionNumberEn,
                                                  BaseClauseSystemNumber = e.clauseSystemNumber,
                                                  CreatedBy = e.CreatedBy,
-                                                 BaseQuestion=(base.CurrentCulture== CyberResilience.Common.Enums.Culture.Arabic) ? e.BaseQuestionNameAr :e.BaseQuestionNameEn,
+                                                 BaseQuestion=(cul == CyberResilience.Common.Enums.Culture.Arabic) ? e.BaseQuestionNameAr :e.BaseQuestionNameEn,
                                                  CreatedDate = e.CreatedDate,
                                                  IsMandatory = e.IsMandatory.HasValue ? e.IsMandatory.Value : false,
                                                  Questions = (from t in e.questions.Where(u => u.Id > 0)
@@ -57,7 +58,7 @@ namespace CyberResilience.Mapper.WebMapper
                                                                         {
 
                                                                             BaseQuestionDetailsId = e.Id,
-                                                                            Question= (base.CurrentCulture == CyberResilience.Common.Enums.Culture.Arabic) ? t.NameAr : t.NameEn,
+                                                                            Question= (cul == CyberResilience.Common.Enums.Culture.Arabic) ? t.NameAr : t.NameEn,
                                                                             clauseNameAr = t.NameAr,
                                                                             Id = t.Id,
                                                                             clauseNameEn = t.NameEn,
@@ -68,7 +69,7 @@ namespace CyberResilience.Mapper.WebMapper
                                                                             clauseSystemNumber = t.clauseSystemNumber,
                                                                             CreatedBy = t.CreatedBy,
                                                                             CreatedDate = t.CreatedDate,
-                                                                            ComplianceLevel= _LookupCategoryBusinessLogic.GetLookupsByLookupCategoryCode("ComplianceLevel", base.CurrentCulture),
+                                                                            ComplianceLevel= _LookupCategoryBusinessLogic.GetLookupsByLookupCategoryCode("ComplianceLevel", cul).ToList(),
                                                                             IsMandatory = t.IsMandatory.HasValue ? e.IsMandatory.Value : false,
                                                                             questionAttachments = (from r in t.QuestionsAttachments.Where(u => u.Id > 0)
                                                                                                    select new QuickOnlineAssessmentAttachmentViewModel()
@@ -108,6 +109,7 @@ namespace CyberResilience.Mapper.WebMapper
                 ServiceRequestStatus=model.ServiceRequestStatus,
                 ServiceType=model.ServiceType,
                 UserID=model.UserName,
+                Id=model.Id,
                 BaseQuestions=(from e in model.BaseQuestions.Where(x=>x.Id>0)
                                select new BaseQuestionsDetailsDTO()
                                {
@@ -116,6 +118,7 @@ namespace CyberResilience.Mapper.WebMapper
                                    BaseQuestionNumberAr=e.BaseClauseNumberAr,
                                    BaseQuestionNumberEn=e.BaseClauseNumberEn,
                                    baseTemplateId=e.baseTemplateId,
+                                   Id=e.Id,
                                    clauseSystemNumber=e.BaseClauseSystemNumber,
                                    CreatedBy=model.UserName,
                                    CreatedDate=DateTime.Now,
@@ -123,6 +126,7 @@ namespace CyberResilience.Mapper.WebMapper
                                    questions=(from r in e.Questions.Where(x=>x.Id>0)
                                               select new QuestionsDetailsDTO()
                                               {
+                                                  Id=r.Id,
                                                  CreatedBy=model.UserName,
                                                  CreatedDate=DateTime.Now,
                                                  IsMandatory=r.IsMandatory,
@@ -130,7 +134,7 @@ namespace CyberResilience.Mapper.WebMapper
                                                  NameEn=r.QuestionEn,
                                                  NumberAr=r.clauseNumberAr,
                                                  NumberEn=r.clauseNumberEn,
-                                                 ComplianceLevelValue=r.ComplianceLevelValue,
+                                                 ComplianceLevelValue=Convert.ToInt32(r.ComplianceLevelId),
                                               }).Distinct().ToList(),
                                }).Distinct().ToList(),
             };
@@ -154,7 +158,7 @@ namespace CyberResilience.Mapper.WebMapper
                 IsArchived=dto.IsArchived,
                 IsDeleted=dto.IsDeleted,
                 IsUpdated=dto.IsUpdated,
-                QuestionnaireAccurateComplianceResult=dto.QuestionnaireAccurateComplianceResult,
+                QuestionnaireAccurateComplianceResult=Convert.ToInt32(dto.QuestionnaireAccurateComplianceResult),
                 QuestionnaireComplianceResult=dto.QuestionnaireComplianceResult,
             };
             return model;

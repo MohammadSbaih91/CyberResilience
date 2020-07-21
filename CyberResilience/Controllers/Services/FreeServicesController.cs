@@ -2,6 +2,7 @@
 using CyberResilience.BLL.AdminBLL;
 using CyberResilience.BLL.LookupsBusinessLogic;
 using CyberResilience.BLL.ServiceRequestsBusinessLogic;
+using CyberResilience.Common.DTOs.ServiceRequestsDTO;
 using CyberResilience.Mapper.WebMapper;
 using CyberResilience.Models.FreeServicesViewModel;
 using System;
@@ -13,26 +14,29 @@ using static CyberResilience.Common.Enums;
 
 namespace CyberResilience.Controllers.Services
 {
+    [Authorize(Roles = "RegisteredUser, Employee, Admin")]
     public class FreeServicesController : BaseController
     {
         private LookupCategoryBusinessLogic _LookupCategoryBusinessLogic;
         private LookupsBusinessLogic _LookupsBusinessLogic;
         private ServiceRequestBusinessLogic _ServiceRequestBusinessLogic;
         private TemplateBusinessLogic _TemplateBusinessLogic;
-        private FreeServicesMapper Mapper;
+        private FreeServicesMapper mapper;
         public FreeServicesController()
         {
             _LookupCategoryBusinessLogic = new LookupCategoryBusinessLogic();
             _LookupsBusinessLogic = new LookupsBusinessLogic();
             _ServiceRequestBusinessLogic = new ServiceRequestBusinessLogic();
             _TemplateBusinessLogic = new TemplateBusinessLogic();
-            Mapper = new FreeServicesMapper();
+            mapper = new FreeServicesMapper();
         }
         // GET: FreeServices
+        [Authorize(Roles = "RegisteredUser, Employee, Admin")]
         public ActionResult Index()
         {
             return View();
         }
+        [Authorize(Roles = "RegisteredUser, Employee, Admin")]
         [HttpGet]
         public ActionResult QuickOnlineAssessment(int? type, int? subType)
         {
@@ -84,7 +88,15 @@ namespace CyberResilience.Controllers.Services
                     subType = (int)TemplateSubTypes.ISO27;
                 }
                 #endregion
-                model = Mapper.ConvertQuickOnlineAssessmentToWeb(_TemplateBusinessLogic.GetTemplateByType(type.Value, subType.Value));
+                model = mapper.ConvertQuickOnlineAssessmentToWeb(_TemplateBusinessLogic.GetTemplateByType(type.Value, subType.Value), base.CurrentCulture);
+                //List<SelectListItem> items = new List<SelectListItem>();
+                //var s = _LookupCategoryBusinessLogic.GetLookupsByLookupCategoryCode("ComplianceLevel", base.CurrentCulture);
+                //foreach (var item in s)
+                //{
+                //    items.Add(new SelectListItem { Text = item.Value, Value = item.Id.ToString() });
+                //}
+                //ViewBag.ComplianceLevel = items;
+
                 if (base.CurrentCulture == CyberResilience.Common.Enums.Culture.Arabic)
                 {
                     model.Template = model.TemplateNameAr;
@@ -104,9 +116,11 @@ namespace CyberResilience.Controllers.Services
                 return RedirectToAction("Login", "Account");
             }
         }
+        [Authorize(Roles = "RegisteredUser, Employee, Admin")]
         [HttpPost]
         public ActionResult QuickOnlineAssessment(QuickOnlineAssessmentViewModel model)
         {
+
             ModelState.Clear();
             model.CreatedBy = base.CurrentUserName;
             model.CreatedDate = DateTime.Now;
@@ -114,22 +128,25 @@ namespace CyberResilience.Controllers.Services
             model.ServiceType = (int)ServiceType.QuastionnaireISO27001;
             model.ServiceRequestStatus = (int)ServiceRequestStatus.New;
             model.UserName = base.CurrentUserName;
-            if (ModelState.IsValid)
-            {
-            bool IsAdded = _ServiceRequestBusinessLogic.CreateServiceRequest(Mapper.ConvertQuickOnlineAssessmentToBLL(model));
-            }
-            else
-            {
-                return View(model);
-            }
-                return View(model);
+
+            ServiceRequestsDTO dto = mapper.ConvertQuickOnlineAssessmentToBLL(model);
+            int IsAdded = _ServiceRequestBusinessLogic.CreateServiceRequest(dto);
+            return RedirectToAction("QuickOnlineAssessmentResult", new { ServiceRequestId = IsAdded });
         }
+        [Authorize(Roles = "RegisteredUser, Employee, Admin")]
         [HttpGet]
         public ActionResult QuickOnlineAssessmentResult(int ServiceRequestId)
         {
             QuickOnlineAssessmentResultViewModel model = new QuickOnlineAssessmentResultViewModel();
-            model= Mapper.ConvertQuickOnlineAssessmentResultToWeb(_ServiceRequestBusinessLogic.GetQuickOnlineAssessmentResult(ServiceRequestId, base.CurrentUserName));
+            var dto = _ServiceRequestBusinessLogic.GetQuickOnlineAssessmentResult(ServiceRequestId, base.CurrentUserName);
+            model = mapper.ConvertQuickOnlineAssessmentResultToWeb(dto);
             return View(model);
+        }
+        [Authorize(Roles = "RegisteredUser, Employee, Admin")]
+        [HttpGet]
+        public ActionResult Test()
+        {
+            return View();
         }
 
     }
