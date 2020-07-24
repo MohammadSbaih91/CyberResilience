@@ -10,17 +10,22 @@ namespace CyberResilience.Common
     {
         public enum ComplianceLevel
         {
-            NotUnderstanding=15,
-            NotExist=16,
-            ExistInPractice=17,
-            ExistAndImplemntingWithoutAuditing=18,
-            StrictlyComplyWithStandard=19
+            NotUnderstanding = 15,
+            NotExist = 16,
+            ExistInPractice = 17,
+            ExistAndImplemntingWithoutAuditing = 18,
+            StrictlyComplyWithStandard = 19
         }
-
+        public enum ServicePaymentType
+        {
+            Free = 38,
+            Business = 39,
+            Premium = 40
+        }
         public enum AssessmentValuesWeight
         {
-            MandatoryWeight=33,
-            RecomendedWeight=34,
+            MandatoryWeight = 33,
+            RecomendedWeight = 34,
         }
         public enum PaymentType
         {
@@ -32,28 +37,40 @@ namespace CyberResilience.Common
         {
             QuastionnaireISO27001 = 24,
             QuastionnaireISO24001 = 25,
-            QuastionnaireECC = 25,
-            QuastionnaireSAMA=26
+            QuastionnaireECC = 26,
+            QuastionnaireSAMA = 27,
+            PolicyManagementISO27001 = 46,
+            PolicyManagementISO24001 = 47,
+            PolicyManagementECC = 48,
+            PolicyManagementSAMA = 49,
+            ToolkitISO27001 = 50,
+            ToolkitISO24001 = 51,
+            ToolkitECC = 52,
+            ToolkitSAMA = 53
         }
         public enum ServiceRequestStatus
         {
             New = 29,
             UnderProccessing = 30,
             WaitingPayment = 31,
-            Finished = 32
+            Finished = 32,
+            Archived = 35,
+            Active = 36,
+            Deleted = 37
+
         }
         public enum TemplateTypes
         {
-            Quastionnaire=7,
-            Toolkits=8,
-            PolicyManagement=9
+            Quastionnaire = 7,
+            Toolkits = 8,
+            PolicyManagement = 9
         }
         public enum TemplateSubTypes
         {
-            ISO27=10,
-            ISO24=12,
-            ECC=13,
-            SAMA=14
+            ISO27 = 10,
+            ISO24 = 12,
+            ECC = 13,
+            SAMA = 14
         }
         public enum CommunicationType
         {

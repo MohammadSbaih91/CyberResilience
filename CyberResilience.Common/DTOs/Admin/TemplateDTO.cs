@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace CyberResilience.Common.DTOs.Admin
 {
-   public class TemplateDTO
+    public class TemplateDTO
     {
 
         public int Id { get; set; }
+        public string ServiceRequestName { get; set; }
+        public string ServiceRequestNameCode { get; set; }
         public string TemplateNameAr { get; set; }
         public string TemplateNameEn { get; set; }
         public int TemplateType { get; set; }

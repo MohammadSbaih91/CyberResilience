@@ -19,6 +19,14 @@ namespace CyberResilience
                 constraints: new { lang = @"ar|en" },
                 defaults: new { lang = "ar", id = UrlParameter.Optional });
 
+
+            //routes.MapRoute(
+            //    name: "QuickOnlineAssessment",
+            //    url: "{lang}/{controller}/{action}/{type}/{subType}",
+            //    constraints: new { lang = @"ar|en" },
+            //    defaults: new { lang = "ar", type = UrlParameter.Optional , subType = UrlParameter.Optional });
+
+
             routes.MapRoute(
                name: "Default",
                url: "{controller}/{action}/{id}",

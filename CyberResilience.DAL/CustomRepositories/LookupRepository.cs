@@ -49,6 +49,30 @@ namespace CyberResilience.DAL.CustomRepositories
 
         }
 
+
+        public LookupsDTO GetLookupByLookupId(int Id)
+        {
+            var arabicCultureLookupID = Id;
+            var englishCultureLookupID = Id+1;
+
+            var query = from look in _db.Lookups
+                        join lookCul in _db.LookupCultures
+                        on look.Id equals lookCul.LookupID
+                        where look.Id == Id
+                        select new LookupsDTO()
+                        {
+                            Id = look.Id,
+                            ValueAr = look.LookupCultures.Where(x => x.LookupID == arabicCultureLookupID).FirstOrDefault().Value,
+                            ValueEn = look.LookupCultures.Where(x => x.LookupID == englishCultureLookupID).FirstOrDefault().Value,
+
+                        };
+
+            var result = query.FirstOrDefault();
+
+            return result;
+
+        }
+
         public LookupsDTO GetLookupByID(int ID)
         {
             var query = from look in _db.Lookups
@@ -59,7 +83,7 @@ namespace CyberResilience.DAL.CustomRepositories
                         {
                             Id = look.Id,
                             ValueAr = look.LookupCultures.Where(x => x.LookupID == ID).FirstOrDefault().Value,
-                            ValueEn = look.LookupCultures.Where(x => x.LookupID == ID && x.CultureID==2).FirstOrDefault().Value
+                            ValueEn = look.LookupCultures.Where(x => x.LookupID == ID && x.CultureID == 2).FirstOrDefault().Value,
                         };
 
             var result = query.FirstOrDefault();

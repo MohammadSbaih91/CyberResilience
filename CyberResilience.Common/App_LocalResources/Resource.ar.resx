@@ -655,4 +655,46 @@
   <data name="TotalPages" xml:space="preserve">
     <value>مجموع الصفحات</value>
   </data>
+  <data name="PleaseSelectQuastionnaireType" xml:space="preserve">
+    <value>الرجاء اختيار نوع الاستبانة</value>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>لا يوجد بيانات</value>
+  </data>
+  <data name="UserServicesList" xml:space="preserve">
+    <value>الخدمات الخاصة للمستخدم</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>المستخدم</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>انشئت بتاريخ</value>
+  </data>
+  <data name="PaymentType" xml:space="preserve">
+    <value>حالة الدفع </value>
+  </data>
+  <data name="ServiceName" xml:space="preserve">
+    <value>اسم الخدمة</value>
+  </data>
+  <data name="ServiceRequestType" xml:space="preserve">
+    <value>نوع الخدمة</value>
+  </data>
+  <data name="ServiceStatus" xml:space="preserve">
+    <value>حالة الخدمة</value>
+  </data>
+  <data name="TotalRecords" xml:space="preserve">
+    <value>مجموع السجلات</value>
+  </data>
+  <data name="PolicyManagementServices" xml:space="preserve">
+    <value>خدمات إدارة السياسات</value>
+  </data>
+  <data name="ToolkitServices" xml:space="preserve">
+    <value>أدوات الأمن السيبراني</value>
+  </data>
+  <data name="QuestionnaireAccurateComplianceResult" xml:space="preserve">
+    <value>النتيجة الدقيقة للإمتثال</value>
+  </data>
+  <data name="QuestionnaireComplianceResult" xml:space="preserve">
+    <value>نتيجة الامتثال للاستبيان</value>
+  </data>
 </root>

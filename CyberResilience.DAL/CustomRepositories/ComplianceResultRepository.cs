@@ -58,5 +58,89 @@ namespace CyberResilience.DAL.CustomRepositories
                 return null;
             }
         }
+
+
+
+        public bool DeleteAssessmentResult(int QuickAssessmentResultId)
+        {
+            try
+            {
+                var record = GetQuerable(x => x.Id == QuickAssessmentResultId).FirstOrDefault();
+                if (record != null)
+                {
+                    record.IsDeleted = true;
+                    Update(record);
+                    _uow.Save();
+                    return true;
+                }
+                else
+                {
+                    _uow.Rollback();
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Data.Add("ComplianceResult ", "An error occurred while trying to DeleteAssessmentResult record  in DAL ");
+                Tracer.Error(ex);
+                _uow.Rollback();
+                return false;
+            }
+        }
+
+        public bool DraftAssessmentResult(int QuickAssessmentResultId)
+        {
+            try
+            {
+                var record = GetQuerable(x => x.Id == QuickAssessmentResultId).FirstOrDefault();
+                if (record != null)
+                {
+                    record.IsArchived = true;
+                    Update(record);
+                    _uow.Save();
+                    return true;
+                }
+                else
+                {
+                    _uow.Rollback();
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Data.Add("ComplianceResult ", "An error occurred while trying to DraftAssessmentResult record  in DAL ");
+                Tracer.Error(ex);
+                _uow.Rollback();
+                return false;
+            }
+        }
+
+
+        public bool ConsultationServiceRequest(int QuickAssessmentResultId)
+        {
+            try
+            {
+                var record = GetQuerable(x => x.Id == QuickAssessmentResultId).FirstOrDefault();
+                if (record != null)
+                {
+                    record.InConsultant = true;
+                    Update(record);
+                    _uow.Save();
+                    return true;
+                }
+                else
+                {
+                    _uow.Rollback();
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Data.Add("ComplianceResult ", "An error occurred while trying to DeleteAssessmentResult record  in DAL ");
+                Tracer.Error(ex);
+                _uow.Rollback();
+                return false;
+            }
+        }
     }
 }

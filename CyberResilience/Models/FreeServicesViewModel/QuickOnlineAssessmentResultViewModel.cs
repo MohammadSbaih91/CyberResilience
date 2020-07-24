@@ -18,6 +18,7 @@ namespace CyberResilience.Models.FreeServicesViewModel
         public bool? IsDeleted { get; set; }
         public bool? IsUpdated { get; set; }
         public int? ImplementationPeriodTime { get; set; }
+        public int? ServiceRequestId { get; set; }
         public DateTime? ImplementationPeriodAccurateExpectedTime { get; set; }
     }
 }

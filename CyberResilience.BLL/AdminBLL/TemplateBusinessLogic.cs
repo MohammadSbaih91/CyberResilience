@@ -207,13 +207,7 @@ namespace CyberResilience.BLL.AdminBLL
                     var templates = uow.Templates.GetTemplateByType(type , subType /*, cul*/);
                     if (templates != null)
                     {
-                        //foreach(var item in templates.baseQuestions)
-                        //{
-                        //    foreach(var lookup in item.questions)
-                        //    {
-                        //        lookup.CompianceLevel = uow.LookupCategory.GetLookupsByLookupCategoryCode("ComplianceLevel", cul);
-                        //    }
-                        //}
+                        //templates.ServiceRequestNameCode = uow.Lookups.GetLookupByID(templates.TemplateSubType).LookupCode;
                         return templates;
                     }
                     else

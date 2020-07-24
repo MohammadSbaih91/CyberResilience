@@ -41,6 +41,10 @@ namespace CyberResilience.DAL.Entities
 
         public int ServiceRequestId { get; set; }
 
+        public bool? InConsultant { get; set; }
+
+        public virtual ServiceRequest ServiceRequest { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QuestionsAssessmentDetail> QuestionsAssessmentDetails { get; set; }
     }

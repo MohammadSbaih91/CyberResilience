@@ -476,6 +476,24 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Created By.
+        /// </summary>
+        public static string CreatedBy {
+            get {
+                return ResourceManager.GetString("CreatedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Created Date.
+        /// </summary>
+        public static string CreatedDate {
+            get {
+                return ResourceManager.GetString("CreatedDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create New Account.
         /// </summary>
         public static string CreateNewAccount {
@@ -981,6 +999,15 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No Data.
+        /// </summary>
+        public static string NoData {
+            get {
+                return ResourceManager.GetString("NoData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Only Arabic Characters.
         /// </summary>
         public static string OnlyArabicCharacters {
@@ -1143,11 +1170,29 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Payment Type.
+        /// </summary>
+        public static string PaymentType {
+            get {
+                return ResourceManager.GetString("PaymentType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Phone :.
         /// </summary>
         public static string Phone {
             get {
                 return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please Select Quastionnaire Type.
+        /// </summary>
+        public static string PleaseSelectQuastionnaireType {
+            get {
+                return ResourceManager.GetString("PleaseSelectQuastionnaireType", resourceCulture);
             }
         }
         
@@ -1175,6 +1220,15 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string PleaseSelectTemplateType {
             get {
                 return ResourceManager.GetString("PleaseSelectTemplateType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Policy Management Services.
+        /// </summary>
+        public static string PolicyManagementServices {
+            get {
+                return ResourceManager.GetString("PolicyManagementServices", resourceCulture);
             }
         }
         
@@ -1229,6 +1283,24 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string QuestionAttachments {
             get {
                 return ResourceManager.GetString("QuestionAttachments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Questionnaire Accurate Compliance Result.
+        /// </summary>
+        public static string QuestionnaireAccurateComplianceResult {
+            get {
+                return ResourceManager.GetString("QuestionnaireAccurateComplianceResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Questionnaire Compliance Result.
+        /// </summary>
+        public static string QuestionnaireComplianceResult {
+            get {
+                return ResourceManager.GetString("QuestionnaireComplianceResult", resourceCulture);
             }
         }
         
@@ -1332,6 +1404,24 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Service Name.
+        /// </summary>
+        public static string ServiceName {
+            get {
+                return ResourceManager.GetString("ServiceName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Service Request Type.
+        /// </summary>
+        public static string ServiceRequestType {
+            get {
+                return ResourceManager.GetString("ServiceRequestType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Services.
         /// </summary>
         public static string Services {
@@ -1346,6 +1436,15 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string ServicesHead {
             get {
                 return ResourceManager.GetString("ServicesHead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Service Status.
+        /// </summary>
+        public static string ServiceStatus {
+            get {
+                return ResourceManager.GetString("ServiceStatus", resourceCulture);
             }
         }
         
@@ -1557,11 +1656,29 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Toolkit Services.
+        /// </summary>
+        public static string ToolkitServices {
+            get {
+                return ResourceManager.GetString("ToolkitServices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total Pages.
         /// </summary>
         public static string TotalPages {
             get {
                 return ResourceManager.GetString("TotalPages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Records.
+        /// </summary>
+        public static string TotalRecords {
+            get {
+                return ResourceManager.GetString("TotalRecords", resourceCulture);
             }
         }
         
@@ -1616,6 +1733,15 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string UserName {
             get {
                 return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Services List.
+        /// </summary>
+        public static string UserServicesList {
+            get {
+                return ResourceManager.GetString("UserServicesList", resourceCulture);
             }
         }
         

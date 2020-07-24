@@ -12,6 +12,19 @@
     return;
 }
 
+<style>
+    dl, ol, ul {
+    margin-top: -16px;
+    margin-bottom: 0rem;
+}
+
+    Li
+    {
+           padding: 10px 10px 10px 10px;
+    }
+
+
+</style>
 
 @{
 
@@ -45,7 +58,7 @@
     }
 }
 <div class="text-center">
-    <ul class="pagination" id="@pageinationContolId">
+    <ul class="pagination" style="padding: initial;" id="@pageinationContolId">
 
         <!--First button-->
         <li title="@firstPageButtonTitle" aria-label="@firstPageButtonTitle" class="@(isFirstPage ? disabledClassName : String.Empty)">
@@ -130,7 +143,7 @@
 </div>
 
 <div class="text-center" style="margin-right:auto;direction:ltr;">
-    @Resource.TotalPages  @Model.TotalItems
+    @Resource.TotalRecords  @Model.TotalItems
 </div>
 
 

@@ -6,6 +6,9 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using CyberResilience.Models;
+using System.Web.Mvc;
+using System.Web;
+using System.Web.Routing;
 
 namespace CyberResilience
 {
@@ -19,6 +22,31 @@ namespace CyberResilience
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
             //app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
+            UrlHelper url = new UrlHelper(HttpContext.Current.Request.RequestContext);
+
+            CookieAuthenticationProvider provider = new CookieAuthenticationProvider();
+
+            var originalHandler = provider.OnApplyRedirect;
+
+            //Our logic to dynamically modify the path (maybe needs some fine tuning)
+            provider.OnApplyRedirect = context =>
+            {
+                var mvcContext = new HttpContextWrapper(HttpContext.Current);
+                var routeData = RouteTable.Routes.GetRouteData(mvcContext);
+
+                //Get the current language  
+                RouteValueDictionary routeValues = new RouteValueDictionary();
+                routeValues.Add("lang", routeData.Values["lang"]);
+
+                //Reuse the RetrunUrl
+                Uri uri = new Uri(context.RedirectUri);
+                string returnUrl = HttpUtility.ParseQueryString(uri.Query)[context.Options.ReturnUrlParameter];
+                routeValues.Add(context.Options.ReturnUrlParameter, returnUrl);
+
+                //Overwrite the redirection uri
+                context.RedirectUri = url.Action("login", "account", routeValues);
+                originalHandler.Invoke(context);
+            };
 
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider

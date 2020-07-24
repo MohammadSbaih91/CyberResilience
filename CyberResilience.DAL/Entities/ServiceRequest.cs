@@ -11,6 +11,7 @@ namespace CyberResilience.DAL.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ServiceRequest()
         {
+            ComplianceResults = new HashSet<ComplianceResult>();
             QuestionsAssessmentDetails = new HashSet<QuestionsAssessmentDetail>();
         }
 
@@ -38,6 +39,8 @@ namespace CyberResilience.DAL.Entities
         [StringLength(250)]
         public string LastUpdateBy { get; set; }
 
+        public int? ServiceSubType { get; set; }
+
         public virtual AspNetUser AspNetUser { get; set; }
 
         public virtual Lookup Lookup { get; set; }
@@ -45,6 +48,11 @@ namespace CyberResilience.DAL.Entities
         public virtual Lookup Lookup1 { get; set; }
 
         public virtual Lookup Lookup2 { get; set; }
+
+        public virtual Lookup Lookup3 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ComplianceResult> ComplianceResults { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QuestionsAssessmentDetail> QuestionsAssessmentDetails { get; set; }

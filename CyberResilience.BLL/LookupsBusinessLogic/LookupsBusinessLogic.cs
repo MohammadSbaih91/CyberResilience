@@ -76,6 +76,69 @@ namespace CyberResilience.BLL.LookupsBusinessLogic
                 return lookup;
             }
         }
+
+
+        public LookupsDTO GetLookupByLookupCode(string code, Enums.Culture culture)
+        {
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                var repo = uow.Lookups;
+                var lookup = repo.GetLookupValueAndIDByCode(code);
+                if (culture == Enums.Culture.Arabic)
+                {
+                    lookup = new LookupsDTO()
+                    {
+                        Id = lookup.Id,
+                        Value = lookup.ValueAr
+                    };
+                }
+                else
+                {
+                    lookup = new LookupsDTO()
+                    {
+                        Id = lookup.Id,
+                        Value = lookup.ValueEn
+                    };
+                }
+                if (lookup == null)
+                {
+                    throw new BusinessException("Lookup does not exist", Constants.ErrorsCodes.LookupDoesNotExist);
+                }
+
+                return lookup;
+            }
+        }
+
+        public LookupsDTO GetLookupByLookupId(int Id, Enums.Culture culture)
+        {
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                var repo = uow.Lookups;
+                var lookup = repo.GetLookupByLookupId(Id);
+                if (culture == Enums.Culture.Arabic)
+                {
+                    lookup = new LookupsDTO()
+                    {
+                        Id = lookup.Id,
+                        Value = lookup.ValueAr
+                    };
+                }
+                else
+                {
+                    lookup = new LookupsDTO()
+                    {
+                        Id = lookup.Id,
+                        Value = lookup.ValueEn
+                    };
+                }
+                if (lookup == null)
+                {
+                    throw new BusinessException("Lookup does not exist", Constants.ErrorsCodes.LookupDoesNotExist);
+                }
+
+                return lookup;
+            }
+        }
         public LookupsDTO GetLookupByID(int LookupID)
         {
             using (UnitOfWork uow = new UnitOfWork())
@@ -98,6 +161,8 @@ namespace CyberResilience.BLL.LookupsBusinessLogic
                 return lookup;
             }
         }
+
+
 
 
 

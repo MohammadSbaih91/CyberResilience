@@ -656,4 +656,46 @@ Managing your policies and staying in compliance should be smooth</value>
   <data name="TotalPages" xml:space="preserve">
     <value>Total Pages</value>
   </data>
+  <data name="PleaseSelectQuastionnaireType" xml:space="preserve">
+    <value>Please Select Quastionnaire Type</value>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>No Data</value>
+  </data>
+  <data name="UserServicesList" xml:space="preserve">
+    <value>User Services List</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>Created By</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Created Date</value>
+  </data>
+  <data name="PaymentType" xml:space="preserve">
+    <value>Payment Type</value>
+  </data>
+  <data name="ServiceName" xml:space="preserve">
+    <value>Service Name</value>
+  </data>
+  <data name="ServiceRequestType" xml:space="preserve">
+    <value>Service Request Type</value>
+  </data>
+  <data name="ServiceStatus" xml:space="preserve">
+    <value>Service Status</value>
+  </data>
+  <data name="TotalRecords" xml:space="preserve">
+    <value>Total Records</value>
+  </data>
+  <data name="PolicyManagementServices" xml:space="preserve">
+    <value>Policy Management Services</value>
+  </data>
+  <data name="ToolkitServices" xml:space="preserve">
+    <value>Toolkit Services</value>
+  </data>
+  <data name="QuestionnaireAccurateComplianceResult" xml:space="preserve">
+    <value>Questionnaire Accurate Compliance Result</value>
+  </data>
+  <data name="QuestionnaireComplianceResult" xml:space="preserve">
+    <value>Questionnaire Compliance Result</value>
+  </data>
 </root>

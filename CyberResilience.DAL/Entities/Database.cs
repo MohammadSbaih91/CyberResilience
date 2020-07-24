@@ -145,6 +145,11 @@ namespace CyberResilience.DAL.Entities
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Lookup>()
+                .HasMany(e => e.ServiceRequests3)
+                .WithOptional(e => e.Lookup3)
+                .HasForeignKey(e => e.ServiceSubType);
+
+            modelBuilder.Entity<Lookup>()
                 .HasMany(e => e.Standards)
                 .WithOptional(e => e.Lookup)
                 .HasForeignKey(e => e.StandardTypeId);
@@ -202,16 +207,17 @@ namespace CyberResilience.DAL.Entities
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ServiceRequest>()
-                .Property(e => e.ServiceName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ServiceRequest>()
                 .Property(e => e.CreatedBy)
                 .IsUnicode(false);
 
             modelBuilder.Entity<ServiceRequest>()
                 .Property(e => e.LastUpdateBy)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<ServiceRequest>()
+                .HasMany(e => e.ComplianceResults)
+                .WithRequired(e => e.ServiceRequest)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ServiceRequest>()
                 .HasMany(e => e.QuestionsAssessmentDetails)

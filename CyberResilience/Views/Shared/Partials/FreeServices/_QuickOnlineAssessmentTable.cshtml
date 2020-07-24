@@ -1,0 +1,113 @@
+﻿@model CyberResilience.Models.FreeServicesViewModel.QuickOnlineAssessmentViewModel
+@using CyberResilience.Common
+@using CyberResilience.Common.App_LocalResources;
+
+
+
+    <section id="faq" class="faq section-bg">
+        <div class="container">
+            <div class="section-title">
+                <h2>@Model.ServiceName</h2>
+            </div>
+            <div class="faq-list">
+                <ul class="flex-container column-reverse">
+                    @for (int i = 0; i < Model.BaseQuestions.Count; i++)
+                    {
+                        @Html.HiddenFor(modelItem => modelItem.ServiceName)
+                        @Html.HiddenFor(modelItem => modelItem.SubType)
+                        @Html.HiddenFor(modelItem => modelItem.Type)
+                        @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].TemplateTypes)
+                        @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].TemplateSubTypes)
+                        @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].Id)
+                        @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].BaseClauseNameAr)
+                        @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].BaseClauseNameEn)
+                        @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].BaseQuestionNameAr)
+                        @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].BaseQuestionNameEn)
+                        @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].BaseQuestion)
+                        <li data-aos="fade-up">
+                            <a style="background-color:#CC1616;color:white;border:double;padding:12px 22px;" data-toggle="collapse" class="collapse" href="#faq-list-@Model.BaseQuestions[i].Id">@Model.BaseQuestions[i].BaseQuestion<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                            @if (Model.BaseQuestions[i].Questions != null)
+                            {
+                                for (int j = 0; j < Model.BaseQuestions[i].Questions.Count; j++)
+                                {
+                                    @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].Questions[j].Id)
+                                    @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].Questions[j].IsMandatory)
+                                    @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].Questions[j].QuestionAr)
+                                    @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].Questions[j].QuestionEn)
+                                    @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].Questions[j].BaseQuestionDetailsId)
+                                    @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].Questions[j].Question)
+                                    <div dir="rtl" id="faq-list-@Model.BaseQuestions[i].Id" class="collapse show" data-parent=".faq-list">
+                                        <ul>
+                                            <li>
+                                                <i class="bx bx-help-circle icon-help"></i><span id="qs"> @Model.BaseQuestions[i].Questions[j].Question </span>
+                                            </li>
+                                            <li>
+                                                @*@Html.DropDownList("ComplianceLevel", ViewBag.ComplianceLevel as SelectList , Resource.Answer)*@
+                                                @{
+                                                    @Html.ValidationMessageFor(modelItem => modelItem.BaseQuestions[i].Questions[j].ComplianceLevel, "", new { @class = "text-danger" })
+                                                    List<SelectListItem>
+                                                        listAnswers = new List<SelectListItem>
+                                                            ();
+                                                    foreach (var z in Model.BaseQuestions[i].Questions[j].ComplianceLevel)
+                                                    {
+                                                        listAnswers.Add(new SelectListItem
+                                                        {
+                                                            Text = z.Value,
+                                                            Value = z.Id.ToString(),
+                                                            Selected = z.Id == Convert.ToInt32(Model.BaseQuestions[i].Questions[j].ComplianceLevelId)
+                                                        });
+                                                    };
+                                                }
+                                                @Html.DropDownListFor(modelItem => Model.BaseQuestions[i].Questions[j].ComplianceLevelId, listAnswers, Resource.Answer, new
+                                           {
+                                               Id = Model.BaseQuestions[i].Questions[j].Id + "-dl",
+                                               @onchange = "AsignHidden(this.id,this.value);",
+                                               @class = "form-control",
+                                               required = "required",
+                                               oninvalid = "InvalidMsg(this);",
+                                               oninput = "InvalidMsg(this);"
+                                           })
+                                                @*<input type="hidden" id="@Model.BaseQuestions[i].Questions[j].ComplianceLevelValue" name="@Model.BaseQuestions[i].Questions[j].Id-hd" />*@
+                                                @*@Html.ValidationMessageFor(modelItem => Model.BaseQuestions[i].Questions[j].ComplianceLevelValue, "", new { Id = Model.BaseQuestions[i].Questions[j].Id + "-vd", @class = "text-danger" })*@
+                                            </li>
+                                            <li id="@Model.BaseQuestions[i].Questions[j].Id-hd">
+                                                @Html.HiddenFor(modelItem => Model.BaseQuestions[i].Questions[j].ComplianceLevelId)
+                                            </li>
+                                            @*<li >
+                                                    @Html.TextBoxFor(modelItem => Model.BaseQuestions[i].Questions[j].ComplianceLevelValue)
+                                                </li>*@
+                                        </ul>
+                                    </div>
+
+                                                        }
+                                                    }
+                        </li>
+                                                    }
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+
+<script>
+    function AsignHidden(id, value) {
+        debugger;
+        var str = id;
+        var hidden = str.replace("-dl", "");
+        //var hidden = str.replace("dl", "");
+
+        $("#" + hidden + "-hd").children().val(value);
+    }
+    function InvalidMsg(textbox) {
+
+        if (textbox.value === '') {
+            textbox.setCustomValidity
+                  ('@Resource.Required');
+        }
+        else {
+            textbox.setCustomValidity('');
+        }
+        return true;
+    }
+</script>

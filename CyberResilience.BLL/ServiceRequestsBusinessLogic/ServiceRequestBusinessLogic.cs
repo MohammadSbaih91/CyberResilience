@@ -112,13 +112,13 @@ namespace CyberResilience.BLL.ServiceRequestsBusinessLogic
                 return 0;
             }
         }
-        public QuickOnlineAssessmentResultDTO GetQuickOnlineAssessmentResult(int ServiceRequestId , string UserName)
+        public QuickOnlineAssessmentResultDTO GetQuickOnlineAssessmentResult(int ServiceRequestId, string UserName)
         {
             using (var uow = new UnitOfWork())
             {
                 try
                 {
-                    var OnlineAssessmentResult = _ServiceRequestMapper.ConvertToQuickOnlineAssessmentResultDTO(uow.ComplianceResult.GetQuickOnlineAssessmentResult(ServiceRequestId,UserName));
+                    var OnlineAssessmentResult = _ServiceRequestMapper.ConvertToQuickOnlineAssessmentResultDTO(uow.ComplianceResult.GetQuickOnlineAssessmentResult(ServiceRequestId, UserName));
                     if (OnlineAssessmentResult != null)
                     {
                         return OnlineAssessmentResult;
@@ -137,6 +137,89 @@ namespace CyberResilience.BLL.ServiceRequestsBusinessLogic
                 }
             }
 
+        }
+
+        public bool DeleteAssessmentResult(int QuickAssessmentResultId)
+        {
+            using (var uow = new UnitOfWork())
+            {
+                try
+                {
+                    bool isDeleted = uow.ComplianceResult.DeleteAssessmentResult(QuickAssessmentResultId);
+                    return isDeleted;
+                }
+                catch (Exception ex)
+                {
+                    ex.Data.Add("GetTemplate", "An error occurred while trying to get  Template Record - BLL");
+                    uow.Rollback();
+                    Tracer.Error(ex);
+                    return false;
+                }
+            }
+        }
+
+        public bool DraftAssessmentResult(int QuickAssessmentResultId)
+        {
+            using (var uow = new UnitOfWork())
+            {
+                try
+                {
+                    bool isDrafted = uow.ComplianceResult.DraftAssessmentResult(QuickAssessmentResultId);
+                    return isDrafted;
+                }
+                catch (Exception ex)
+                {
+                    ex.Data.Add("GetTemplate", "An error occurred while trying to get  Template Record - BLL");
+                    uow.Rollback();
+                    Tracer.Error(ex);
+                    return false;
+                }
+            }
+        }
+
+        public bool ConsultationServiceRequest(int QuickAssessmentResultId)
+        {
+            using (var uow = new UnitOfWork())
+            {
+                try
+                {
+                    bool InConsultation = uow.ComplianceResult.ConsultationServiceRequest(QuickAssessmentResultId);
+                    return InConsultation;
+                }
+                catch (Exception ex)
+                {
+                    ex.Data.Add("GetTemplate", "An error occurred while trying to get  Template Record - BLL");
+                    uow.Rollback();
+                    Tracer.Error(ex);
+                    return false;
+                }
+            }
+        }
+
+
+        public List<UserServicesDTO> GetUserServices(string UserName, out int totalRecords, int page = 1, int pageSize = 10)
+        {
+            List<UserServicesDTO> services = new List<UserServicesDTO>();
+            totalRecords = 0;
+            using (var uow = new UnitOfWork())
+            {
+                try
+                {
+                    string UserId = uow.AspNetUsers.GetUserIdByUserName(UserName);
+                     services = uow.ServiceRequests.GetUserServices(UserId);
+
+                    totalRecords = services.Count();
+                    services = services.OrderByDescending(x => x.Id).Skip((page - 1) * pageSize).Take(pageSize).ToList();
+                    return services.ToList();
+                }
+                catch (Exception ex)
+                {
+                    ex.Data.Add("GetUserServices", "An error occurred while trying to GetUserServices Records  UserName - BLL");
+                    uow.Rollback();
+                    Tracer.Error(ex);
+                    return services;
+                }
+            }
         }
     }
 }

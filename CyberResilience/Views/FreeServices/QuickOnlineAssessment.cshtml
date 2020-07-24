@@ -15,173 +15,88 @@
         direction: rtl !important;
     }
 </style>
-
-
-
-
-
 @using (Html.BeginForm("QuickOnlineAssessment", "FreeServices", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(model => model.Id)
-    if (Model.BaseQuestions != null)
-    {
-        <form>
-            <!-- ======= Frequently Asked Questions Section ======= -->
-            <section id="faq" class="faq section-bg">
-                <div class="container">
-                    <div class="section-title">
-                        <h2>@Model.Template - @Model.Type - @Model.SubType</h2>
-                    </div>
-                    <div class="faq-list">
-                        <ul class="flex-container column-reverse">
-                            @for (int i = 0; i < Model.BaseQuestions.Count; i++)
+    @Html.HiddenFor(model => model.ServiceType)
+    @Html.HiddenFor(model => model.Template)
+    @Html.HiddenFor(model => model.Type)
+    @Html.HiddenFor(model => model.SubType)
+    <form>
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row" dir="rtl">
+                    <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
+                        <div class="section-title" style="text-align:initial;padding:0px 0px;position:relative;">
+                            <p>
+                                @Resource.AboutUsText
+                            </p>
+                        </div>
+                        <br />
+                        <label style="color:#CC1616;" for="">@Resource.PleaseSelectQuastionnaireType</label>
+                        @Html.ValidationMessageFor(model => model.TemplateSubTypes, "", new { @class = "text-danger" })
+                        @{
+                            List<SelectListItem> listsubtypes = new List<SelectListItem>();
+                            foreach (var item in Model.TemplateSubTypes)
                             {
-                                @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].TemplateTypes)
-                                @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].TemplateSubTypes)
-                                @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].Id)
-                                @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].BaseClauseNameAr)
-                                @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].BaseClauseNameEn)
-                                @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].BaseQuestionNameAr)
-                                @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].BaseQuestionNameEn)
-                                @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].BaseQuestion)
-                                @*@Html.EditorFor(modelItem => modelItem.BaseQuestions[i].BaseQuestion, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })*@
-                                <li data-aos="fade-up">
-                                    <a data-toggle="collapse" class="collapse" href="#faq-list-@Model.BaseQuestions[i].Id">@Model.BaseQuestions[i].BaseQuestion<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                                    @if (Model.BaseQuestions[i].Questions != null)
-                                    {
-                                        for (int j = 0; j < Model.BaseQuestions[i].Questions.Count; j++)
-                                        {
-                                           
-                                            @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].Questions[j].Id)
-                                            @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].Questions[j].IsMandatory)
-                                            @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].Questions[j].QuestionAr)
-                                            @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].Questions[j].QuestionEn)
-                                            @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].Questions[j].BaseQuestionDetailsId)
-                                            @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].Questions[j].Question)
-                                            <div dir="rtl" id="faq-list-@Model.BaseQuestions[i].Id" class="collapse show" data-parent=".faq-list">
-                                                <ul>
-                                                    <li>
-                                                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> @Model.BaseQuestions[i].Questions[j].Question </span>
-                                                    </li>
-                                                    <li>
-                                                        @*@Html.DropDownList("ComplianceLevel", ViewBag.ComplianceLevel as SelectList , Resource.Answer)*@
-                                                        @{
-                                                            @Html.ValidationMessageFor(modelItem => modelItem.BaseQuestions[i].Questions[j].ComplianceLevel, "", new { @class = "text-danger" })
-                                                            List<SelectListItem>
-                                                                listAnswers = new List<SelectListItem>
-                                                                    ();
-                                                            foreach (var z in Model.BaseQuestions[i].Questions[j].ComplianceLevel)
-                                                            {
-                                                                listAnswers.Add(new SelectListItem
-                                                                {
-                                                                    Text = z.Value,
-                                                                    Value = z.Id.ToString(),
-                                                                    Selected = z.Id == Convert.ToInt32(Model.BaseQuestions[i].Questions[j].ComplianceLevelId)
-                                                                });
-                                                            };
-                                                        }
-                                                        @Html.DropDownListFor(modelItem => Model.BaseQuestions[i].Questions[j].ComplianceLevelId, listAnswers, Resource.Answer, new
-                                                   {
-                                                       Id = Model.BaseQuestions[i].Questions[j].Id + "-dl",
-                                                       @onchange = "AsignHidden(this.id,this.value);",
-                                                       @class = "form-control",
-                                                       required = "required",
-                                                       oninvalid = "InvalidMsg(this);",
-                                                       oninput = "InvalidMsg(this);"
-                                                   })
-                                                        @*<input type="hidden" id="@Model.BaseQuestions[i].Questions[j].ComplianceLevelValue" name="@Model.BaseQuestions[i].Questions[j].Id-hd" />*@
-                                                        @*@Html.ValidationMessageFor(modelItem => Model.BaseQuestions[i].Questions[j].ComplianceLevelValue, "", new { Id = Model.BaseQuestions[i].Questions[j].Id + "-vd", @class = "text-danger" })*@
-                                                    </li>
-                                                    <li id="@Model.BaseQuestions[i].Questions[j].Id-hd">
-                                                        @Html.HiddenFor(modelItem => Model.BaseQuestions[i].Questions[j].ComplianceLevelId)
-                                                    </li>
-                                                    @*<li >
-                                                        @Html.TextBoxFor(modelItem => Model.BaseQuestions[i].Questions[j].ComplianceLevelValue)
-                                                    </li>*@
-                                                </ul>
-                                            </div>
-
-                                                                }
-                                                            }
-                                </li>
-                                                            }
-                        </ul>
+                                listsubtypes.Add(new SelectListItem
+                                {
+                                    Text = item.Value,
+                                    Value = item.Id.ToString(),
+                                    Selected = item.Id == Model.TemplateSubType
+                                });
+                            };
+                        }
+                        @Html.DropDownListFor(model => model.TemplateSubType, listsubtypes, Resource.PleaseSelectQuastionnaireType, new { @class = "form-control" })
+                        @Html.HiddenFor(model => model.TemplateSubType)
+                        @Html.ValidationMessageFor(model => model.TemplateSubType, "", new { @class = "text-danger" })
+                        <br />
+                        <div class="section-title" style="text-align:initial;padding:0px 0px;position:relative;">
+                            <p>
+                                @Resource.AboutUsText
+                                @Resource.AboutUsText
+                                @Resource.AboutUsText
+                                @Resource.AboutUsText
+                                @Resource.AboutUsText
+                                @Resource.AboutUsText
+                            </p>
+                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4 col-md-offset-3">
-
-                        </div>
-                        <div class="col-md-4 col-md-offset-3">
-                            <div class="form-group">
-                                <input type="submit" value="@Resource.GetResults" class="btn btn-default" />
-                            </div>
-                            @*<button type="submit" formaction=@Url.Action("QuickOnlineAssessment") formmethod="post" class="btn btn-default">@Resource.Save</button>*@
-                            <div class="form-group">
-                                <button type="button" class="btn btn-default">@Resource.SaveAsDraft</button>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-md-offset-3">
-
-                        </div>
+                    <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+                        <img src="~/assets/img/white.jpeg" class="img-fluid" alt="">
                     </div>
                 </div>
-            </section><!-- End Frequently Asked Questions Section -->
-        </form>
-                                                                }
-                                                            }
+            </div>
+        </section><!-- End About Section -->
+        <div id="QuastionnaireBody"></div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-3">
+
+            </div>
+            <div class="col-md-4 col-md-offset-3">
+                <div class="form-group">
+                    <input type="submit" value="@Resource.GetResults" class="btn btn-default" />
+                </div>
+                @*<button type="submit" formaction=@Url.Action("QuickOnlineAssessment") formmethod="post" class="btn btn-default">@Resource.Save</button>*@
+                <div class="form-group">
+                    <button type="submit" formaction="@Url.Action("ArhciveAssessment")" formmethod="post" class="btn btn-default">@Resource.SaveAsDraft</button>
+                </div>
+            </div>
+            <div class="col-md-4 col-md-offset-3">
+
+            </div>
+        </div>
+    </form>
+                            }
 <script>
     $(document).ready(function () {
-        //$('#question_CompianceLevel').on('change', update_progressbar);
-        $('#baseTemplateId').change(function () {
-            var templateId = $('#baseTemplateId').val();
-            var route = '@Url.Action("AddBaseQuestionPartial", "Questionnaire")?TemplateId=' + templateId;
-            $('#BaseQuestions').load(route);
-            @*$.ajax({
-                url: "@Url.Action("AddBaseQuestion", "Questionnaire")" + "?TemplateId=" + templateId,
-                type: "GET",
-            }).done(function (data) {
-                //HideError(data)
-                return true;
-            });*@
+        $('#TemplateSubType').change(function () {
+            debugger;
+            var TemplateSubType = $('#TemplateSubType').val();
+            var route = '@Url.Action("QuastionnaireBodyPartial", "FreeServices")?subType=' + TemplateSubType;
+            $('#QuastionnaireBody').load(route);
         });
+
     });
-
-    function AsignHidden(id, value) {
-        debugger;
-        var str = id;
-        var hidden = str.replace("-dl", "");
-        //var hidden = str.replace("dl", "");
-
-        $("#" + hidden +"-hd").children().val(value);
-    }
-
-
-    function InvalidMsg(textbox) {
-
-        if (textbox.value === '') {
-            textbox.setCustomValidity
-                  ('@Resource.Required');
-        }
-        else {
-            textbox.setCustomValidity('');
-        }
-        return true;
-    }
-
-    //function update_progressbar() {
-    //    debugger;
-    //    var opt1 = parseInt($('option:selected', $('#question_CompianceLevel')).val());
-    //    //var opt2 = parseInt($('option:selected', $('#selectB')).val());
-
-    //    var total = isNaN(opt1) ? 0 : opt1;
-    //    if (!isNaN(opt1)) {
-    //        total += opt1;
-    //    }
-    //    $("#progressBar").prop('value', total)
-    //}
-
-    //$('#selectB').on('change', update_progressbar);
-
-
 </script>

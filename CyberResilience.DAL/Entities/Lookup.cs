@@ -20,6 +20,7 @@ namespace CyberResilience.DAL.Entities
             ServiceRequests = new HashSet<ServiceRequest>();
             ServiceRequests1 = new HashSet<ServiceRequest>();
             ServiceRequests2 = new HashSet<ServiceRequest>();
+            ServiceRequests3 = new HashSet<ServiceRequest>();
             Standards = new HashSet<Standard>();
             Users = new HashSet<User>();
             Users1 = new HashSet<User>();
@@ -79,6 +80,9 @@ namespace CyberResilience.DAL.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ServiceRequest> ServiceRequests2 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ServiceRequest> ServiceRequests3 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Standard> Standards { get; set; }

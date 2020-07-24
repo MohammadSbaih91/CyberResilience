@@ -12,5 +12,6 @@ namespace CyberResilience.Common.DTOs.ServiceRequestsDTO
         public int QuestionTopAddedValueToAssemssment { get; set; }
         public decimal QuestionAssessmentValue { get; set; }
         public int ComplianceResultId { get; set; }
+
     }
 }

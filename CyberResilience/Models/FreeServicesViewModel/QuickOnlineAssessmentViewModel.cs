@@ -18,15 +18,9 @@ namespace CyberResilience.Models.FreeServicesViewModel
         public string Type { get; set; }
         public string SubType { get; set; }
         public int Id { get; set; }
-        //[Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "Required", ErrorMessage = null)]
-        //[RegularExpression("^[0-9 _\u0621-\u064A]+$", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "OnlyArabicCharacters")]
         public string TemplateNameAr { get; set; }
-        //[Required(ErrorMessageResourceType = typeof(CyberResilience.Common.App_LocalResources.Resource), ErrorMessageResourceName = "Required")]
-        //[RegularExpression("^[0-9A-Za-z ]+$", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "OnlyEnglishCharacters")]
         public string TemplateNameEn { get; set; }
-        //[Required(ErrorMessageResourceType = typeof(CyberResilience.Common.App_LocalResources.Resource), ErrorMessageResourceName = "Required")]
         public int TemplateType { get; set; }
-        //[Required(ErrorMessageResourceType = typeof(CyberResilience.Common.App_LocalResources.Resource), ErrorMessageResourceName = "Required")]
         public int TemplateSubType { get; set; }
         public string TemplateTypeString { get; set; }
         public string TemplateSubTypeString { get; set; }

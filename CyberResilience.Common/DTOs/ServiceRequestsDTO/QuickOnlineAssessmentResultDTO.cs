@@ -18,6 +18,7 @@ namespace CyberResilience.Common.DTOs.ServiceRequestsDTO
         public bool? IsArchived { get; set; }
         public bool? IsDeleted { get; set; }
         public bool? IsUpdated { get; set; }
+        public int? QuestionCount { get; set; }
         public int? ImplementationPeriodTime { get; set; }
         public DateTime? ImplementationPeriodAccurateExpectedTime { get; set; }
 
