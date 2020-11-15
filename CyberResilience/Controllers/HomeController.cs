@@ -10,7 +10,7 @@ namespace CyberResilience.Controllers
     [AllowAnonymous]
     [OutputCache(NoStore = true, Duration = 0, Location = OutputCacheLocation.None)]
     public class HomeController : Controller
-    {
+    { 
         [OutputCache(NoStore = true, Duration = 0, Location = OutputCacheLocation.None)]
         public ActionResult Index()
         {

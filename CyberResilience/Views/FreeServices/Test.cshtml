@@ -1,84 +1,1038 @@
-﻿@using CyberResilience.Common
-@using CyberResilience.Common.App_LocalResources;
+﻿<div class="faq-list">
+    <ul class="flex-container column-reverse">
+        <li data-aos="fade-up" class="aos-init aos-animate">
+            <a style="background-color:#CC1616;color:white;border:double;padding:12px 22px;" data-toggle="collapse" class="collapse" href="#faq-list-7">هل الوثائق الإلزامية التالية المذكورة في ISO 27001: 2013 مطبقة في منشأتك؟<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_0__Questions_0__Id" name="BaseQuestions[0].Questions[0].Id" type="hidden" value="1035"><input id="BaseQuestions_0__Questions_0__IsMandatory" name="BaseQuestions[0].Questions[0].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_0__Questions_0__QuestionAr" name="BaseQuestions[0].Questions[0].QuestionAr" type="hidden" value="سياسة وأهداف أمن المعلومات (البند 5.2 و 6.2)"><input id="BaseQuestions_0__Questions_0__QuestionEn" name="BaseQuestions[0].Questions[0].QuestionEn" type="hidden" value="Information security policy and objectives (clauses 5.2 and 6.2) "><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_0__Questions_0__BaseQuestionDetailsId" name="BaseQuestions[0].Questions[0].BaseQuestionDetailsId" type="hidden" value="7"><input id="BaseQuestions_0__Questions_0__Question" name="BaseQuestions[0].Questions[0].Question" type="hidden" value="سياسة وأهداف أمن المعلومات (البند 5.2 و 6.2)">                                    <div dir="rtl" id="faq-list-7" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> سياسة وأهداف أمن المعلومات (البند 5.2 و 6.2) </span>
+                    </li>
+                    <li>
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-<style>
-.flex-container {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  
-  -ms-box-orient: horizontal;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -moz-flex;
-  display: -webkit-flex;
-  display: flex;
-}
-
-.row            { 
-  -webkit-flex-direction: row; 
-  flex-direction: row;
-}
-
-.row-reverse    { 
-  -webkit-flex-direction: row-reverse; 
-  flex-direction: row-reverse;
-}  
-.row-reverse li {
-  background: gold;
-}
-
-.column { 
-  -webkit-flex-direction: column; 
-  flex-direction: column; 
-  float: left;
-}
-.column li {
-  background: deepskyblue;
-}
-
-.column-reverse { 
-  -webkit-flex-direction: column-reverse; 
-  flex-direction: column-reverse; 
-  float: right;
-}
-.column-reverse li {
-  background: lightgreen;
-}
-
-.flex-item {
-  background: tomato;
-  padding: 5px;
-  width: 50px;
-  height: 50px;
-  margin: 5px;
-  
-  line-height: 50px;
-  color: white;
-  font-weight: bold;
-  font-size: 2em;
-  text-align: center;
-}
-</style>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[0].Questions[0].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1035-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[0].Questions[0].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
 
 
-<ul class="flex-container column-reverse">
-    <li class="flex-item">
-        <ul class="flex-container column-reverse">
-            <li class="flex-item">2</li>
-            <li class="flex-item">3</li>
-            <li class="flex-item">4</li>
-        </ul>
-    </li>
-        <li class="flex-item">2</li>
-        <li class="flex-item">3</li>
-        <li class="flex-item">4</li>
-        <li class="flex-item">5</li>
+                    </li>
+                    <li id="1035-hd">
+                        <input id="BaseQuestions_0__Questions_0__ComplianceLevelId" name="BaseQuestions[0].Questions[0].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_0__Questions_1__Id" name="BaseQuestions[0].Questions[1].Id" type="hidden" value="1036"><input id="BaseQuestions_0__Questions_1__IsMandatory" name="BaseQuestions[0].Questions[1].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_0__Questions_1__QuestionAr" name="BaseQuestions[0].Questions[1].QuestionAr" type="hidden" value="منهجية تقييم المخاطر ومعالجة المخاطر (البند 6.1.2)"><input id="BaseQuestions_0__Questions_1__QuestionEn" name="BaseQuestions[0].Questions[1].QuestionEn" type="hidden" value="Risk assessment and risk treatment methodology (clause 6.1.2)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_0__Questions_1__BaseQuestionDetailsId" name="BaseQuestions[0].Questions[1].BaseQuestionDetailsId" type="hidden" value="7"><input id="BaseQuestions_0__Questions_1__Question" name="BaseQuestions[0].Questions[1].Question" type="hidden" value="منهجية تقييم المخاطر ومعالجة المخاطر (البند 6.1.2)">                                    <div dir="rtl" id="faq-list-7" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> منهجية تقييم المخاطر ومعالجة المخاطر (البند 6.1.2) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[0].Questions[1].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1036-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[0].Questions[1].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1036-hd">
+                        <input id="BaseQuestions_0__Questions_1__ComplianceLevelId" name="BaseQuestions[0].Questions[1].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_0__Questions_2__Id" name="BaseQuestions[0].Questions[2].Id" type="hidden" value="1037"><input id="BaseQuestions_0__Questions_2__IsMandatory" name="BaseQuestions[0].Questions[2].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_0__Questions_2__QuestionAr" name="BaseQuestions[0].Questions[2].QuestionAr" type="hidden" value="بيان قابلية التطبيق (البند 6.1.3 د)"><input id="BaseQuestions_0__Questions_2__QuestionEn" name="BaseQuestions[0].Questions[2].QuestionEn" type="hidden" value="Statement of Applicability (clause 6.1.3d)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_0__Questions_2__BaseQuestionDetailsId" name="BaseQuestions[0].Questions[2].BaseQuestionDetailsId" type="hidden" value="7"><input id="BaseQuestions_0__Questions_2__Question" name="BaseQuestions[0].Questions[2].Question" type="hidden" value="بيان قابلية التطبيق (البند 6.1.3 د)">                                    <div dir="rtl" id="faq-list-7" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> بيان قابلية التطبيق (البند 6.1.3 د) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[0].Questions[2].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1037-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[0].Questions[2].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1037-hd">
+                        <input id="BaseQuestions_0__Questions_2__ComplianceLevelId" name="BaseQuestions[0].Questions[2].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_0__Questions_3__Id" name="BaseQuestions[0].Questions[3].Id" type="hidden" value="1038"><input id="BaseQuestions_0__Questions_3__IsMandatory" name="BaseQuestions[0].Questions[3].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_0__Questions_3__QuestionAr" name="BaseQuestions[0].Questions[3].QuestionAr" type="hidden" value="خطة معالجة المخاطر (البند 6.1.3e و 6.2)"><input id="BaseQuestions_0__Questions_3__QuestionEn" name="BaseQuestions[0].Questions[3].QuestionEn" type="hidden" value="Risk treatment plan (clauses 6.1.3e and 6.2) "><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_0__Questions_3__BaseQuestionDetailsId" name="BaseQuestions[0].Questions[3].BaseQuestionDetailsId" type="hidden" value="7"><input id="BaseQuestions_0__Questions_3__Question" name="BaseQuestions[0].Questions[3].Question" type="hidden" value="خطة معالجة المخاطر (البند 6.1.3e و 6.2)">                                    <div dir="rtl" id="faq-list-7" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> خطة معالجة المخاطر (البند 6.1.3e و 6.2) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[0].Questions[3].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1038-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[0].Questions[3].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1038-hd">
+                        <input id="BaseQuestions_0__Questions_3__ComplianceLevelId" name="BaseQuestions[0].Questions[3].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_0__Questions_4__Id" name="BaseQuestions[0].Questions[4].Id" type="hidden" value="1039"><input id="BaseQuestions_0__Questions_4__IsMandatory" name="BaseQuestions[0].Questions[4].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_0__Questions_4__QuestionAr" name="BaseQuestions[0].Questions[4].QuestionAr" type="hidden" value="تقرير تقييم المخاطر (البند 8.2)"><input id="BaseQuestions_0__Questions_4__QuestionEn" name="BaseQuestions[0].Questions[4].QuestionEn" type="hidden" value="Risk assessment report (clause 8.2)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_0__Questions_4__BaseQuestionDetailsId" name="BaseQuestions[0].Questions[4].BaseQuestionDetailsId" type="hidden" value="7"><input id="BaseQuestions_0__Questions_4__Question" name="BaseQuestions[0].Questions[4].Question" type="hidden" value="تقرير تقييم المخاطر (البند 8.2)">                                    <div dir="rtl" id="faq-list-7" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> تقرير تقييم المخاطر (البند 8.2) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[0].Questions[4].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1039-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[0].Questions[4].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1039-hd">
+                        <input id="BaseQuestions_0__Questions_4__ComplianceLevelId" name="BaseQuestions[0].Questions[4].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_0__Questions_5__Id" name="BaseQuestions[0].Questions[5].Id" type="hidden" value="1076"><input id="BaseQuestions_0__Questions_5__IsMandatory" name="BaseQuestions[0].Questions[5].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_0__Questions_5__QuestionAr" name="BaseQuestions[0].Questions[5].QuestionAr" type="hidden" value="وصف نظاق نظام ادارة امن المعلومات"><input id="BaseQuestions_0__Questions_5__QuestionEn" name="BaseQuestions[0].Questions[5].QuestionEn" type="hidden" value="Description of the Scope of the ISMS (clause 4.3)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_0__Questions_5__BaseQuestionDetailsId" name="BaseQuestions[0].Questions[5].BaseQuestionDetailsId" type="hidden" value="7"><input id="BaseQuestions_0__Questions_5__Question" name="BaseQuestions[0].Questions[5].Question" type="hidden" value="وصف نظاق نظام ادارة امن المعلومات">                                    <div dir="rtl" id="faq-list-7" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> وصف نظاق نظام ادارة امن المعلومات </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[0].Questions[5].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1076-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[0].Questions[5].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1076-hd">
+                        <input id="BaseQuestions_0__Questions_5__ComplianceLevelId" name="BaseQuestions[0].Questions[5].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+        </li>
+        <li data-aos="fade-up" class="aos-init">
+            <a style="background-color:#CC1616;color:white;border:double;padding:12px 22px;" data-toggle="collapse" class="collapse" href="#faq-list-8">هل المستندات الإلزامية التالية المذكورة في ISO 27001: 2013 المرفق أ مطبقة في منشأتك؟<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_0__Id" name="BaseQuestions[1].Questions[0].Id" type="hidden" value="1040"><input id="BaseQuestions_1__Questions_0__IsMandatory" name="BaseQuestions[1].Questions[0].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_0__QuestionAr" name="BaseQuestions[1].Questions[0].QuestionAr" type="hidden" value="سياسة إحضار جهازك (BYOD) (البند A.6.2.1)"><input id="BaseQuestions_1__Questions_0__QuestionEn" name="BaseQuestions[1].Questions[0].QuestionEn" type="hidden" value="Bring your own device (BYOD) policy (clause A.6.2.1)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_0__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[0].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_0__Question" name="BaseQuestions[1].Questions[0].Question" type="hidden" value="سياسة إحضار جهازك (BYOD) (البند A.6.2.1)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> سياسة إحضار جهازك (BYOD) (البند A.6.2.1) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[0].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1040-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[0].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1040-hd">
+                        <input id="BaseQuestions_1__Questions_0__ComplianceLevelId" name="BaseQuestions[1].Questions[0].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_1__Id" name="BaseQuestions[1].Questions[1].Id" type="hidden" value="1041"><input id="BaseQuestions_1__Questions_1__IsMandatory" name="BaseQuestions[1].Questions[1].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_1__QuestionAr" name="BaseQuestions[1].Questions[1].QuestionAr" type="hidden" value="سياسة الجهاز المحمول والعمل عن بعد (البند A.6.2.1)"><input id="BaseQuestions_1__Questions_1__QuestionEn" name="BaseQuestions[1].Questions[1].QuestionEn" type="hidden" value="Mobile device and teleworking policy (clause A.6.2.1)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_1__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[1].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_1__Question" name="BaseQuestions[1].Questions[1].Question" type="hidden" value="سياسة الجهاز المحمول والعمل عن بعد (البند A.6.2.1)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> سياسة الجهاز المحمول والعمل عن بعد (البند A.6.2.1) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[1].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1041-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[1].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1041-hd">
+                        <input id="BaseQuestions_1__Questions_1__ComplianceLevelId" name="BaseQuestions[1].Questions[1].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_2__Id" name="BaseQuestions[1].Questions[2].Id" type="hidden" value="1042"><input id="BaseQuestions_1__Questions_2__IsMandatory" name="BaseQuestions[1].Questions[2].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_2__QuestionAr" name="BaseQuestions[1].Questions[2].QuestionAr" type="hidden" value="تعريف الأدوار والمسؤوليات في امن المعلومات (البنود A.7.1.2 و A.13.2.4)"><input id="BaseQuestions_1__Questions_2__QuestionEn" name="BaseQuestions[1].Questions[2].QuestionEn" type="hidden" value="Definition of security roles and responsibilities (clauses A.7.1.2 and A.13.2.4)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_2__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[2].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_2__Question" name="BaseQuestions[1].Questions[2].Question" type="hidden" value="تعريف الأدوار والمسؤوليات في امن المعلومات (البنود A.7.1.2 و A.13.2.4)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> تعريف الأدوار والمسؤوليات في امن المعلومات (البنود A.7.1.2 و A.13.2.4) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[2].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1042-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[2].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1042-hd">
+                        <input id="BaseQuestions_1__Questions_2__ComplianceLevelId" name="BaseQuestions[1].Questions[2].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_3__Id" name="BaseQuestions[1].Questions[3].Id" type="hidden" value="1043"><input id="BaseQuestions_1__Questions_3__IsMandatory" name="BaseQuestions[1].Questions[3].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_3__QuestionAr" name="BaseQuestions[1].Questions[3].QuestionAr" type="hidden" value="الاستخدام المقبول للأصول (البند A.8.1.3)"><input id="BaseQuestions_1__Questions_3__QuestionEn" name="BaseQuestions[1].Questions[3].QuestionEn" type="hidden" value="Acceptable use of assets (clause A.8.1.3)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_3__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[3].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_3__Question" name="BaseQuestions[1].Questions[3].Question" type="hidden" value="الاستخدام المقبول للأصول (البند A.8.1.3)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> الاستخدام المقبول للأصول (البند A.8.1.3) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[3].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1043-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[3].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1043-hd">
+                        <input id="BaseQuestions_1__Questions_3__ComplianceLevelId" name="BaseQuestions[1].Questions[3].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_4__Id" name="BaseQuestions[1].Questions[4].Id" type="hidden" value="1044"><input id="BaseQuestions_1__Questions_4__IsMandatory" name="BaseQuestions[1].Questions[4].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_4__QuestionAr" name="BaseQuestions[1].Questions[4].QuestionAr" type="hidden" value="سياسة تصنيف المعلومات (البنود A.8.2.1 و A.8.2.2 و A.8.2.3)"><input id="BaseQuestions_1__Questions_4__QuestionEn" name="BaseQuestions[1].Questions[4].QuestionEn" type="hidden" value="Information classification policy (clauses A.8.2.1, A.8.2.2, and A.8.2.3)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_4__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[4].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_4__Question" name="BaseQuestions[1].Questions[4].Question" type="hidden" value="سياسة تصنيف المعلومات (البنود A.8.2.1 و A.8.2.2 و A.8.2.3)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> سياسة تصنيف المعلومات (البنود A.8.2.1 و A.8.2.2 و A.8.2.3) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[4].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1044-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[4].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1044-hd">
+                        <input id="BaseQuestions_1__Questions_4__ComplianceLevelId" name="BaseQuestions[1].Questions[4].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_5__Id" name="BaseQuestions[1].Questions[5].Id" type="hidden" value="1045"><input id="BaseQuestions_1__Questions_5__IsMandatory" name="BaseQuestions[1].Questions[5].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_5__QuestionAr" name="BaseQuestions[1].Questions[5].QuestionAr" type="hidden" value="إجراءات التخلص والتخريب (البنود A.8.3.2 و A.11.2.7)"><input id="BaseQuestions_1__Questions_5__QuestionEn" name="BaseQuestions[1].Questions[5].QuestionEn" type="hidden" value="Disposal and destruction procedures (clauses A.8.3.2 and A.11.2.7)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_5__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[5].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_5__Question" name="BaseQuestions[1].Questions[5].Question" type="hidden" value="إجراءات التخلص والتخريب (البنود A.8.3.2 و A.11.2.7)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> إجراءات التخلص والتخريب (البنود A.8.3.2 و A.11.2.7) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[5].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1045-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[5].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1045-hd">
+                        <input id="BaseQuestions_1__Questions_5__ComplianceLevelId" name="BaseQuestions[1].Questions[5].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_6__Id" name="BaseQuestions[1].Questions[6].Id" type="hidden" value="1046"><input id="BaseQuestions_1__Questions_6__IsMandatory" name="BaseQuestions[1].Questions[6].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_6__QuestionAr" name="BaseQuestions[1].Questions[6].QuestionAr" type="hidden" value="سياسة التحكم في الوصول (البند A.9.1.1)"><input id="BaseQuestions_1__Questions_6__QuestionEn" name="BaseQuestions[1].Questions[6].QuestionEn" type="hidden" value="Access control policy (clause A.9.1.1)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_6__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[6].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_6__Question" name="BaseQuestions[1].Questions[6].Question" type="hidden" value="سياسة التحكم في الوصول (البند A.9.1.1)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> سياسة التحكم في الوصول (البند A.9.1.1) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[6].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1046-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[6].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1046-hd">
+                        <input id="BaseQuestions_1__Questions_6__ComplianceLevelId" name="BaseQuestions[1].Questions[6].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_7__Id" name="BaseQuestions[1].Questions[7].Id" type="hidden" value="1047"><input id="BaseQuestions_1__Questions_7__IsMandatory" name="BaseQuestions[1].Questions[7].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_7__QuestionAr" name="BaseQuestions[1].Questions[7].QuestionAr" type="hidden" value="سياسة كلمة المرور (البنود A.9.2.1 و A.9.2.2 و A.9.2.4 و A.9.3.1 و A.9.4.3)"><input id="BaseQuestions_1__Questions_7__QuestionEn" name="BaseQuestions[1].Questions[7].QuestionEn" type="hidden" value="Password policy (clauses A.9.2.1, A.9.2.2, A.9.2.4, A.9.3.1, and A.9.4.3)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_7__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[7].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_7__Question" name="BaseQuestions[1].Questions[7].Question" type="hidden" value="سياسة كلمة المرور (البنود A.9.2.1 و A.9.2.2 و A.9.2.4 و A.9.3.1 و A.9.4.3)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> سياسة كلمة المرور (البنود A.9.2.1 و A.9.2.2 و A.9.2.4 و A.9.3.1 و A.9.4.3) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[7].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1047-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[7].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1047-hd">
+                        <input id="BaseQuestions_1__Questions_7__ComplianceLevelId" name="BaseQuestions[1].Questions[7].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_8__Id" name="BaseQuestions[1].Questions[8].Id" type="hidden" value="1048"><input id="BaseQuestions_1__Questions_8__IsMandatory" name="BaseQuestions[1].Questions[8].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_8__QuestionAr" name="BaseQuestions[1].Questions[8].QuestionAr" type="hidden" value="إجراءات العمل في المناطق الآمنة (البند A.11.1.5)"><input id="BaseQuestions_1__Questions_8__QuestionEn" name="BaseQuestions[1].Questions[8].QuestionEn" type="hidden" value="Procedures for working in secure areas (clause A.11.1.5)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_8__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[8].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_8__Question" name="BaseQuestions[1].Questions[8].Question" type="hidden" value="إجراءات العمل في المناطق الآمنة (البند A.11.1.5)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> إجراءات العمل في المناطق الآمنة (البند A.11.1.5) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[8].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1048-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[8].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1048-hd">
+                        <input id="BaseQuestions_1__Questions_8__ComplianceLevelId" name="BaseQuestions[1].Questions[8].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_9__Id" name="BaseQuestions[1].Questions[9].Id" type="hidden" value="1049"><input id="BaseQuestions_1__Questions_9__IsMandatory" name="BaseQuestions[1].Questions[9].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_9__QuestionAr" name="BaseQuestions[1].Questions[9].QuestionAr" type="hidden" value="سياسة المكتب النظيف والشاشة النظيفة (البند A.11.2.9)"><input id="BaseQuestions_1__Questions_9__QuestionEn" name="BaseQuestions[1].Questions[9].QuestionEn" type="hidden" value="Clear desk and clear screen policy (clause A.11.2.9)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_9__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[9].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_9__Question" name="BaseQuestions[1].Questions[9].Question" type="hidden" value="سياسة المكتب النظيف والشاشة النظيفة (البند A.11.2.9)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> سياسة المكتب النظيف والشاشة النظيفة (البند A.11.2.9) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[9].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1049-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[9].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1049-hd">
+                        <input id="BaseQuestions_1__Questions_9__ComplianceLevelId" name="BaseQuestions[1].Questions[9].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_10__Id" name="BaseQuestions[1].Questions[10].Id" type="hidden" value="1050"><input id="BaseQuestions_1__Questions_10__IsMandatory" name="BaseQuestions[1].Questions[10].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_10__QuestionAr" name="BaseQuestions[1].Questions[10].QuestionAr" type="hidden" value="إجراءات التشغيل لإدارة تقنية المعلومات (البند A.12.1.1)"><input id="BaseQuestions_1__Questions_10__QuestionEn" name="BaseQuestions[1].Questions[10].QuestionEn" type="hidden" value="Operating procedures for IT management (clause A.12.1.1)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_10__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[10].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_10__Question" name="BaseQuestions[1].Questions[10].Question" type="hidden" value="إجراءات التشغيل لإدارة تقنية المعلومات (البند A.12.1.1)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> إجراءات التشغيل لإدارة تقنية المعلومات (البند A.12.1.1) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[10].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1050-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[10].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1050-hd">
+                        <input id="BaseQuestions_1__Questions_10__ComplianceLevelId" name="BaseQuestions[1].Questions[10].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_11__Id" name="BaseQuestions[1].Questions[11].Id" type="hidden" value="1051"><input id="BaseQuestions_1__Questions_11__IsMandatory" name="BaseQuestions[1].Questions[11].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_11__QuestionAr" name="BaseQuestions[1].Questions[11].QuestionAr" type="hidden" value="إجراءات إدارة التغيير (البنود A.12.1.2 و A.14.2.4)"><input id="BaseQuestions_1__Questions_11__QuestionEn" name="BaseQuestions[1].Questions[11].QuestionEn" type="hidden" value="Change management procedures (clauses A.12.1.2 and A.14.2.4)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_11__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[11].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_11__Question" name="BaseQuestions[1].Questions[11].Question" type="hidden" value="إجراءات إدارة التغيير (البنود A.12.1.2 و A.14.2.4)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> إجراءات إدارة التغيير (البنود A.12.1.2 و A.14.2.4) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[11].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1051-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[11].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1051-hd">
+                        <input id="BaseQuestions_1__Questions_11__ComplianceLevelId" name="BaseQuestions[1].Questions[11].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_12__Id" name="BaseQuestions[1].Questions[12].Id" type="hidden" value="1052"><input id="BaseQuestions_1__Questions_12__IsMandatory" name="BaseQuestions[1].Questions[12].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_12__QuestionAr" name="BaseQuestions[1].Questions[12].QuestionAr" type="hidden" value="سياسة النسخ الاحتياطي (البند A.12.3.1)"><input id="BaseQuestions_1__Questions_12__QuestionEn" name="BaseQuestions[1].Questions[12].QuestionEn" type="hidden" value="Backup policy (clause A.12.3.1)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_12__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[12].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_12__Question" name="BaseQuestions[1].Questions[12].Question" type="hidden" value="سياسة النسخ الاحتياطي (البند A.12.3.1)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> سياسة النسخ الاحتياطي (البند A.12.3.1) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[12].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1052-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[12].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1052-hd">
+                        <input id="BaseQuestions_1__Questions_12__ComplianceLevelId" name="BaseQuestions[1].Questions[12].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_13__Id" name="BaseQuestions[1].Questions[13].Id" type="hidden" value="1053"><input id="BaseQuestions_1__Questions_13__IsMandatory" name="BaseQuestions[1].Questions[13].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_13__QuestionAr" name="BaseQuestions[1].Questions[13].QuestionAr" type="hidden" value="سياسة نقل المعلومات (البنود A.13.2.1 و A.13.2.2 و A.13.2.3)"><input id="BaseQuestions_1__Questions_13__QuestionEn" name="BaseQuestions[1].Questions[13].QuestionEn" type="hidden" value="Information transfer policy (clauses A.13.2.1, A.13.2.2, and A.13.2.3)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_13__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[13].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_13__Question" name="BaseQuestions[1].Questions[13].Question" type="hidden" value="سياسة نقل المعلومات (البنود A.13.2.1 و A.13.2.2 و A.13.2.3)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> سياسة نقل المعلومات (البنود A.13.2.1 و A.13.2.2 و A.13.2.3) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[13].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1053-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[13].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1053-hd">
+                        <input id="BaseQuestions_1__Questions_13__ComplianceLevelId" name="BaseQuestions[1].Questions[13].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_14__Id" name="BaseQuestions[1].Questions[14].Id" type="hidden" value="1054"><input id="BaseQuestions_1__Questions_14__IsMandatory" name="BaseQuestions[1].Questions[14].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_14__QuestionAr" name="BaseQuestions[1].Questions[14].QuestionAr" type="hidden" value="مبادئ هندسة النظام الآمن (البند A.14.2.5)"><input id="BaseQuestions_1__Questions_14__QuestionEn" name="BaseQuestions[1].Questions[14].QuestionEn" type="hidden" value="Secure system engineering principles (clause A.14.2.5)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_14__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[14].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_14__Question" name="BaseQuestions[1].Questions[14].Question" type="hidden" value="مبادئ هندسة النظام الآمن (البند A.14.2.5)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> مبادئ هندسة النظام الآمن (البند A.14.2.5) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[14].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1054-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[14].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1054-hd">
+                        <input id="BaseQuestions_1__Questions_14__ComplianceLevelId" name="BaseQuestions[1].Questions[14].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_15__Id" name="BaseQuestions[1].Questions[15].Id" type="hidden" value="1055"><input id="BaseQuestions_1__Questions_15__IsMandatory" name="BaseQuestions[1].Questions[15].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_15__QuestionAr" name="BaseQuestions[1].Questions[15].QuestionAr" type="hidden" value="سياسة أمن الموردين (البند A.15.1.1)"><input id="BaseQuestions_1__Questions_15__QuestionEn" name="BaseQuestions[1].Questions[15].QuestionEn" type="hidden" value="Supplier security policy (clause A.15.1.1)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_15__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[15].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_15__Question" name="BaseQuestions[1].Questions[15].Question" type="hidden" value="سياسة أمن الموردين (البند A.15.1.1)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> سياسة أمن الموردين (البند A.15.1.1) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[15].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1055-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[15].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1055-hd">
+                        <input id="BaseQuestions_1__Questions_15__ComplianceLevelId" name="BaseQuestions[1].Questions[15].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_16__Id" name="BaseQuestions[1].Questions[16].Id" type="hidden" value="1057"><input id="BaseQuestions_1__Questions_16__IsMandatory" name="BaseQuestions[1].Questions[16].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_16__QuestionAr" name="BaseQuestions[1].Questions[16].QuestionAr" type="hidden" value="إجراءات إدارة الحوادث (البند A.16.1.5)"><input id="BaseQuestions_1__Questions_16__QuestionEn" name="BaseQuestions[1].Questions[16].QuestionEn" type="hidden" value="Incident management procedure (clause A.16.1.5)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_16__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[16].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_16__Question" name="BaseQuestions[1].Questions[16].Question" type="hidden" value="إجراءات إدارة الحوادث (البند A.16.1.5)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> إجراءات إدارة الحوادث (البند A.16.1.5) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[16].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1057-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[16].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1057-hd">
+                        <input id="BaseQuestions_1__Questions_16__ComplianceLevelId" name="BaseQuestions[1].Questions[16].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_17__Id" name="BaseQuestions[1].Questions[17].Id" type="hidden" value="1058"><input id="BaseQuestions_1__Questions_17__IsMandatory" name="BaseQuestions[1].Questions[17].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_17__QuestionAr" name="BaseQuestions[1].Questions[17].QuestionAr" type="hidden" value="إجراءات استمرارية الأعمال (البند A.17.1.2)"><input id="BaseQuestions_1__Questions_17__QuestionEn" name="BaseQuestions[1].Questions[17].QuestionEn" type="hidden" value="Business continuity procedures (clause A.17.1.2)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_17__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[17].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_17__Question" name="BaseQuestions[1].Questions[17].Question" type="hidden" value="إجراءات استمرارية الأعمال (البند A.17.1.2)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> إجراءات استمرارية الأعمال (البند A.17.1.2) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[17].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1058-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[17].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1058-hd">
+                        <input id="BaseQuestions_1__Questions_17__ComplianceLevelId" name="BaseQuestions[1].Questions[17].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_1__Questions_18__Id" name="BaseQuestions[1].Questions[18].Id" type="hidden" value="1059"><input id="BaseQuestions_1__Questions_18__IsMandatory" name="BaseQuestions[1].Questions[18].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_1__Questions_18__QuestionAr" name="BaseQuestions[1].Questions[18].QuestionAr" type="hidden" value="المتطلبات القانونية والتنظيمية والتعاقدية (البند A.18.1.1)"><input id="BaseQuestions_1__Questions_18__QuestionEn" name="BaseQuestions[1].Questions[18].QuestionEn" type="hidden" value="Statutory, regulatory, and contractual requirements (clause A.18.1.1)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_1__Questions_18__BaseQuestionDetailsId" name="BaseQuestions[1].Questions[18].BaseQuestionDetailsId" type="hidden" value="8"><input id="BaseQuestions_1__Questions_18__Question" name="BaseQuestions[1].Questions[18].Question" type="hidden" value="المتطلبات القانونية والتنظيمية والتعاقدية (البند A.18.1.1)">                                    <div dir="rtl" id="faq-list-8" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> المتطلبات القانونية والتنظيمية والتعاقدية (البند A.18.1.1) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[1].Questions[18].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1059-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[1].Questions[18].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1059-hd">
+                        <input id="BaseQuestions_1__Questions_18__ComplianceLevelId" name="BaseQuestions[1].Questions[18].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+        </li>
+        <input id="ServiceName" name="ServiceName" type="hidden" value="إستبانة">
+        <input id="SubType" name="SubType" type="hidden" value="10">
+        <input id="Type" name="Type" type="hidden" value="إستبانة">
+        <input id="BaseQuestions_2__TemplateTypes" name="BaseQuestions[2].TemplateTypes" type="hidden" value="">
+        <input id="BaseQuestions_2__TemplateSubTypes" name="BaseQuestions[2].TemplateSubTypes" type="hidden" value="">
+        <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_2__Id" name="BaseQuestions[2].Id" type="hidden" value="9">
+        <input id="BaseQuestions_2__BaseClauseNameAr" name="BaseQuestions[2].BaseClauseNameAr" type="hidden" value="هل السجلات الإلزامية التالية المذكورة في ISO 27001: 2013 و ISO 27002: 2013 مطبقة في مؤسستك؟">
+        <input id="BaseQuestions_2__BaseClauseNameEn" name="BaseQuestions[2].BaseClauseNameEn" type="hidden" value="?Are the following mandatory records mentioned in the ISO 27001:2013 and ISO 27002:2013 implemented in your organization">
+        <input data-val="true" data-val-required="الحقل مطلوب" id="BaseQuestions_2__BaseQuestionNameAr" name="BaseQuestions[2].BaseQuestionNameAr" type="hidden" value="هل السجلات الإلزامية التالية المذكورة في ISO 27001: 2013 و ISO 27002: 2013 مطبقة في مؤسستك؟">
+        <input data-val="true" data-val-required="الحقل مطلوب" id="BaseQuestions_2__BaseQuestionNameEn" name="BaseQuestions[2].BaseQuestionNameEn" type="hidden" value="?Are the following mandatory records mentioned in the ISO 27001:2013 and ISO 27002:2013 implemented in your organization">
+        <input id="BaseQuestions_2__BaseQuestion" name="BaseQuestions[2].BaseQuestion" type="hidden" value="هل السجلات الإلزامية التالية المذكورة في ISO 27001: 2013 و ISO 27002: 2013 مطبقة في مؤسستك؟">
+        <li data-aos="fade-up" class="aos-init">
+            <a style="background-color:#CC1616;color:white;border:double;padding:12px 22px;" data-toggle="collapse" class="collapse" href="#faq-list-9">هل السجلات الإلزامية التالية المذكورة في ISO 27001: 2013 و ISO 27002: 2013 مطبقة في مؤسستك؟<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_2__Questions_0__Id" name="BaseQuestions[2].Questions[0].Id" type="hidden" value="1060"><input id="BaseQuestions_2__Questions_0__IsMandatory" name="BaseQuestions[2].Questions[0].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_2__Questions_0__QuestionAr" name="BaseQuestions[2].Questions[0].QuestionAr" type="hidden" value="سجلات التدريب والمهارات والخبرة والمؤهلات (البند 7.2)"><input id="BaseQuestions_2__Questions_0__QuestionEn" name="BaseQuestions[2].Questions[0].QuestionEn" type="hidden" value="Records of training, skills, experience and qualifications (clause 7.2)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_2__Questions_0__BaseQuestionDetailsId" name="BaseQuestions[2].Questions[0].BaseQuestionDetailsId" type="hidden" value="9"><input id="BaseQuestions_2__Questions_0__Question" name="BaseQuestions[2].Questions[0].Question" type="hidden" value="سجلات التدريب والمهارات والخبرة والمؤهلات (البند 7.2)">                                    <div dir="rtl" id="faq-list-9" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> سجلات التدريب والمهارات والخبرة والمؤهلات (البند 7.2) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[2].Questions[0].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1060-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[2].Questions[0].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1060-hd">
+                        <input id="BaseQuestions_2__Questions_0__ComplianceLevelId" name="BaseQuestions[2].Questions[0].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_2__Questions_1__Id" name="BaseQuestions[2].Questions[1].Id" type="hidden" value="1061"><input id="BaseQuestions_2__Questions_1__IsMandatory" name="BaseQuestions[2].Questions[1].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_2__Questions_1__QuestionAr" name="BaseQuestions[2].Questions[1].QuestionAr" type="hidden" value="نتائج المراقبة والقياس (البند 9.1)"><input id="BaseQuestions_2__Questions_1__QuestionEn" name="BaseQuestions[2].Questions[1].QuestionEn" type="hidden" value="Monitoring and measurement results (clause 9.1)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_2__Questions_1__BaseQuestionDetailsId" name="BaseQuestions[2].Questions[1].BaseQuestionDetailsId" type="hidden" value="9"><input id="BaseQuestions_2__Questions_1__Question" name="BaseQuestions[2].Questions[1].Question" type="hidden" value="نتائج المراقبة والقياس (البند 9.1)">                                    <div dir="rtl" id="faq-list-9" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> نتائج المراقبة والقياس (البند 9.1) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[2].Questions[1].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1061-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[2].Questions[1].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1061-hd">
+                        <input id="BaseQuestions_2__Questions_1__ComplianceLevelId" name="BaseQuestions[2].Questions[1].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_2__Questions_2__Id" name="BaseQuestions[2].Questions[2].Id" type="hidden" value="1063"><input id="BaseQuestions_2__Questions_2__IsMandatory" name="BaseQuestions[2].Questions[2].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_2__Questions_2__QuestionAr" name="BaseQuestions[2].Questions[2].QuestionAr" type="hidden" value="نتائج التدقيق الداخلي (البند 9.2)"><input id="BaseQuestions_2__Questions_2__QuestionEn" name="BaseQuestions[2].Questions[2].QuestionEn" type="hidden" value="Results of internal audits (clause 9.2)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_2__Questions_2__BaseQuestionDetailsId" name="BaseQuestions[2].Questions[2].BaseQuestionDetailsId" type="hidden" value="9"><input id="BaseQuestions_2__Questions_2__Question" name="BaseQuestions[2].Questions[2].Question" type="hidden" value="نتائج التدقيق الداخلي (البند 9.2)">                                    <div dir="rtl" id="faq-list-9" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> نتائج التدقيق الداخلي (البند 9.2) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[2].Questions[2].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1063-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[2].Questions[2].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1063-hd">
+                        <input id="BaseQuestions_2__Questions_2__ComplianceLevelId" name="BaseQuestions[2].Questions[2].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_2__Questions_3__Id" name="BaseQuestions[2].Questions[3].Id" type="hidden" value="1064"><input id="BaseQuestions_2__Questions_3__IsMandatory" name="BaseQuestions[2].Questions[3].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_2__Questions_3__QuestionAr" name="BaseQuestions[2].Questions[3].QuestionAr" type="hidden" value="نتائج المراجعة الإدارية (البند 9.3)"><input id="BaseQuestions_2__Questions_3__QuestionEn" name="BaseQuestions[2].Questions[3].QuestionEn" type="hidden" value="Results of the management review (clause 9.3)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_2__Questions_3__BaseQuestionDetailsId" name="BaseQuestions[2].Questions[3].BaseQuestionDetailsId" type="hidden" value="9"><input id="BaseQuestions_2__Questions_3__Question" name="BaseQuestions[2].Questions[3].Question" type="hidden" value="نتائج المراجعة الإدارية (البند 9.3)">                                    <div dir="rtl" id="faq-list-9" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> نتائج المراجعة الإدارية (البند 9.3) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[2].Questions[3].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1064-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[2].Questions[3].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1064-hd">
+                        <input id="BaseQuestions_2__Questions_3__ComplianceLevelId" name="BaseQuestions[2].Questions[3].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_2__Questions_4__Id" name="BaseQuestions[2].Questions[4].Id" type="hidden" value="1065"><input id="BaseQuestions_2__Questions_4__IsMandatory" name="BaseQuestions[2].Questions[4].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_2__Questions_4__QuestionAr" name="BaseQuestions[2].Questions[4].QuestionAr" type="hidden" value="نتائج اجراءات التصحيح (البند 10.1)"><input id="BaseQuestions_2__Questions_4__QuestionEn" name="BaseQuestions[2].Questions[4].QuestionEn" type="hidden" value="Results of corrective actions (clause 10.1)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_2__Questions_4__BaseQuestionDetailsId" name="BaseQuestions[2].Questions[4].BaseQuestionDetailsId" type="hidden" value="9"><input id="BaseQuestions_2__Questions_4__Question" name="BaseQuestions[2].Questions[4].Question" type="hidden" value="نتائج اجراءات التصحيح (البند 10.1)">                                    <div dir="rtl" id="faq-list-9" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> نتائج اجراءات التصحيح (البند 10.1) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[2].Questions[4].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1065-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[2].Questions[4].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1065-hd">
+                        <input id="BaseQuestions_2__Questions_4__ComplianceLevelId" name="BaseQuestions[2].Questions[4].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_2__Questions_5__Id" name="BaseQuestions[2].Questions[5].Id" type="hidden" value="1066"><input id="BaseQuestions_2__Questions_5__IsMandatory" name="BaseQuestions[2].Questions[5].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_2__Questions_5__QuestionAr" name="BaseQuestions[2].Questions[5].QuestionAr" type="hidden" value="جرد الأصول (البند A.8.1.1)"><input id="BaseQuestions_2__Questions_5__QuestionEn" name="BaseQuestions[2].Questions[5].QuestionEn" type="hidden" value="Inventory of assets (clause A.8.1.1)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_2__Questions_5__BaseQuestionDetailsId" name="BaseQuestions[2].Questions[5].BaseQuestionDetailsId" type="hidden" value="9"><input id="BaseQuestions_2__Questions_5__Question" name="BaseQuestions[2].Questions[5].Question" type="hidden" value="جرد الأصول (البند A.8.1.1)">                                    <div dir="rtl" id="faq-list-9" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> جرد الأصول (البند A.8.1.1) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[2].Questions[5].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1066-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[2].Questions[5].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1066-hd">
+                        <input id="BaseQuestions_2__Questions_5__ComplianceLevelId" name="BaseQuestions[2].Questions[5].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_2__Questions_6__Id" name="BaseQuestions[2].Questions[6].Id" type="hidden" value="1067"><input id="BaseQuestions_2__Questions_6__IsMandatory" name="BaseQuestions[2].Questions[6].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_2__Questions_6__QuestionAr" name="BaseQuestions[2].Questions[6].QuestionAr" type="hidden" value="سجلات أنشطة المستخدم، والاستثناءات، والأحداث الأمنية (البنود A.12.4.1 و A.12.4.3)"><input id="BaseQuestions_2__Questions_6__QuestionEn" name="BaseQuestions[2].Questions[6].QuestionEn" type="hidden" value="Logs of user activities, exceptions, and security events (clauses A.12.4.1 and A.12.4.3)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_2__Questions_6__BaseQuestionDetailsId" name="BaseQuestions[2].Questions[6].BaseQuestionDetailsId" type="hidden" value="9"><input id="BaseQuestions_2__Questions_6__Question" name="BaseQuestions[2].Questions[6].Question" type="hidden" value="سجلات أنشطة المستخدم، والاستثناءات، والأحداث الأمنية (البنود A.12.4.1 و A.12.4.3)">                                    <div dir="rtl" id="faq-list-9" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> سجلات أنشطة المستخدم، والاستثناءات، والأحداث الأمنية (البنود A.12.4.1 و A.12.4.3) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[2].Questions[6].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1067-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[2].Questions[6].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1067-hd">
+                        <input id="BaseQuestions_2__Questions_6__ComplianceLevelId" name="BaseQuestions[2].Questions[6].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+        </li>
+        <input id="ServiceName" name="ServiceName" type="hidden" value="إستبانة">
+        <input id="SubType" name="SubType" type="hidden" value="10">
+        <input id="Type" name="Type" type="hidden" value="إستبانة">
+        <input id="BaseQuestions_3__TemplateTypes" name="BaseQuestions[3].TemplateTypes" type="hidden" value="">
+        <input id="BaseQuestions_3__TemplateSubTypes" name="BaseQuestions[3].TemplateSubTypes" type="hidden" value="">
+        <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_3__Id" name="BaseQuestions[3].Id" type="hidden" value="10">
+        <input id="BaseQuestions_3__BaseClauseNameAr" name="BaseQuestions[3].BaseClauseNameAr" type="hidden" value="هل المستندات الموصى بها من قبل ISO 27001: 2013 و ISO 27002: 2013 مطبقة في منشأتك؟">
+        <input id="BaseQuestions_3__BaseClauseNameEn" name="BaseQuestions[3].BaseClauseNameEn" type="hidden" value="?Are the following documents recommended by ISO 27001:2013 and ISO 27002:2013 implemented in your organization">
+        <input data-val="true" data-val-required="الحقل مطلوب" id="BaseQuestions_3__BaseQuestionNameAr" name="BaseQuestions[3].BaseQuestionNameAr" type="hidden" value="هل المستندات الموصى بها من قبل ISO 27001: 2013 و ISO 27002: 2013 مطبقة في منشأتك؟">
+        <input data-val="true" data-val-required="الحقل مطلوب" id="BaseQuestions_3__BaseQuestionNameEn" name="BaseQuestions[3].BaseQuestionNameEn" type="hidden" value="?Are the following documents recommended by ISO 27001:2013 and ISO 27002:2013 implemented in your organization">
+        <input id="BaseQuestions_3__BaseQuestion" name="BaseQuestions[3].BaseQuestion" type="hidden" value="هل المستندات الموصى بها من قبل ISO 27001: 2013 و ISO 27002: 2013 مطبقة في منشأتك؟">
+        <li data-aos="fade-up" class="aos-init">
+            <a style="background-color:#CC1616;color:white;border:double;padding:12px 22px;" data-toggle="collapse" class="collapse" href="#faq-list-10">هل المستندات الموصى بها من قبل ISO 27001: 2013 و ISO 27002: 2013 مطبقة في منشأتك؟<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_3__Questions_0__Id" name="BaseQuestions[3].Questions[0].Id" type="hidden" value="1068"><input id="BaseQuestions_3__Questions_0__IsMandatory" name="BaseQuestions[3].Questions[0].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_3__Questions_0__QuestionAr" name="BaseQuestions[3].Questions[0].QuestionAr" type="hidden" value="إجراءات ادارة الوثائق (البند 7.5)"><input id="BaseQuestions_3__Questions_0__QuestionEn" name="BaseQuestions[3].Questions[0].QuestionEn" type="hidden" value="Procedure for document control (clause 7.5)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_3__Questions_0__BaseQuestionDetailsId" name="BaseQuestions[3].Questions[0].BaseQuestionDetailsId" type="hidden" value="10"><input id="BaseQuestions_3__Questions_0__Question" name="BaseQuestions[3].Questions[0].Question" type="hidden" value="إجراءات ادارة الوثائق (البند 7.5)">                                    <div dir="rtl" id="faq-list-10" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> إجراءات ادارة الوثائق (البند 7.5) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[3].Questions[0].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1068-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[3].Questions[0].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1068-hd">
+                        <input id="BaseQuestions_3__Questions_0__ComplianceLevelId" name="BaseQuestions[3].Questions[0].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_3__Questions_1__Id" name="BaseQuestions[3].Questions[1].Id" type="hidden" value="1069"><input id="BaseQuestions_3__Questions_1__IsMandatory" name="BaseQuestions[3].Questions[1].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_3__Questions_1__QuestionAr" name="BaseQuestions[3].Questions[1].QuestionAr" type="hidden" value="ضوابط ادارة السجلات (البند 7.5)"><input id="BaseQuestions_3__Questions_1__QuestionEn" name="BaseQuestions[3].Questions[1].QuestionEn" type="hidden" value="Controls for managing records (clause 7.5)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_3__Questions_1__BaseQuestionDetailsId" name="BaseQuestions[3].Questions[1].BaseQuestionDetailsId" type="hidden" value="10"><input id="BaseQuestions_3__Questions_1__Question" name="BaseQuestions[3].Questions[1].Question" type="hidden" value="ضوابط ادارة السجلات (البند 7.5)">                                    <div dir="rtl" id="faq-list-10" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> ضوابط ادارة السجلات (البند 7.5) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[3].Questions[1].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1069-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[3].Questions[1].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1069-hd">
+                        <input id="BaseQuestions_3__Questions_1__ComplianceLevelId" name="BaseQuestions[3].Questions[1].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_3__Questions_2__Id" name="BaseQuestions[3].Questions[2].Id" type="hidden" value="1070"><input id="BaseQuestions_3__Questions_2__IsMandatory" name="BaseQuestions[3].Questions[2].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_3__Questions_2__QuestionAr" name="BaseQuestions[3].Questions[2].QuestionAr" type="hidden" value="إجراءات تدقيق الأمن الداخلي (البند 9.2)"><input id="BaseQuestions_3__Questions_2__QuestionEn" name="BaseQuestions[3].Questions[2].QuestionEn" type="hidden" value="Procedure for internal security audit (clause 9.2)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_3__Questions_2__BaseQuestionDetailsId" name="BaseQuestions[3].Questions[2].BaseQuestionDetailsId" type="hidden" value="10"><input id="BaseQuestions_3__Questions_2__Question" name="BaseQuestions[3].Questions[2].Question" type="hidden" value="إجراءات تدقيق الأمن الداخلي (البند 9.2)">                                    <div dir="rtl" id="faq-list-10" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> إجراءات تدقيق الأمن الداخلي (البند 9.2) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[3].Questions[2].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1070-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[3].Questions[2].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1070-hd">
+                        <input id="BaseQuestions_3__Questions_2__ComplianceLevelId" name="BaseQuestions[3].Questions[2].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_3__Questions_3__Id" name="BaseQuestions[3].Questions[3].Id" type="hidden" value="1071"><input id="BaseQuestions_3__Questions_3__IsMandatory" name="BaseQuestions[3].Questions[3].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_3__Questions_3__QuestionAr" name="BaseQuestions[3].Questions[3].QuestionAr" type="hidden" value="اجراءات التصحيح (البند 1.10)"><input id="BaseQuestions_3__Questions_3__QuestionEn" name="BaseQuestions[3].Questions[3].QuestionEn" type="hidden" value="Procedure for corrective action (clause 10.1)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_3__Questions_3__BaseQuestionDetailsId" name="BaseQuestions[3].Questions[3].BaseQuestionDetailsId" type="hidden" value="10"><input id="BaseQuestions_3__Questions_3__Question" name="BaseQuestions[3].Questions[3].Question" type="hidden" value="اجراءات التصحيح (البند 1.10)">                                    <div dir="rtl" id="faq-list-10" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> اجراءات التصحيح (البند 1.10) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[3].Questions[3].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1071-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[3].Questions[3].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1071-hd">
+                        <input id="BaseQuestions_3__Questions_3__ComplianceLevelId" name="BaseQuestions[3].Questions[3].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_3__Questions_4__Id" name="BaseQuestions[3].Questions[4].Id" type="hidden" value="1072"><input id="BaseQuestions_3__Questions_4__IsMandatory" name="BaseQuestions[3].Questions[4].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_3__Questions_4__QuestionAr" name="BaseQuestions[3].Questions[4].QuestionAr" type="hidden" value="تحليل تأثير الأعمال (البند A.17.1.1)"><input id="BaseQuestions_3__Questions_4__QuestionEn" name="BaseQuestions[3].Questions[4].QuestionEn" type="hidden" value="Business impact analysis (clause A.17.1.1)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_3__Questions_4__BaseQuestionDetailsId" name="BaseQuestions[3].Questions[4].BaseQuestionDetailsId" type="hidden" value="10"><input id="BaseQuestions_3__Questions_4__Question" name="BaseQuestions[3].Questions[4].Question" type="hidden" value="تحليل تأثير الأعمال (البند A.17.1.1)">                                    <div dir="rtl" id="faq-list-10" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> تحليل تأثير الأعمال (البند A.17.1.1) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[3].Questions[4].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1072-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[3].Questions[4].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1072-hd">
+                        <input id="BaseQuestions_3__Questions_4__ComplianceLevelId" name="BaseQuestions[3].Questions[4].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_3__Questions_5__Id" name="BaseQuestions[3].Questions[5].Id" type="hidden" value="1073"><input id="BaseQuestions_3__Questions_5__IsMandatory" name="BaseQuestions[3].Questions[5].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_3__Questions_5__QuestionAr" name="BaseQuestions[3].Questions[5].QuestionAr" type="hidden" value="خطة الممارسة والاختبار (البند A.17.1.3)"><input id="BaseQuestions_3__Questions_5__QuestionEn" name="BaseQuestions[3].Questions[5].QuestionEn" type="hidden" value="Exercising and testing plan (clause A.17.1.3)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_3__Questions_5__BaseQuestionDetailsId" name="BaseQuestions[3].Questions[5].BaseQuestionDetailsId" type="hidden" value="10"><input id="BaseQuestions_3__Questions_5__Question" name="BaseQuestions[3].Questions[5].Question" type="hidden" value="خطة الممارسة والاختبار (البند A.17.1.3)">                                    <div dir="rtl" id="faq-list-10" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> خطة الممارسة والاختبار (البند A.17.1.3) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[3].Questions[5].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1073-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[3].Questions[5].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1073-hd">
+                        <input id="BaseQuestions_3__Questions_5__ComplianceLevelId" name="BaseQuestions[3].Questions[5].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_3__Questions_6__Id" name="BaseQuestions[3].Questions[6].Id" type="hidden" value="1074"><input id="BaseQuestions_3__Questions_6__IsMandatory" name="BaseQuestions[3].Questions[6].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_3__Questions_6__QuestionAr" name="BaseQuestions[3].Questions[6].QuestionAr" type="hidden" value="خطة الصيانة والمراجعة (البند A.17.1.3)"><input id="BaseQuestions_3__Questions_6__QuestionEn" name="BaseQuestions[3].Questions[6].QuestionEn" type="hidden" value="Maintenance and review plan (clause A.17.1.3)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_3__Questions_6__BaseQuestionDetailsId" name="BaseQuestions[3].Questions[6].BaseQuestionDetailsId" type="hidden" value="10"><input id="BaseQuestions_3__Questions_6__Question" name="BaseQuestions[3].Questions[6].Question" type="hidden" value="خطة الصيانة والمراجعة (البند A.17.1.3)">                                    <div dir="rtl" id="faq-list-10" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> خطة الصيانة والمراجعة (البند A.17.1.3) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[3].Questions[6].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1074-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[3].Questions[6].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1074-hd">
+                        <input id="BaseQuestions_3__Questions_6__ComplianceLevelId" name="BaseQuestions[3].Questions[6].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="BaseQuestions_3__Questions_7__Id" name="BaseQuestions[3].Questions[7].Id" type="hidden" value="1075"><input id="BaseQuestions_3__Questions_7__IsMandatory" name="BaseQuestions[3].Questions[7].IsMandatory" type="hidden" value="False"><input id="BaseQuestions_3__Questions_7__QuestionAr" name="BaseQuestions[3].Questions[7].QuestionAr" type="hidden" value="استراتيجية استمرارية الأعمال (البند A.17.2.1)"><input id="BaseQuestions_3__Questions_7__QuestionEn" name="BaseQuestions[3].Questions[7].QuestionEn" type="hidden" value="Business continuity strategy (clause A.17.2.1)"><input data-val="true" data-val-number="The field BaseQuestionDetailsId must be a number." data-val-required="The BaseQuestionDetailsId field is required." id="BaseQuestions_3__Questions_7__BaseQuestionDetailsId" name="BaseQuestions[3].Questions[7].BaseQuestionDetailsId" type="hidden" value="10"><input id="BaseQuestions_3__Questions_7__Question" name="BaseQuestions[3].Questions[7].Question" type="hidden" value="استراتيجية استمرارية الأعمال (البند A.17.2.1)">                                    <div dir="rtl" id="faq-list-10" class="collapse show" data-parent=".faq-list">
+                <ul>
+                    <li>
+                        <i class="bx bx-help-circle icon-help"></i><span id="qs"> استراتيجية استمرارية الأعمال (البند A.17.2.1) </span>
+                    </li>
+                    <li>
+
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BaseQuestions[3].Questions[7].ComplianceLevel" data-valmsg-replace="true"></span>
+                        <select id="1075-dl" class="form-control" data-val="true" data-val-number="The field ComplianceLevelId must be a number." data-val-required="The ComplianceLevelId field is required." name="BaseQuestions[3].Questions[7].ComplianceLevelId" onchange="AsignHidden(this.id,this.value);" oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" required="required">
+                            <option value="">الإجابة</option>
+                            <option value="15"> الضابط غير مفهوم</option>
+                            <option value="16">الضابط غير موجود</option>
+                            <option value="17">الضابط موجود قيد الدراسة</option>
+                            <option value="18">الضابط موجود ومنفذ بدون تدقيق</option>
+                            <option value="19">الضابط يحقق الإمتثال التام للمعيار</option>
+                        </select>
+
+
+                    </li>
+                    <li id="1075-hd">
+                        <input id="BaseQuestions_3__Questions_7__ComplianceLevelId" name="BaseQuestions[3].Questions[7].ComplianceLevelId" type="hidden" value="0">
+                    </li>
+
+                </ul>
+            </div>
+        </li>
     </ul>
-
-
-
+</div>

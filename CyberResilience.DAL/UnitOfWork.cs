@@ -36,6 +36,13 @@ namespace CyberResilience.DAL
             }
         }
 
+        public ToolkitRepository Toolkit
+        {
+            get
+            {
+                return new ToolkitRepository(this);
+            }
+        }
         public AttachmentRepository Attachments
         {
             get

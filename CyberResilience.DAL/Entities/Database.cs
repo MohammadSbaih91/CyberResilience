@@ -39,6 +39,7 @@ namespace CyberResilience.DAL.Entities
         public virtual DbSet<QuestionsDetail> QuestionsDetails { get; set; }
         public virtual DbSet<QuestionsDetailsAttachment> QuestionsDetailsAttachments { get; set; }
         public virtual DbSet<RecomendedValuesAndWeight> RecomendedValuesAndWeights { get; set; }
+        public virtual DbSet<Toolkit> Toolkits { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -155,6 +156,12 @@ namespace CyberResilience.DAL.Entities
                 .HasForeignKey(e => e.StandardTypeId);
 
             modelBuilder.Entity<Lookup>()
+                .HasMany(e => e.Toolkits)
+                .WithRequired(e => e.Lookup)
+                .HasForeignKey(e => e.ToolkitType)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Lookup>()
                 .HasMany(e => e.Users)
                 .WithOptional(e => e.Lookup)
                 .HasForeignKey(e => e.AccountTypeId);
@@ -235,6 +242,10 @@ namespace CyberResilience.DAL.Entities
             modelBuilder.Entity<Standard>()
                 .Property(e => e.LastUpdateBy)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Template>()
+                .Property(e => e.Price)
+                .HasPrecision(19, 4);
 
             modelBuilder.Entity<Template>()
                 .HasMany(e => e.Attachments)
@@ -348,6 +359,23 @@ namespace CyberResilience.DAL.Entities
             modelBuilder.Entity<RecomendedValuesAndWeight>()
                 .Property(e => e.LastUpdateBy)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Toolkit>()
+                .Property(e => e.fileNameEn)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Toolkit>()
+                .Property(e => e.attachmentType)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Toolkit>()
+                .Property(e => e.LastUpdateBy)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Toolkit>()
+                .Property(e => e.CreatedBy)
+                .IsFixedLength();
         }
     }
 }

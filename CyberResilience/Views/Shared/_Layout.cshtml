@@ -99,7 +99,7 @@
     }
     @if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToLower().Contains(Constants.Languages.Arabic.ToLower()))
     {
-    <!-- ======= Top Bar ======= -->
+        <!-- ======= Top Bar ======= -->
         <div id="topbarlayout" class="d-none d-lg-flex align-items-center fixed-top ">
             <div class="container d-flex">
                 <div class="contact-info mr-auto">
@@ -131,7 +131,7 @@
     }
     else
     {
-   <!-- ======= Top Bar ======= -->
+        <!-- ======= Top Bar ======= -->
         <div id="topbarlayout" class="d-none d-lg-flex align-items-center fixed-top ">
             <div class="container d-flex">
                 <div class="social-links">
@@ -166,74 +166,67 @@
         <div class="container d-flex align-items-center">
             @if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToLower().Contains(Constants.Languages.Arabic.ToLower()))
             {
-            <!-- <h1 class="logo mr-auto"><a href="index.html">Day</a></h1> -->
-            <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <h1 class="logo mr-auto"><a href="index.html">Day</a></h1> -->
+                <!-- Uncomment below if you prefer to use an image logo -->
                 <a href="@Url.Action("Index","Home")" class="logo mr-auto"><img id="lg" src="~/assets/img/cyb12.png" alt="" class="img-fluid"></a>
                 <nav class="nav-menu d-none d-lg-block">
                     <ul>
                         <li><a href="#contact">@Resource.Contact</a></li>
+                        <li><a href="#pricing">@Resource.Pricing</a></li>
+                        <li><a href="#about">@Resource.Resources</a></li>
                         <li class="drop-down">
                             <a href="">@Resource.Services</a>
                             <ul>
-                                <li><a href="#">Drop Down 1</a></li>
-                                <li class="drop-down">
-                                    <a href="#">Deep Drop Down</a>
-                                    <ul>
-                                        <li><a href="#">Deep Drop Down 1</a></li>
-                                        <li><a href="#">Deep Drop Down 2</a></li>
-                                        <li><a href="#">Deep Drop Down 3</a></li>
-                                        <li><a href="#">Deep Drop Down 4</a></li>
-                                        <li><a href="#">Deep Drop Down 5</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Drop Down 2</a></li>
-                                <li><a href="#">Drop Down 3</a></li>
-                                <li><a href="#">Drop Down 4</a></li>
+                                <li><a href="#">@Resource.SpService1hd</a></li>
+                                @*<li class="drop-down">
+                                        <a href="#">Deep Drop Down</a>
+                                        <ul>
+                                            <li><a href="#">Deep Drop Down 1</a></li>
+                                            <li><a href="#">Deep Drop Down 2</a></li>
+                                            <li><a href="#">Deep Drop Down 3</a></li>
+                                            <li><a href="#">Deep Drop Down 4</a></li>
+                                            <li><a href="#">Deep Drop Down 5</a></li>
+                                        </ul>
+                                    </li>*@
+                                <li><a href="#">@Resource.SpService2hd</a></li>
+                                <li><a href="#">@Resource.SpService3hd</a></li>
+                                <li><a href="#">@Resource.SpService4hd</a></li>
+                                <li><a href="#">@Resource.SpService5hd</a></li>
+                                <li><a href="#">@Resource.SpService6hd</a></li>
                             </ul>
                         </li>
-                        <li><a href="#team">@Resource.Team</a></li>
-                        <li><a href="#pricing">@Resource.Pricing</a></li>
-                        @*<li><a href="#portfolio">@Resource.Portfolio</a></li>*@
-                        @*<li><a href="#services">@Resource.Services</a></li>*@
-                        <li><a href="#about">@Resource.About</a></li>
                         <li class="active"><a href="index.html">@Resource.Home</a></li>
                     </ul>
                 </nav><!-- .nav-menu -->
             }
             else
             {
+                <style>
+                    .mr-auto, .mx-auto {
+                        margin-right: 0 !important;
+                    }
+                </style>
                 <nav class="nav-menu d-none d-lg-block">
                     <ul>
                         <li class="active"><a href="index.html">@Resource.Home</a></li>
-                        <li><a href="#about">@Resource.About</a></li>
-                        @*<li><a href="#services">@Resource.Services</a></li>*@
-                        @*<li><a href="#portfolio">@Resource.Portfolio</a></li>*@
-                        <li><a href="#pricing">@Resource.Pricing</a></li>
-                        <li><a href="#team">@Resource.Team</a></li>
                         <li class="drop-down">
-                            <a href="">Drop Down</a>
+                            <a href="">@Resource.Services</a>
                             <ul>
-                                <li><a href="#">Drop Down 1</a></li>
-                                <li class="drop-down">
-                                    <a href="#">Deep Drop Down</a>
-                                    <ul>
-                                        <li><a href="#">Deep Drop Down 1</a></li>
-                                        <li><a href="#">Deep Drop Down 2</a></li>
-                                        <li><a href="#">Deep Drop Down 3</a></li>
-                                        <li><a href="#">Deep Drop Down 4</a></li>
-                                        <li><a href="#">Deep Drop Down 5</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Drop Down 2</a></li>
-                                <li><a href="#">Drop Down 3</a></li>
-                                <li><a href="#">Drop Down 4</a></li>
+                                <li><a href="#">@Resource.SpService1hd</a></li>
+                                <li><a href="#">@Resource.SpService2hd</a></li>
+                                <li><a href="#">@Resource.SpService3hd</a></li>
+                                <li><a href="#">@Resource.SpService4hd</a></li>
+                                <li><a href="#">@Resource.SpService5hd</a></li>
+                                <li><a href="#">@Resource.SpService6hd</a></li>
                             </ul>
                         </li>
+                        <li><a href="#about">@Resource.Resources</a></li>
+                        <li><a href="#pricing">@Resource.Pricing</a></li>
                         <li><a href="#contact">@Resource.Contact</a></li>
                     </ul>
                 </nav><!-- .nav-menu -->
-     <!-- <h1 class="logo mr-auto"><a href="index.html">Day</a></h1> -->
-            <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <h1 class="logo mr-auto"><a href="index.html">Day</a></h1> -->
+                <!-- Uncomment below if you prefer to use an image logo -->
                 <a href="index.html" class="logo mr-auto"><img id="lg" src="~/assets/img/cyb12.png" alt="" class="img-fluid"></a>
             }
 

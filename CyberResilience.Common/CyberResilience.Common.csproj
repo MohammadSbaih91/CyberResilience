@@ -110,6 +110,7 @@
     <Compile Include="DTOs\Admin\SettingsDTO\QuestionsDetailsSettingsDTO.cs" />
     <Compile Include="DTOs\Admin\SettingsDTO\RecomendedValuesAndWeightDTO.cs" />
     <Compile Include="DTOs\Admin\TemplateDTO.cs" />
+    <Compile Include="DTOs\Admin\ToolkitDTO\ToolkitDTO.cs" />
     <Compile Include="DTOs\Attachment\AttachmentDTO.cs" />
     <Compile Include="DTOs\Attachment\QuestionAttachmentsDTO.cs" />
     <Compile Include="DTOs\CompliancesDTO\ComplianceResultDTO.cs" />

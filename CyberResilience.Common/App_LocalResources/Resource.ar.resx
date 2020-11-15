@@ -425,7 +425,7 @@
     <value>بناء منصة إدارة السياسات</value>
   </data>
   <data name="BuildQuestionnaire" xml:space="preserve">
-    <value>بناء الاستبانة</value>
+    <value>بناء اطار العمل</value>
   </data>
   <data name="BuildToolkit" xml:space="preserve">
     <value>بناء الأدوات</value>
@@ -638,7 +638,7 @@
     <value>أهلا بك سيد</value>
   </data>
   <data name="GetResults" xml:space="preserve">
-    <value>ظهار النتائج</value>
+    <value>إظهار النتيجة</value>
   </data>
   <data name="FirstPage" xml:space="preserve">
     <value>الصفحة الأولى</value>
@@ -696,5 +696,20 @@
   </data>
   <data name="QuestionnaireComplianceResult" xml:space="preserve">
     <value>نتيجة الامتثال للاستبيان</value>
+  </data>
+  <data name="Resources" xml:space="preserve">
+    <value>الموارد</value>
+  </data>
+  <data name="AddToolkit" xml:space="preserve">
+    <value>إضافة لأدوات</value>
+  </data>
+  <data name="PleaseSelectToolkitType" xml:space="preserve">
+    <value>الرجء اختيار نوع الأدوات</value>
+  </data>
+  <data name="ToolkitAttachments" xml:space="preserve">
+    <value>مرفقات الأدوات</value>
+  </data>
+  <data name="ToolkitServiceRequest" xml:space="preserve">
+    <value>استعراض أدوات التوثيق</value>
   </data>
 </root>

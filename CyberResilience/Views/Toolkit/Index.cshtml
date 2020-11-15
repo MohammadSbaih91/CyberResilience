@@ -1,0 +1,119 @@
+﻿@model CyberResilience.Area.Admin.Models.ToolkitViewModel
+@using CyberResilience.Common
+@using CyberResilience.Common.App_LocalResources;
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Toolkit", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @*@Html.HiddenFor(m=>m.baseTemplateId)*@
+    <section class="login_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="login">
+                        <h2>@Resource.BuildToolkit</h2>
+                        <p class="login_subtext">@Resource.BuildToolkit</p>
+                        <div class="login_form">
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.ToolkitArabicName, new { htmlAttributes = new { @class = "form-control" , placeholder = @Resource.ToolkitArabicName } })
+                                @Html.ValidationMessageFor(m => m.ToolkitArabicName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.ToolkitName, new { htmlAttributes = new { @class = "form-control", placeholder = @Resource.ToolkitName } })
+                                @Html.ValidationMessageFor(m => m.ToolkitName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <!-- Modal -->
+                                <label for="">@Resource.FileUploadForm</label>
+                                <!-- Form -->
+                                <label for="">
+                                    @Resource.Selectfile :
+                                </label>  <input type="file" name="File" class='form-control' required />  <br>
+                                <!-- Preview-->
+                                <div id='preview'></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5 nearby_select">
+                                    <label for="">@Resource.PleaseSelectToolkitType</label>
+                                    @{
+                                        List<SelectListItem> listbaseTemplates = new List<SelectListItem>();
+                                        foreach (var item in Model.toolkitTypes)
+                                        {
+                                            listbaseTemplates.Add(new SelectListItem
+                                            {
+                                                Text = item.Value,
+                                                Value = item.Id.ToString(),
+                                                Selected = item.Id == Model.ToolkitType
+                                            });
+                                        };
+                                    }
+                                    @Html.DropDownListFor(model => model.ToolkitType, listbaseTemplates, Resource.PleaseSelectToolkitType, new { @class = "form-control" })
+                                    @Html.HiddenFor(model => model.ToolkitType)
+                                    @Html.ValidationMessageFor(model => model.ToolkitType, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                        </div>
+                            <button style="margin-top: 30px;" type="submit" class="btn btn-default">@Resource.AddToolkit</button>
+                        </div>
+                </div>
+            </div>
+            <div id="tbl" class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="login">
+                        <h2>@Resource.ToolkitAttachments</h2>
+                        <p class="login_subtext">@Resource.ToolkitAttachments</p>
+                        <div class="login_form">
+                            <form>
+                                <section class="data_table_section">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="data_table_container">
+                                                <table id="example2" class="table table-bordered table-hover table-striped">
+                                                    <tr>
+                                                        <th>
+                                                            @Resource.AttachmentName
+                                                        </th>
+                                                        <th>
+                                                            @Resource.DeleteAttachments
+                                                        </th>
+                                                    </tr>
+                                                    <tbody>
+                                                        @if (Model.Attachments != null)
+                                                        {
+                                                            foreach (var item in Model.Attachments)
+                                                            {
+                                                                <tr>
+                                                                    <td>
+                                                                        <a href="@item.ToString()">@item.ToolkitName</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="@item.ToDelete()">@Resource.DeleteAttachments</a>
+                                                                    </td>
+                                                                </tr>
+                                                            }
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+

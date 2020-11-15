@@ -26,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -209,6 +210,7 @@
     <Compile Include="Area\Admin\Models\QuestionnaireTemplateViewModel.cs" />
     <Compile Include="Area\Admin\Models\QuestionsViewModel.cs" />
     <Compile Include="Area\Admin\Models\BaseTemplateViewModel.cs" />
+    <Compile Include="Area\Admin\Models\ToolkitViewModel.cs" />
     <Compile Include="Attributes\HandleException.cs" />
     <Compile Include="Attributes\LocalizationAttribute.cs" />
     <Compile Include="Base\BaseController.cs" />
@@ -224,6 +226,7 @@
     </Compile>
     <Compile Include="Mapper\WebMapper\FreeServicesMapper.cs" />
     <Compile Include="Mapper\WebMapper\TemplatesMapper.cs" />
+    <Compile Include="Mapper\WebMapper\ToolkitsMapper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CustomMessagePageModel.cs" />
     <Compile Include="Models\FreeServicesViewModel\QuickOnlineAssessmentAttachmentViewModel.cs" />
@@ -371,6 +374,10 @@
     <Content Include="assets\vendor\owl.carousel\LICENSE" />
     <Content Include="assets\vendor\owl.carousel\README.md" />
     <None Include="Properties\PublishProfiles\CyberResilience.pubxml" />
+    <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\IISProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\IISProfile2.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -452,6 +459,13 @@
     <Content Include="Views\Shared\Partials\FreeServices\_QuickOnlineAssessmentTable.cshtml" />
     <Content Include="Views\Shared\Partials\Platform\_ServicesList.cshtml" />
     <Content Include="Views\Shared\Partials\Platform\_AssessmentResults.cshtml" />
+    <Content Include="Views\Toolkit\Index.cshtml" />
+    <Content Include="Views\Shared\Partials\_ISO27001Attachment.cshtml" />
+    <Content Include="Views\Shared\Partials\_NCA_ECC2018Attachment.cshtml" />
+    <Content Include="Views\Shared\Partials\_SAMAFrameworkAttachment.cshtml" />
+    <Content Include="Views\Shared\Partials\_ISO23001Attachment.cshtml" />
+    <Content Include="Views\Shared\Partials\_GDPRAttachment.cshtml" />
+    <Content Include="Views\Shared\Partials\_ToolkitAttachments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -460,7 +474,6 @@
     <Folder Include="Views\PaidServics\" />
     <Folder Include="Views\Payment\" />
     <Folder Include="Views\PolicyManagementPlatfrom\" />
-    <Folder Include="Views\Toolkit\" />
     <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>

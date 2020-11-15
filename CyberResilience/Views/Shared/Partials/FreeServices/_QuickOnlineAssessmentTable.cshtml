@@ -1,4 +1,6 @@
-﻿@model CyberResilience.Models.FreeServicesViewModel.QuickOnlineAssessmentViewModel
+﻿
+  
+@model CyberResilience.Models.FreeServicesViewModel.QuickOnlineAssessmentViewModel
 @using CyberResilience.Common
 @using CyberResilience.Common.App_LocalResources;
 
@@ -25,7 +27,7 @@
                         @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].BaseQuestionNameEn)
                         @Html.HiddenFor(modelItem => modelItem.BaseQuestions[i].BaseQuestion)
                         <li data-aos="fade-up">
-                            <a style="background-color:#CC1616;color:white;border:double;padding:12px 22px;" data-toggle="collapse" class="collapse" href="#faq-list-@Model.BaseQuestions[i].Id">@Model.BaseQuestions[i].BaseQuestion<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                            <a style="background-color:#CC1616;color:white;border:double;padding:12px 22px;font-size: 12px;" data-toggle="collapse" class="collapse" href="#faq-list-@Model.BaseQuestions[i].Id">@Model.BaseQuestions[i].BaseQuestion<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                             @if (Model.BaseQuestions[i].Questions != null)
                             {
                                 for (int j = 0; j < Model.BaseQuestions[i].Questions.Count; j++)
@@ -111,3 +113,4 @@
         return true;
     }
 </script>
+

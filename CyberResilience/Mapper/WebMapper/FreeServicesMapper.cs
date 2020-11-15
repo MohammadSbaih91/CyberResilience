@@ -56,15 +56,14 @@ namespace CyberResilience.Mapper.WebMapper
                                      BaseClauseNameAr = e.BaseQuestionNameAr,
                                      BaseClauseNameEn = e.BaseQuestionNameEn,
                                      BaseClauseNumberEn = e.BaseQuestionNumberEn,
-                                     BaseClauseSystemNumber = e.clauseSystemNumber,
+                                     BaseClauseSystemNumber = e.clauseSystemNumber.HasValue?e.clauseSystemNumber.Value:0,
                                      CreatedBy = e.CreatedBy,
                                      BaseQuestion = (cul == CyberResilience.Common.Enums.Culture.Arabic) ? e.BaseQuestionNameAr : e.BaseQuestionNameEn,
-                                     CreatedDate = e.CreatedDate,
+                                     CreatedDate = e.CreatedDate.HasValue?e.CreatedDate.Value:DateTime.Now,
                                      IsMandatory = e.IsMandatory.HasValue ? e.IsMandatory.Value : false,
                                      Questions = (from t in e.questions.Where(u => u.Id > 0)
                                                   select new QuickOnlineAssessmentQuestionsViewModel()
                                                   {
-
                                                       BaseQuestionDetailsId = e.Id,
                                                       Question = (cul == CyberResilience.Common.Enums.Culture.Arabic) ? t.NameAr : t.NameEn,
                                                       clauseNameAr = t.NameAr,
@@ -74,11 +73,11 @@ namespace CyberResilience.Mapper.WebMapper
                                                       QuestionAr = t.NameAr,
                                                       QuestionEn = t.NameEn,
                                                       clauseNumberEn = t.NumberEn,
-                                                      clauseSystemNumber = t.clauseSystemNumber,
+                                                      clauseSystemNumber = t.clauseSystemNumber.HasValue ? t.clauseSystemNumber.Value :0,
                                                       CreatedBy = t.CreatedBy,
-                                                      CreatedDate = t.CreatedDate,
+                                                      CreatedDate = t.CreatedDate.HasValue ? t.CreatedDate.Value: DateTime.Now,
                                                       ComplianceLevel = _LookupCategoryBusinessLogic.GetLookupsByLookupCategoryCode("ComplianceLevel", cul).ToList(),
-                                                      IsMandatory = t.IsMandatory.HasValue ? e.IsMandatory.Value : false,
+                                                      IsMandatory = t.IsMandatory.HasValue ? t.IsMandatory.Value : false,
                                                       questionAttachments = (from r in t.QuestionsAttachments.Where(u => u.Id > 0)
                                                                              select new QuickOnlineAssessmentAttachmentViewModel()
                                                                              {

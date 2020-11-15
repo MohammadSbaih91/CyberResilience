@@ -19,7 +19,7 @@ namespace CyberResilience.Common.App_LocalResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resource {
@@ -206,6 +206,15 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Toolkit.
+        /// </summary>
+        public static string AddToolkit {
+            get {
+                return ResourceManager.GetString("AddToolkit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Rights Reserved  ..
         /// </summary>
         public static string AllRightsReserved {
@@ -314,7 +323,7 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Build Questionnaires.
+        ///   Looks up a localized string similar to Build Framework.
         /// </summary>
         public static string BuildQuestionnaire {
             get {
@@ -440,7 +449,7 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Contact.
+        ///   Looks up a localized string similar to Contact us.
         /// </summary>
         public static string Contact {
             get {
@@ -1224,6 +1233,15 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please Select Toolkit Type.
+        /// </summary>
+        public static string PleaseSelectToolkitType {
+            get {
+                return ResourceManager.GetString("PleaseSelectToolkitType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Policy Management Services.
         /// </summary>
         public static string PolicyManagementServices {
@@ -1364,6 +1382,15 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string Required {
             get {
                 return ResourceManager.GetString("Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resources.
+        /// </summary>
+        public static string Resources {
+            get {
+                return ResourceManager.GetString("Resources", resourceCulture);
             }
         }
         
@@ -1652,6 +1679,42 @@ namespace CyberResilience.Common.App_LocalResources {
         public static string TheRememberme {
             get {
                 return ResourceManager.GetString("TheRememberme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toolkit Arabic Name.
+        /// </summary>
+        public static string ToolkitArabicName {
+            get {
+                return ResourceManager.GetString("ToolkitArabicName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toolkit Attachments.
+        /// </summary>
+        public static string ToolkitAttachments {
+            get {
+                return ResourceManager.GetString("ToolkitAttachments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toolkit English Name.
+        /// </summary>
+        public static string ToolkitName {
+            get {
+                return ResourceManager.GetString("ToolkitName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Toolkits Service.
+        /// </summary>
+        public static string ToolkitServiceRequest {
+            get {
+                return ResourceManager.GetString("ToolkitServiceRequest", resourceCulture);
             }
         }
         

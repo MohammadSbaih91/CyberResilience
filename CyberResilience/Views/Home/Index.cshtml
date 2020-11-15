@@ -24,8 +24,6 @@
         display: -ms-flexbox !important;
         display: inline-grid !important;
     }
-
-
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,11 +48,11 @@
     <!-- Template Main CSS File -->
     @if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToLower().Contains(Constants.Languages.Arabic.ToLower()))
     {
-    <link href="~/css/style.arabic.css" rel="stylesheet">
+        <link href="~/css/style.arabic.css" rel="stylesheet">
     }
     else
     {
-    <link href="~/css/style.css" rel="stylesheet">
+        <link href="~/css/style.css" rel="stylesheet">
     }
 </head>
 <body>
@@ -65,19 +63,19 @@
     }
     @if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToLower().Contains(Constants.Languages.Arabic.ToLower()))
     {
-    <!-- ======= Top Bar ======= -->
+        <!-- ======= Top Bar ======= -->
         <div id="topbarlayout" class="d-none d-lg-flex align-items-center fixed-top ">
             <div class="container d-flex">
                 <div class="contact-info mr-auto">
-                    <i class="icofont-envelope"></i> <a href="mailto:contact@example.com"> contact@example.com </a>
-                    <i class="icofont-phone"></i> <a href="#"> +1 5589 55488 55  </a>
+                    <i class="icofont-envelope"></i> <a href="mailto:info@cybresilience.com"> info@cybresilience.com </a>
+                    <i class="icofont-phone"></i> <a href="#">+966 59 067 7703</a>
                     <i class="icofont-search"></i>  <a href="@Url.Action("Search","Search")"> Search  </a>
                 </div>
                 <div class="social-links">
                     <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
                     <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-                    <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-                    <a href="#" class="skype"><i class="icofont-skype"></i></a>
+                    @*<a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+                        <a href="#" class="skype"><i class="icofont-skype"></i></a>*@
                     <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
                     <a href="@Url.Action("Login","Account")" class="linkedin"><i class="icofont-login"></i></a>
                     <a href="@Url.Action("Register","Account")" class="linkedin"><i class="icofont-business-man-alt-1"></i></a>
@@ -88,22 +86,22 @@
     }
     else
     {
-   <!-- ======= Top Bar ======= -->
+        <!-- ======= Top Bar ======= -->
         <div id="topbarlayout" class="d-none d-lg-flex align-items-center fixed-top ">
             <div class="container d-flex">
                 <div class="social-links">
                     <a href='@Url.Action(ViewContext.RouteData.Values["action"].ToString(), new { lang = "ar" })?@rawQueryString'><i class="circle-btn lang-changer">AR</i></a>
                     <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
                     <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-                    <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-                    <a href="#" class="skype"><i class="icofont-skype"></i></a>
+                    @*<a href="#" class="instagram"><i class="icofont-instagram"></i></a>*@
+                    @*<a href="#" class="skype"><i class="icofont-skype"></i></a>*@
                     <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
                     <a href="@Url.Action("Login","Account")" class="linkedin"><i class="icofont-login"></i></a>
                     <a href="@Url.Action("Register","Account")" class="linkedin"><i class="icofont-business-man-alt-1"></i></a>
                 </div>
                 <div class="contact-info mr-auto">
-                    <i class="icofont-envelope"></i> <a href="mailto:contact@example.com"> contact@example.com </a>
-                    <i class="icofont-phone"></i> <a href="#"> +1 5589 55488 55  </a>
+                    <i class="icofont-envelope"></i> <a href="mailto:info@cybresilience.com"> info@cybresilience.com </a>
+                    <i class="icofont-phone"></i> <a href="#"> +966 59 067 7703 </a>
                     <i class="icofont-search"></i>  <a href="@Url.Action("Search","Search")"> Search  </a>
                 </div>
             </div>
@@ -114,74 +112,77 @@
         <div class="container d-flex align-items-center">
             @if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToLower().Contains(Constants.Languages.Arabic.ToLower()))
             {
-            <!-- <h1 class="logo mr-auto"><a href="index.html">Day</a></h1> -->
-            <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <h1 class="logo mr-auto"><a href="index.html">Day</a></h1> -->
+                <!-- Uncomment below if you prefer to use an image logo -->
                 <a href="@Url.Action("Index","Home")" class="logo mr-auto"><img id="lg" src="~/assets/img/cyb12.png" alt="" class="img-fluid"></a>
                 <nav class="nav-menu d-none d-lg-block">
                     <ul>
                         <li><a href="#contact">@Resource.Contact</a></li>
+                        <li><a href="#pricing">@Resource.Pricing</a></li>
+                        <li><a href="#about">@Resource.Resources</a></li>
                         <li class="drop-down">
                             <a href="">@Resource.Services</a>
                             <ul>
-                                <li><a href="#">Drop Down 1</a></li>
-                                <li class="drop-down">
-                                    <a href="#">Deep Drop Down</a>
-                                    <ul>
-                                        <li><a href="#">Deep Drop Down 1</a></li>
-                                        <li><a href="#">Deep Drop Down 2</a></li>
-                                        <li><a href="#">Deep Drop Down 3</a></li>
-                                        <li><a href="#">Deep Drop Down 4</a></li>
-                                        <li><a href="#">Deep Drop Down 5</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Drop Down 2</a></li>
-                                <li><a href="#">Drop Down 3</a></li>
-                                <li><a href="#">Drop Down 4</a></li>
+                                <li><a href="#">@Resource.SpService1hd</a></li>
+                                @*<li class="drop-down">
+                                        <a href="#">Deep Drop Down</a>
+                                        <ul>
+                                            <li><a href="#">Deep Drop Down 1</a></li>
+                                            <li><a href="#">Deep Drop Down 2</a></li>
+                                            <li><a href="#">Deep Drop Down 3</a></li>
+                                            <li><a href="#">Deep Drop Down 4</a></li>
+                                            <li><a href="#">Deep Drop Down 5</a></li>
+                                        </ul>
+                                    </li>*@
+                                <li><a href="#">@Resource.SpService2hd</a></li>
+                                <li><a href="#">@Resource.SpService3hd</a></li>
+                                <li><a href="#">@Resource.SpService4hd</a></li>
+                                <li><a href="#">@Resource.SpService5hd</a></li>
+                                <li><a href="#">@Resource.SpService6hd</a></li>
                             </ul>
                         </li>
-                        <li><a href="#team">@Resource.Team</a></li>
-                        <li><a href="#pricing">@Resource.Pricing</a></li>
-                        @*<li><a href="#portfolio">@Resource.Portfolio</a></li>*@
-                        @*<li><a href="#services">@Resource.Services</a></li>*@
-                        <li><a href="#about">@Resource.About</a></li>
                         <li class="active"><a href="index.html">@Resource.Home</a></li>
                     </ul>
                 </nav><!-- .nav-menu -->
             }
             else
             {
+                <style>
+                    .mr-auto, .mx-auto {
+                        margin-right: 0 !important;
+                    }
+                </style>
                 <nav class="nav-menu d-none d-lg-block">
                     <ul>
                         <li class="active"><a href="index.html">@Resource.Home</a></li>
-                        <li><a href="#about">@Resource.About</a></li>
-                        @*<li><a href="#services">@Resource.Services</a></li>*@
-                        @*<li><a href="#portfolio">@Resource.Portfolio</a></li>*@
-                        <li><a href="#pricing">@Resource.Pricing</a></li>
-                        <li><a href="#team">@Resource.Team</a></li>
                         <li class="drop-down">
-                            <a href="">Drop Down</a>
+                            <a href="">@Resource.Services</a>
                             <ul>
-                                <li><a href="#">Drop Down 1</a></li>
-                                <li class="drop-down">
-                                    <a href="#">Deep Drop Down</a>
-                                    <ul>
-                                        <li><a href="#">Deep Drop Down 1</a></li>
-                                        <li><a href="#">Deep Drop Down 2</a></li>
-                                        <li><a href="#">Deep Drop Down 3</a></li>
-                                        <li><a href="#">Deep Drop Down 4</a></li>
-                                        <li><a href="#">Deep Drop Down 5</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Drop Down 2</a></li>
-                                <li><a href="#">Drop Down 3</a></li>
-                                <li><a href="#">Drop Down 4</a></li>
+                                <li><a href="#">@Resource.SpService1hd</a></li>
+                                @*<li class="drop-down">
+                                        <a href="#">Deep Drop Down</a>
+                                        <ul>    
+                                            <li><a href="#">Deep Drop Down 1</a></li>
+                                            <li><a href="#">Deep Drop Down 2</a></li>
+                                            <li><a href="#">Deep Drop Down 3</a></li>
+                                            <li><a href="#">Deep Drop Down 4</a></li>
+                                            <li><a href="#">Deep Drop Down 5</a></li>
+                                        </ul>
+                                    </li>*@
+                                <li><a href="#">@Resource.SpService2hd</a></li>
+                                <li><a href="#">@Resource.SpService3hd</a></li>
+                                <li><a href="#">@Resource.SpService4hd</a></li>
+                                <li><a href="#">@Resource.SpService5hd</a></li>
+                                <li><a href="#">@Resource.SpService6hd</a></li>
                             </ul>
                         </li>
+                        <li><a href="#about">@Resource.Resources</a></li>
+                        <li><a href="#pricing">@Resource.Pricing</a></li>
                         <li><a href="#contact">@Resource.Contact</a></li>
                     </ul>
                 </nav><!-- .nav-menu -->
-     <!-- <h1 class="logo mr-auto"><a href="index.html">Day</a></h1> -->
-            <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <h1 class="logo mr-auto"><a href="index.html">Day</a></h1> -->
+                <!-- Uncomment below if you prefer to use an image logo -->
                 <a href="index.html" class="logo mr-auto"><img id="lg" src="~/assets/img/cyb12.png" alt="" class="img-fluid"></a>
             }
 
@@ -652,7 +653,8 @@
                         <div class="info-box  mb-4">
                             <i class="bx bx-phone-call"></i>
                             <h3>@Resource.CallUs</h3>
-                            <p>+1 5589 55488 55</p>
+                            <p>+966 59 067 7703</p>
+                            <p>+962 79 590 3755</p>
                         </div>
                     </div>
 
@@ -747,14 +749,14 @@
                                 <p>
                                     A108 Adam Street <br>
                                     NY 535022, KSA<br><br>
-                                    <strong>@Resource.Phone</strong> +1 5589 55488 55<br>
-                                    <strong>@Resource.Email</strong> info@example.com<br>
+                                    <strong>@Resource.Phone</strong> +966 59 067 7703<br>
+                                    <strong>@Resource.Email</strong> info@cybresilience.com<br>
                                 </p>
                                 <div class="social-links mt-3">
                                     <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                                     <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                                    <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                                    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                                    @*<a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>*@
+                                    @*<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>*@
                                     <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                                 </div>
                             </div>
@@ -774,10 +776,6 @@
                     &copy; @Resource.Copyright <strong><span>CYBresilience</span></strong> @Resource.AllRightsReserved
                 </div>
                 <div class="credits">
-                    <!-- All the links in the footer should remain intact. -->
-                    <!-- You can delete the links only if you purchased the pro version. -->
-                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/day-multipurpose-html-template-for-free/ -->
                     Designed by <a href="#">Sb@ih</a>
                 </div>
             </div>
@@ -796,8 +794,8 @@
                                 <p>
                                     A108 Adam Street <br>
                                     NY 535022, KSA<br><br>
-                                    <strong>@Resource.Phone</strong> +1 5589 55488 55<br>
-                                    <strong>@Resource.Email</strong> info@example.com<br>
+                                    <strong>@Resource.Phone</strong> +966 59 067 7703 <br>
+                                    <strong>@Resource.Email</strong> info@cybresilience.com<br>
                                 </p>
                                 <div class="social-links mt-3">
                                     <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>

@@ -170,7 +170,7 @@
     <value>Call Us</value>
   </data>
   <data name="Contact" xml:space="preserve">
-    <value>Contact</value>
+    <value>Contact us</value>
   </data>
   <data name="ContactText" xml:space="preserve">
     <value>Contact the staff at any time</value>
@@ -426,7 +426,7 @@ Managing your policies and staying in compliance should be smooth</value>
     <value>Build Policy Management Platfrom</value>
   </data>
   <data name="BuildQuestionnaire" xml:space="preserve">
-    <value>Build Questionnaires</value>
+    <value>Build Framework</value>
   </data>
   <data name="BuildToolkit" xml:space="preserve">
     <value>Build Toolkits</value>
@@ -697,5 +697,26 @@ Managing your policies and staying in compliance should be smooth</value>
   </data>
   <data name="QuestionnaireComplianceResult" xml:space="preserve">
     <value>Questionnaire Compliance Result</value>
+  </data>
+  <data name="Resources" xml:space="preserve">
+    <value>Resources</value>
+  </data>
+  <data name="AddToolkit" xml:space="preserve">
+    <value>Add Toolkit</value>
+  </data>
+  <data name="PleaseSelectToolkitType" xml:space="preserve">
+    <value>Please Select Toolkit Type</value>
+  </data>
+  <data name="ToolkitAttachments" xml:space="preserve">
+    <value>Toolkit Attachments</value>
+  </data>
+  <data name="ToolkitArabicName" xml:space="preserve">
+    <value>Toolkit Arabic Name</value>
+  </data>
+  <data name="ToolkitName" xml:space="preserve">
+    <value>Toolkit English Name</value>
+  </data>
+  <data name="ToolkitServiceRequest" xml:space="preserve">
+    <value>View Toolkits Service</value>
   </data>
 </root>
