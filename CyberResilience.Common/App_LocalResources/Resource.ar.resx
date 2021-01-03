@@ -712,4 +712,7 @@
   <data name="ToolkitServiceRequest" xml:space="preserve">
     <value>استعراض أدوات التوثيق</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>إغلاق</value>
+  </data>
 </root>

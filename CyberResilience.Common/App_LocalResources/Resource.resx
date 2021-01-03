@@ -719,4 +719,7 @@ Managing your policies and staying in compliance should be smooth</value>
   <data name="ToolkitServiceRequest" xml:space="preserve">
     <value>View Toolkits Service</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
 </root>

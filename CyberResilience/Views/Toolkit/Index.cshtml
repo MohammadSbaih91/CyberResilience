@@ -8,6 +8,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+
 @using (Html.BeginForm("Index", "Toolkit", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
@@ -23,7 +25,7 @@
                             <hr />
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             <div class="form-group">
-                                @Html.EditorFor(model => model.ToolkitArabicName, new { htmlAttributes = new { @class = "form-control" , placeholder = @Resource.ToolkitArabicName } })
+                                @Html.EditorFor(model => model.ToolkitArabicName, new { htmlAttributes = new { @class = "form-control", placeholder = @Resource.ToolkitArabicName } })
                                 @Html.ValidationMessageFor(m => m.ToolkitArabicName, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
@@ -62,8 +64,8 @@
                             </div>
 
                         </div>
-                            <button style="margin-top: 30px;" type="submit" class="btn btn-default">@Resource.AddToolkit</button>
-                        </div>
+                        <button style="margin-top: 30px;" type="submit" class="btn btn-default">@Resource.AddToolkit</button>
+                    </div>
                 </div>
             </div>
             <div id="tbl" class="row">
@@ -83,10 +85,16 @@
                                                             @Resource.AttachmentName
                                                         </th>
                                                         <th>
+                                                            @Resource.TemplateNameEn
+                                                        </th>
+                                                        <th>
+                                                            @Resource.TemplateType
+                                                        </th>
+                                                        <th>
                                                             @Resource.DeleteAttachments
                                                         </th>
                                                     </tr>
-                                                    <tbody>
+                                                    <tbody id="d2">
                                                         @if (Model.Attachments != null)
                                                         {
                                                             foreach (var item in Model.Attachments)
@@ -96,7 +104,14 @@
                                                                         <a href="@item.ToString()">@item.ToolkitName</a>
                                                                     </td>
                                                                     <td>
-                                                                        <a href="@item.ToDelete()">@Resource.DeleteAttachments</a>
+                                                                        <a href="@item.ToString()">@item.ToolkitArabicName</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        @item.ToolkitTypeName
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="#" class="qttrn" data-toggle="modal" data-target="#myModal" data-assigned-id="@item.Id">@Resource.DeleteAttachments</a>
+                                                                        @* <a href="@item.ToDelete()">@Resource.DeleteAttachments</a>*@
                                                                     </td>
                                                                 </tr>
                                                             }
@@ -116,4 +131,67 @@
     </section>
 }
 
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <input type="hidden" id="attId" />
+        <div class="modal-content">
+            <div class="modal-header" style="margin-left:0px;">
+                <h5 class="modal-title">@Resource.DeleteAttachments</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>@*Modal body text goes here.*@</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="condelete" class="btn btn-primary">@Resource.Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@Resource.Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function ()
+    {
+        $('#condelete').click(function ()
+        {
+            debugger;
+            var id = $("#attId").val();
+             $.ajax({
+                 url: "@Url.Action("DeleteToolkit", "Toolkit")" + "?id=" + id,
+                type: "GET",
+             }).done(function (data) {
+                 $('.close:visible').click();
+                 $('.modal-backdrop').fadeOut();
+                 location.reload();
+                 //$("#d2").html('');
+                 //$('#d2').html(data);
+                 //$('#myModal').modal('show');
+             
+
+                //HideError(data)
+                return true;
+            });
+
+            //var route = '/Toolkit/DeleteToolkit?id=' + id;
+                  //$('#Attachments').load(route);
+            //$('#myModal').modal('show');
+        });
+        $('.qttrn').click(function () {
+        var id = $(this).data('assigned-id');
+            if (id > 0) {
+                $("#attId").val(id);
+                $('#myModal').modal('show');
+            @*var route = '@Url.Action("DeleteToolkit", "Toolkit")?id=' + id;
+            $('#Attachments').load(route);*@
+        }
+        });
+
+
+
+    });
+</script>
 

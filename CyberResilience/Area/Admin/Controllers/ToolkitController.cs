@@ -129,14 +129,33 @@ namespace CyberResilience.Area.Admin.Controllers
         public ActionResult DeleteToolkit(int id)
         {
             var isDeleted = _ToolkitsBusinessLogic.DeleteToolkit(id);
+            //var Attachments = mapper.ConvertToolkitsToWeb(_ToolkitsBusinessLogic.GetAllToolkits());
+
             if (isDeleted == true)
             {
-                return RedirectToAction("Index");
+                return Redirect("Index");
             }
             else
             {
-                return RedirectToAction("Index");
+                return Redirect("Index");
             }
         }
+
+
+        //[HttpGet]
+        //public JsonResult DeleteToolkit(int id)
+        //{
+        //    var isDeleted = _ToolkitsBusinessLogic.DeleteToolkit(id);
+        //    var Attachments = mapper.ConvertToolkitsToWeb(_ToolkitsBusinessLogic.GetAllToolkits());
+
+        //    if (isDeleted == true)
+        //    {
+        //        return Json(Attachments, JsonRequestBehavior.AllowGet);
+        //    }
+        //    else
+        //    {
+        //        return Json(Attachments, JsonRequestBehavior.AllowGet);
+        //    }
+        //}
     }
 }

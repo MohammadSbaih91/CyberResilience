@@ -422,6 +422,15 @@ namespace CyberResilience.Common.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Compliance Assessment Result.
         /// </summary>
         public static string ComplianceAssessmentResult {
